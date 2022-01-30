@@ -11,10 +11,10 @@
 		<meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
 
 		<!-- FAVICON -->
-		<link rel="shortcut icon" type="image/x-icon" href="../../assets/images/brand/favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}" />
 
 		<!-- TITLE -->
-		<title>Yoha –  HTML5 Bootstrap Admin Template</title>
+		<title>{{env('APP_NAME')}}</title>
 
 		<!-- BOOTSTRAP CSS -->
 		<link href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
@@ -47,7 +47,7 @@
 
 			<!-- GLOABAL LOADER -->
 			<div id="global-loader">
-				<img src="../../assets/images/loader.svg" class="loader-img" alt="Loader">
+				<img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
 			</div>
 			<!-- /GLOABAL LOADER -->
 

@@ -17,7 +17,7 @@ class SucursalesController extends Controller
     public function indexDT(Request $request)
     {
         $sucursales = Sucursal::where([
-            //'pr_eliminado'  => false
+            'su_eliminado'  => false
         ])->get();
 
         return DataTables::of($sucursales)
@@ -31,7 +31,7 @@ class SucursalesController extends Controller
                                     <a class="dropdown-item btn-action-modal" href="'.route('sucursales.edit',[$row->id]).'"
                                             data-toggle="modal" data-target="#modal-medium"
                                     >Editar</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                    <a class="dropdown-item btn-destroy-sucursales" href="'.route('sucursales.destroy',[$row->id]).'">Eliminar</a>
                                 </div>
                             </div>';
                 })
@@ -75,8 +75,15 @@ class SucursalesController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        
+        $sucursal = Sucursal::find($id);
+        $sucursal->su_eliminado = true;
+        $sucursal->save();
+
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Sucursal Eliminada'
+        ];
     }
 }

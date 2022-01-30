@@ -32,7 +32,7 @@ class ProductoresController extends Controller
                                     <a class="dropdown-item btn-action-modal" href="'.route('productores.edit',[$row->id]).'"
                                             data-toggle="modal" data-target="#modal-medium"
                                     >Editar</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                    <a class="dropdown-item btn-destroy-productores" href="'.route('productores.destroy',[$row->id]).'">Eliminar</a>
                                 </div>
                             </div>';
                 })
@@ -87,8 +87,15 @@ class ProductoresController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        
+        $productor = Productor::findOrFail($id);
+        $productor->pr_eliminado    = true;
+        $productor->save();
+
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Productor Eliminado'
+        ];
     }
 }

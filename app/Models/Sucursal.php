@@ -13,6 +13,6 @@ class Sucursal extends Model
 
     protected $fillable = [ 'su_nombre', 'su_encargado',
             'su_telefono', 'su_latitud', 'su_longitud',
-            'su_metros_geocerca'
+            'su_metros_geocerca','su_eliminado'
     ];
 }

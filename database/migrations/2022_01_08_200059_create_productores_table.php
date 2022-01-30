@@ -21,6 +21,7 @@ class CreateProductoresTable extends Migration
             $table->string('pr_correo');
             $table->string('pr_telefono');
             $table->string('pr_municipio');
+            $table->boolean('pr_eliminado')->default(false);
             $table->timestamps();
         });
     }

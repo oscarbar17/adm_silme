@@ -31,7 +31,7 @@ class MarcasController extends Controller
                                     <a class="dropdown-item btn-action-modal" href="'.route('marcas.edit',[$row->id]).'"
                                             data-toggle="modal" data-target="#modal-medium"
                                     >Editar</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                    <a class="dropdown-item btn-destroy-marcas" href="'.route('marcas.destroy',[$row->id]).'">Eliminar</a>
                                 </div>
                             </div>';
                 })
@@ -83,9 +83,16 @@ class MarcasController extends Controller
         ];
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        
+        $marca = Marca::findOrFail($id);
+        $marca->ma_eliminado = true;
+        $marca->save();
+
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Marca Eliminada'
+        ];
     }
 
 }

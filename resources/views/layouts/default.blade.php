@@ -11,7 +11,7 @@
 		<meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
 
 		<!-- FAVICON -->
-		<link rel="shortcut icon" type="image/x-icon" href="../../assets/images/brand/favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}" />
 
 		<!-- TITLE -->
 		<title>{{env('APP_NAME')}}</title>
@@ -41,14 +41,16 @@
 
 		<!-- COLOR SKIN CSS -->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('assets/colors/color1.css')}}" />
-
+		
+		<!-- INTERNAL SWEET ALERT CSS -->
+		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
 	</head>
 
 	<body class="app sidebar-mini dark-mode">
 
 		<!-- GLOBAL-LOADER -->
 		<div id="global-loader">
-			<img src="../../assets/images/loader.svg" class="loader-img" alt="Loader">
+			<img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
 		</div>
 		<!-- /GLOBAL-LOADER -->
 
@@ -61,10 +63,10 @@
 				<aside class="app-sidebar">
 					<div class="side-header">
 						<a class="header-brand1" href="index.html">
-							<img src="../../assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-							<img src="../../assets/images/brand/logo-1.png" class="header-brand-img toggle-logo" alt="logo">
-							<img src="../../assets/images/brand/logo-2.png" class="header-brand-img light-logo" alt="logo">
-							<img src="../../assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo">
+							<img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
+							<img src="{{asset('assets/images/brand/logo-1.png')}}" class="header-brand-img toggle-logo" alt="logo">
+							<img src="{{asset('assets/images/brand/logo-2.png')}}" class="header-brand-img light-logo" alt="logo">
+							<img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1" alt="logo">
 						</a><!-- LOGO -->
 					</div>
 					<ul class="side-menu">  
@@ -79,8 +81,8 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 							<a class="header-brand d-md-none" href="index.html">
-								<img src="../../assets/images/brand/logo-3.png" class="header-brand-img mobile-icon" alt="logo">
-								<img src="../../assets/images/brand/logo.png" class="header-brand-img desktop-logo mobile-logo" alt="logo">
+								<img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img mobile-icon" alt="logo">
+								<img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo mobile-logo" alt="logo">
 							</a>
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#">
 								<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z"/></svg>
@@ -190,7 +192,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="message-menu">
 											<a class="dropdown-item d-flex pb-3" href="#">
-												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/1.jpg"></span>
+												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/1.jpg')}}"></span>
 												<div>
 													<strong>Madeleine</strong> Hey! there I' am available....
 													<div class="small text-muted">
@@ -199,7 +201,7 @@
 												</div>
 											</a>
 											<a class="dropdown-item d-flex pb-3" href="#">
-												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/12.jpg"></span>
+												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/12.jpg')}}"></span>
 												<div>
 													<strong>Anthony</strong> New product Launching...
 													<div class="small text-muted">
@@ -208,7 +210,7 @@
 												</div>
 											</a>
 											<a class="dropdown-item d-flex pb-3" href="#">
-												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/4.jpg"></span>
+												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/4.jpg')}}"></span>
 												<div>
 													<strong>Olivia</strong> New Schedule Realease......
 													<div class="small text-muted">
@@ -217,7 +219,7 @@
 												</div>
 											</a>
 											<a class="dropdown-item d-flex pb-3" href="#">
-												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/15.jpg"></span>
+												<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/15.jpg')}}"></span>
 												<div>
 													<strong>Sanderson</strong> New Schedule Realease......
 													<div class="small text-muted">
@@ -232,38 +234,38 @@
 								</div><!-- MESSAGE-BOX -->
 								<div class="dropdown d-none d-xl-flex country-selector">
 									<a href="#" class="d-flex nav-link  leading-none" data-toggle="dropdown" aria-expanded="true">
-										<img src="../../assets/images/flags/us_flag.jpg" alt="img" class="mr-2 align-self-center">
+										<img src="{{asset('assets/images/flags/us_flag.jpg')}}" alt="img" class="mr-2 align-self-center">
 										<div>
 											<strong class="text-dark">English</strong>
 										</div>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<a href="#" class="dropdown-item d-flex pb-3">
-											<img src="../../assets/images/flags/french_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+											<img src="{{asset('assets/images/flags/french_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 											<div>
 												<strong>French</strong>
 											</div>
 										</a>
 										<a href="#" class="dropdown-item d-flex pb-3">
-											<img src="../../assets/images/flags/germany_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+											<img src="{{asset('assets/images/flags/germany_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 											<div>
 												<strong>Germany</strong>
 											</div>
 										</a>
 										<a href="#" class="dropdown-item d-flex pb-3">
-											<img src="../../assets/images/flags/italy_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+											<img src="{{asset('assets/images/flags/italy_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 											<div>
 												<strong>Italy</strong>
 											</div>
 										</a>
 										<a href="#" class="dropdown-item d-flex pb-3">
-											<img src="../../assets/images/flags/russia_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+											<img src="{{asset('assets/images/flags/russia_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 											<div>
 												<strong>Russia</strong>
 											</div>
 										</a>
 										<a href="#" class="dropdown-item d-flex pb-3">
-											<img src="../../assets/images/flags/spain_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+											<img src="{{asset('assets/images/flags/spain_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 											<div>
 												<strong>Spain</strong>
 											</div>
@@ -273,7 +275,7 @@
 								<div class="dropdown profile-1">
 									<a href="#" data-toggle="dropdown" class="nav-link pl-2 pr-2  leading-none d-flex">
 										<span>
-											<img src="../../assets/images/users/10.jpg" alt="profile-user" class="avatar  mr-xl-3 profile-user brround cover-image">
+											<img src="{{asset('assets/images/users/10.jpg')}}" alt="profile-user" class="avatar  mr-xl-3 profile-user brround cover-image">
 										</span>
 										<div class="text-center mt-1 d-none d-xl-block">
 											<h6 class="text-dark mb-0 fs-13 font-weight-semibold">{{Session::get('user')->name}}</h6>
@@ -299,7 +301,7 @@
 										<a class="dropdown-item" href="#">
 											<i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?
 										</a>
-										<a class="dropdown-item" href="login.html">
+										<a class="dropdown-item" href="{{route('login.destroy')}}">
 											<i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
 										</a>
 									</div>
@@ -422,7 +424,7 @@
 								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 									<div class="message-menu">
 										<a class="dropdown-item d-flex pb-3" href="#">
-											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/1.jpg"></span>
+											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/1.jpg')}}"></span>
 											<div>
 												<strong>Madeleine</strong> Hey! there I' am available....
 												<div class="small text-muted">
@@ -431,7 +433,7 @@
 											</div>
 										</a>
 										<a class="dropdown-item d-flex pb-3" href="#">
-											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/12.jpg"></span>
+											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/12.jpg')}}"></span>
 											<div>
 												<strong>Anthony</strong> New product Launching...
 												<div class="small text-muted">
@@ -440,7 +442,7 @@
 											</div>
 										</a>
 										<a class="dropdown-item d-flex pb-3" href="#">
-											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/4.jpg"></span>
+											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/4.jpg')}}"></span>
 											<div>
 												<strong>Olivia</strong> New Schedule Realease......
 												<div class="small text-muted">
@@ -449,7 +451,7 @@
 											</div>
 										</a>
 										<a class="dropdown-item d-flex pb-3" href="#">
-											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="../../assets/images/users/15.jpg"></span>
+											<span class="avatar avatar-md brround mr-3 align-self-center cover-image" data-image-src="{{asset('assets/images/users/15.jpg')}}"></span>
 											<div>
 												<strong>Sanderson</strong> New Schedule Realease......
 												<div class="small text-muted">
@@ -464,38 +466,38 @@
 							</div><!-- MESSAGE-BOX -->
 							<div class="dropdown d-md-flex country-selector">
 								<a href="#" class="d-flex nav-link icon leading-none" data-toggle="dropdown" aria-expanded="true">
-									<img src="../../assets/images/flags/us_flag.jpg" alt="img" class="mr-2 align-self-center">
+									<img src="{{asset('assets/images/flags/us_flag.jpg')}}" alt="img" class="mr-2 align-self-center">
 									<div>
 										<strong class="text-dark fs-13">English</strong>
 									</div>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 									<a href="#" class="dropdown-item d-flex pb-3">
-										<img src="../../assets/images/flags/french_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+										<img src="{{asset('assets/images/flags/french_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 										<div>
 											<strong>French</strong>
 										</div>
 									</a>
 									<a href="#" class="dropdown-item d-flex pb-3">
-										<img src="../../assets/images/flags/germany_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+										<img src="{{asset('assets/images/flags/germany_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 										<div>
 											<strong>Germany</strong>
 										</div>
 									</a>
 									<a href="#" class="dropdown-item d-flex pb-3">
-										<img src="../../assets/images/flags/italy_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+										<img src="{{asset('assets/images/flags/italy_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 										<div>
 											<strong>Italy</strong>
 										</div>
 									</a>
 									<a href="#" class="dropdown-item d-flex pb-3">
-										<img src="../../assets/images/flags/russia_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+										<img src="{{asset('assets/images/flags/russia_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 										<div>
 											<strong>Russia</strong>
 										</div>
 									</a>
 									<a href="#" class="dropdown-item d-flex pb-3">
-										<img src="../../assets/images/flags/spain_flag.jpg" alt="flag-img" class="avatar  mr-3 align-self-center">
+										<img src="{{asset('assets/images/flags/spain_flag.jpg')}}" alt="flag-img" class="avatar  mr-3 align-self-center">
 										<div>
 											<strong>Spain</strong>
 										</div>
@@ -624,7 +626,7 @@
 					</div>
 					<div class="progress-wrapper pt-2">
 						<div class="mb-3">
-							<p class="mb-2">Toatal Profits<span class="float-right text-muted font-weight-normal">75%</span></p>
+							<p class="mb-2">Total Profits<span class="float-right text-muted font-weight-normal">75%</span></p>
 							<div class="progress h-1">
 								<div class="progress-bar bg-danger w-75" role="progressbar"></div>
 							</div>
@@ -647,6 +649,15 @@
 				<div class="modal" id="modal-medium" tabindex="-1" role="dialog"  aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content" id="modal-medium-content">
+							
+						</div>
+					</div>
+				</div>
+				<!-- MESSAGE MODAL CLOSED -->
+				<!-- MESSAGE MODAL -->
+				<div class="modal" id="modal-large" tabindex="-1" role="dialog"  aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content" id="modal-large-content">
 							
 						</div>
 					</div>
@@ -690,7 +701,7 @@
 		<script src="{{asset('assets/iconfonts/eva.min.js')}}"></script>
 
 		<!-- INTERNAL CHARTJS CHART JS -->
-		<script src="{{asset('assets/plugins/chart/Chart.bundle.js')}}"></script>
+		<!--<script src="{{asset('assets/plugins/chart/Chart.bundle.js')}}"></script>-->
 		<script src="{{asset('assets/plugins/chart/utils.js')}}"></script>
 
 		<!-- INTERNAL PIETY CHART JS -->
@@ -711,14 +722,16 @@
 		<script src="{{asset('assets/plugins/sidebar/sidebar.js')}}"></script>
 
 		<!-- INTERNAL APEXCHART JS -->
+		<!--
 		<script src="{{asset('assets/js/apexcharts.js')}}"></script>
-
+		-->
 		<!--INTERNAL  INDEX JS -->
+		<!--
 		<script src="{{asset('assets/js/index1.js')}}"></script>
-
+		-->
 		<!-- CUSTOM JS -->
 		<script src="{{asset('assets/js/custom.js')}}"></script>
-        
+		
         <!-- INTERNAL  DATA TABLE JS-->
         <script src="{{asset('js/datatable-lang.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
@@ -739,14 +752,18 @@
 		<script src="{{asset('assets/plugins/date-picker/spectrum.js')}}"></script>
 		<script src="{{asset('assets/plugins/date-picker/jquery-ui.js')}}"></script>
 		<script src="{{asset('assets/plugins/input-mask/jquery.maskedinput.js')}}"></script>
-
+		
+		<!-- INTERNAL SWEET-ALERT JS -->
+		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
 		
 		<script>
 			
 			$(document).on("click", ".btn-action-modal", function(e){
 				//e.preventDefault();
 				var route = $(this).attr('href');
-				$("#modal-medium-content").load(route);
+				var target = $(this).data('target');
+				
+				$(target + "-content").load(route);
 			});
 		</script>
         @stack('scripts')

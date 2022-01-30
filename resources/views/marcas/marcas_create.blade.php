@@ -1,4 +1,5 @@
-<form action="{{route('marcas.store')}}" method="POST" autocomplete="off">
+<form action="{{route('marcas.store')}}" method="POST" autocomplete="off" 
+    class="needs-validation" >
     {{csrf_field()}}
     <div class="modal-header">
         <h5 class="modal-title" id="example-Modal3">Nueva Marca</h5>
@@ -9,7 +10,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="message-text" class="form-control-label">Nombre de la Marca:</label>
-            <input type="text" name="ma_nombre" class="form-control">
+            <input type="text" name="ma_nombre" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Producto:</label>
@@ -29,3 +30,23 @@
         <button type="submit" class="btn btn-primary">Guardar Marca</button>
     </div>
 </form>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+        });
+        }, false);
+    })();
+</script>

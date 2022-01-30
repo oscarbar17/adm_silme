@@ -70,6 +70,35 @@ var oTableProductos = $('#table-productos').DataTable({
 		language : dtLang
 	});
 
+    
+    // Confirm
+    $(document).on("click", ".btn-destroy-productos", function(e) {
+        e.preventDefault();
+        var route = $(this).attr('href');
+
+		swal({
+			title: "Alert",
+			text: "¿Deseas eliminar el registro?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonText: 'Si',
+			cancelButtonText: 'No'
+		}, function (isConfirm) {
+
+            if (!isConfirm) return;
+                
+                $.get(route, function(response){
+					if (response.returnCode == 200) {
+						swal("¡Hecho!", response.msg , "success");
+                        oTableProductos.draw();
+					}else{
+						swal("¡Error al eliminar!", "¡Por favor intenta nuevamente!", "error");
+					}
+				});
+            });
+        
+	});
+
 
 </script>
 @endpush

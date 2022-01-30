@@ -19,7 +19,7 @@ class EmpleadosController extends Controller
     public function indexDT(Request $request)
     {
         $empleados = Empleado::where([
-            //'ma_eliminado'  => false
+            'em_eliminado'  => false
         ])->with([
             'sucursal'
         ])->get();
@@ -32,8 +32,11 @@ class EmpleadosController extends Controller
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0)">Editar</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                    <a class="dropdown-item btn-action-modal" href="'.route('empleados.edit',[$row->id]).'"
+                                            data-toggle="modal" data-target="#modal-large" 
+                                        >Editar</a>
+                                    <a class="dropdown-item btn-destroy-empleados" href="'.route('empleados.destroy',[$row->id]).'"
+                                        >Eliminar</a>
                                 </div>
                             </div>';
                 })
@@ -43,7 +46,9 @@ class EmpleadosController extends Controller
 
     public function create()
     {
-        $sucursales = Sucursal::get();
+        $sucursales = Sucursal::where([
+                        'su_eliminado'  => false
+                    ])->get();
 
         return view('empleados.empleados_create',[
             'sucursales'    => $sucursales
@@ -72,17 +77,35 @@ class EmpleadosController extends Controller
 
     public function edit($id)
     {
-
-    }
-
-    public function update()
-    {
-
-    }
-
-    public function destroy()
-    {
+        $empleado = Empleado::find($id);
         
+        $sucursales = Sucursal::where([
+            'su_eliminado'  => false
+        ])->get();
+
+        return view('empleados.empleados_edit',[
+                'empleado'  => $empleado,
+                'sucursales'=> $sucursales
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $empleado = Empleado::find()->update([
+
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $empleado = Empleado::find($id);
+        $empleado->em_eliminado = true;
+        $empleado->save();
+
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Empleado eliminado'
+        ];
     }
 
 }

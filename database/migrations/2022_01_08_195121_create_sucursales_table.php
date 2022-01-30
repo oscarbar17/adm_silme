@@ -21,6 +21,7 @@ class CreateSucursalesTable extends Migration
             $table->string('su_latitud');
             $table->string('su_longitud');
             $table->integer('su_metros_geocerca');
+            $table->boolean('su_eliminado')->default(false);
             
             $table->timestamps();
         });

@@ -52,8 +52,6 @@ class AuthController extends Controller
             $usuario = User::where(['email' => $request->get('email')])->first();
             
             if(!is_null($usuario)){
-                $usuario->intentos_login = $usuario->intentos_login + 1;
-                $usuario->save();
                 
                 if($usuario->intentos_login == 10){
                     $usuario->estatus 			= "BLOQUEADO";
@@ -88,10 +86,9 @@ class AuthController extends Controller
                 ->withErrors('¡Lo Sentimos! Tus datos de acceso son incorrectos.');
                 
             }
-            $intentos = $usuario->intentos_login;
-            $intentosDisponibles = 10 - $intentos;
+            
             return redirect()->route('login.create',$request->get('email'))
-            ->withErrors('¡Lo Sentimos! Tus datos de acceso son incorrectos, cuentas con '.$intentosDisponibles.' intentos');
+            ->withErrors('¡Lo Sentimos! Tus datos de acceso son incorrectos, cuentas con 0 intentos');
             
         }
         

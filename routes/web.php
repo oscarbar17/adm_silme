@@ -25,8 +25,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('login', [AuthController::class, 'create'])->name('login');
+Route::get('login', [AuthController::class, 'create'])->name('login.create');
 Route::post('login.store', [AuthController::class, 'store'])->name('login.store');
+Route::get('login.destroy', [AuthController::class, 'destroy'])->name('login.destroy');
 
 Route::group( ['middleware' => 'auth'], function (){
     Route::get('home_admin', [HomeController::class, 'indexAdmin'])->name('home_admin.index');
@@ -36,6 +37,9 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::any('empleados_index.data', [EmpleadosController::class, 'indexDT'])->name('empleados_index.data');
     Route::get('empleados.create', [EmpleadosController::class, 'create'])->name('empleados.create');
     Route::post('empleados.store', [EmpleadosController::class, 'store'])->name('empleados.store');
+    Route::get('empleados.edit/{id}', [EmpleadosController::class, 'edit'])->name('empleados.edit');
+    Route::post('empleados.update', [EmpleadosController::class, 'update'])->name('empleados.update');
+    Route::get('empleados.destroy/{id}', [EmpleadosController::class, 'destroy'])->name('empleados.destroy');
 
     //--Marcas
     Route::get('marcas', [MarcasController::class, 'index'])->name('marcas.index');

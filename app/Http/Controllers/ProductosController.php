@@ -31,7 +31,7 @@ class ProductosController extends Controller
                                     <a class="dropdown-item btn-action-modal" href="'.route('productos.edit',[$row->id]).'"
                                             data-toggle="modal" data-target="#modal-medium"
                                     >Editar</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
+                                    <a class="dropdown-item btn-destroy-productos" href="'.route('productos.destroy',[$row->id]).'">Eliminar</a>
                                 </div>
                             </div>';
                 })
@@ -77,8 +77,15 @@ class ProductosController extends Controller
         ];
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        $producto = Producto::findOrFail($id);
+        $producto->pr_eliminado = true;
+        $producto->save();
         
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Producto eliminado'
+        ];
     }
 }
