@@ -1,4 +1,4 @@
-<form action="{{route('empleados.store')}}" method="POST" autocomplete="off">
+<form action="{{route('empleados.store')}}" method="POST" autocomplete="off" id="frmNewEmpleado">
     {{csrf_field()}}
     <div class="modal-header">
         <h5 class="modal-title" id="example-Modal3">Nuevo Empleado</h5>
@@ -55,4 +55,63 @@ $('.fc-datepicker').datepicker({
     showOtherMonths: true,
     selectOtherMonths: true
 });
+
+$("#frmNewEmpleado").validate({
+        rules: {
+            sucursal_id: "required",
+            em_nombre: "required", 
+            em_telefono : {
+                required : true,
+                minlength: 10
+            },
+            em_cargo : "required",
+            em_nss : "required",
+            em_curp : "required"
+        },
+        messages: {
+            sucursal_id: "Campo requerido",
+            em_nombre: "Campo requerido",
+            em_telefono: {
+                required: "Campo requerido",
+                minlength: "Ingresa un número de al menos 10 dígitos"
+            },
+            em_cargo : "Campo requerido",
+            em_nss : "Campo requerido",
+            em_curp : "Campo requerido"
+        },
+        submitHandler: function (form) {
+        
+            $.ajax({
+                    url: $(form).attr('action'),
+                    type: 'POST',
+                    data: $(form).serialize(),
+            })
+            .done(function(data) {
+                if (data.returnCode == 200) {
+                    
+                    swal({
+                        title: "Bien",
+                        text: data.msg,
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    oTableEmpleados.draw();
+                    $("#modal-medium").modal("hide");
+                }else{
+                    swal("¡Ocurrió un problema!", data.msg , "error");
+                }
+            })
+            .fail(function() {
+                alert("Something was wrong");
+            })
+            .always(function() {
+                
+            });
+
+
+        return false; // required to block normal submit since you used ajax
+        }
+    });
 </script>
