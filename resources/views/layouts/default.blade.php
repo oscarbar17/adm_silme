@@ -756,6 +756,8 @@
 		<!-- INTERNAL SWEET-ALERT JS -->
 		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
 		
+		<script src="{{asset('assets/plugins/validate/jquery.validate.js')}}"></script>
+
 		<script>
 			
 			$(document).on("click", ".btn-action-modal", function(e){

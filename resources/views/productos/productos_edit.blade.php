@@ -1,4 +1,4 @@
-<form action="{{route('productos.update')}}" method="POST" autocomplete="off">
+<form action="{{route('productos.update')}}" method="POST" autocomplete="off" id="frmEditProducto">
     {{csrf_field()}}
     <input type="hidden" name="id" value="{{$producto->id}}">
     <div class="modal-header">
@@ -18,3 +18,47 @@
         <button type="submit" class="btn btn-primary">Guardar Producto</button>
     </div>
 </form>
+<script>
+    $("#frmEditProducto").validate({
+        rules: {
+            pr_nombre: "required",
+        },
+        messages: {
+            pr_nombre: "Campo requerido",
+        },
+        submitHandler: function (form) {
+        
+            $.ajax({
+                    url: $(form).attr('action'),
+                    type: 'POST',
+                    data: $(form).serialize(),
+            })
+            .done(function(data) {
+                if (data.returnCode == 200) {
+                    
+                    swal({
+                        title: "Bien",
+                        text: data.msg,
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    oTableProductos.draw();
+                    $("#modal-medium").modal("hide");
+                }else{
+                    swal("¡Ocurrió un problema!", data.msg , "error");
+                }
+            })
+            .fail(function() {
+                alert("Something was wrong");
+            })
+            .always(function() {
+                
+            });
+
+
+        return false; // required to block normal submit since you used ajax
+        }
+    });
+</script>

@@ -1,7 +1,7 @@
-<form action="{{route('productores.store')}}" method="POST" autocomplete="off">
+<form action="{{route('productores.store')}}" method="POST" autocomplete="off" id="frmNewProductor">
     {{csrf_field()}}
     <div class="modal-header">
-        <h5 class="modal-title" id="example-Modal3">Nuevo Productor</h5>
+        <h5 class="modal-title">Nuevo Productor</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -42,3 +42,64 @@
         <button type="submit" class="btn btn-primary">Guardar Productor</button>
     </div>
 </form>
+<script>
+    $("#frmNewProductor").validate({
+        rules: {
+            producto_id: "required",
+            pr_nombre : "required",         
+            pr_correo: {
+                required: true,
+                email: true
+            },
+            pr_telefono: {
+                required: true,
+                minlength: 10
+            },
+            pr_municipio : "required"
+        },
+        messages: {
+            producto_id: "Campo requerido",
+            pr_nombre : "Campo requerido",
+            pr_correo : "Ingresa un correo válido",
+            pr_telefono: {
+                required: "Campo requerido",
+                minlength: "Ingresa un número de al menos 10 dígitos"
+            },
+            pr_municipio : "Campo requerido",
+        },
+        submitHandler: function (form) {
+        
+            $.ajax({
+                    url: $(form).attr('action'),
+                    type: 'POST',
+                    data: $(form).serialize(),
+            })
+            .done(function(data) {
+                if (data.returnCode == 200) {
+                    
+                    swal({
+                        title: "Bien",
+                        text: data.msg,
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    oTableProductores.draw();
+                    $("#modal-medium").modal("hide");
+                }else{
+                    swal("¡Ocurrió un problema!", data.msg , "error");
+                }
+            })
+            .fail(function() {
+                alert("Something was wrong");
+            })
+            .always(function() {
+                
+            });
+
+
+        return false; // required to block normal submit since you used ajax
+        }
+    });
+</script>

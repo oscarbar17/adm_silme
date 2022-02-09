@@ -1,7 +1,7 @@
-<form action="{{route('sucursales.store')}}" method="POST" autocomplete="off">
+<form action="{{route('sucursales.store')}}" method="POST" autocomplete="off" id="frmNewSucursal">
     {{csrf_field()}}
     <div class="modal-header">
-        <h5 class="modal-title" id="example-Modal3">Nueva Sucursal</h5>
+        <h5 class="modal-title">Nueva Sucursal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -37,3 +37,63 @@
         <button type="submit" class="btn btn-primary">Guardar Sucursal</button>
     </div>
 </form>
+<script>
+    $("#frmNewSucursal").validate({
+        rules: {
+            su_nombre: "required",
+            su_encargado: "required", 
+            su_telefono : {
+                required : true,
+                minlength: 10
+            },
+            su_latitud : "required",
+            su_longitud : "required",
+            su_metros_geocerca : "required"
+        },
+        messages: {
+            su_nombre: "Campo requerido",
+            su_encargado: "Campo requerido",
+            su_telefono: {
+                required: "Campo requerido",
+                minlength: "Ingresa un número de al menos 10 dígitos"
+            },
+            su_latitud : "Campo requerido",
+            su_longitud : "Campo requerido",
+            su_metros_geocerca : "Campo requerido"
+        },
+        submitHandler: function (form) {
+        
+            $.ajax({
+                    url: $(form).attr('action'),
+                    type: 'POST',
+                    data: $(form).serialize(),
+            })
+            .done(function(data) {
+                if (data.returnCode == 200) {
+                    
+                    swal({
+                        title: "Bien",
+                        text: data.msg,
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    oTableProductos.draw();
+                    $("#modal-medium").modal("hide");
+                }else{
+                    swal("¡Ocurrió un problema!", data.msg , "error");
+                }
+            })
+            .fail(function() {
+                alert("Something was wrong");
+            })
+            .always(function() {
+                
+            });
+
+
+        return false; // required to block normal submit since you used ajax
+        }
+    });
+</script>
