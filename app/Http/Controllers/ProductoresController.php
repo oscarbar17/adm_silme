@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Municipio;
 use App\Models\Producto;
 use App\Models\Productor;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class ProductoresController extends Controller
     {
         $productores = Productor::where([
             //'pr_eliminado'  => false
-        ])->with(['producto'])->get();
+        ])->with(['producto','municipio'])->get();
 
         return DataTables::of($productores)
                 ->addColumn('opciones',function($row){
@@ -46,8 +47,11 @@ class ProductoresController extends Controller
             'pr_eliminado'  => false
         ])->get();
 
+        $municipios = Municipio::orderBy('mu_nombre','asc')->get();
+
         return view('productores.productores_create',[
-            'productos' => $productos
+            'productos' => $productos,
+            'municipios'=> $municipios
         ]);
     }
 
@@ -76,9 +80,12 @@ class ProductoresController extends Controller
             'pr_eliminado'  => false
         ])->get();
 
+        $municipios = Municipio::orderBy('mu_nombre','asc')->get();
+
         return view('productores.productores_edit',[
             'productor' => $productor  ,
-            'productos' => $productos
+            'productos' => $productos , 
+            'municipios'=> $municipios
         ]);
     }
 

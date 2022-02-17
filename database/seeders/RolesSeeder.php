@@ -34,6 +34,12 @@ class RolesSeeder extends Seeder
                 'ms_update' => '1'
             ]);
         }
-        
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Empleado',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
     }
 }

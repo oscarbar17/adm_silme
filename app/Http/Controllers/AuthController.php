@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -172,6 +173,43 @@ class AuthController extends Controller
             ->withErrors('¡Lo Sentimos! Tu cuenta está suspendida.');
         }
     }
+
+    public function storeApi(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $usuario = User::where([
+            'email' => $request->get('email')
+        ])->where('estatus','!=','ELIMINADO')->with(['rol'])->first();
+        
+        if(is_null($usuario)){
+            return response()->json([
+                'status' => 'La cuenta no existe'], 400
+            );
+        }
+
+        $authOK = auth()->attempt($request->only(['email','password']));
+        
+        if(!$authOK){
+            return response()->json([
+                'status' => 'Credenciales inválidas'], 400
+            );
+        }
+
+        $empleado = Empleado::where([
+            'user_id'   => $usuario->id
+        ])->first();
+
+        return response()->json([
+            'status'    => 'ok',
+            'empleado'  => $empleado
+            ], 200
+        );
+    }
+    
     
     public function destroy()
     {

@@ -16,7 +16,10 @@ class CreateEmpleadosTable extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
             $table->integer('sucursal_id');
+            $table->integer('user_id');
             $table->string('em_nombre');
+            $table->string('em_apellido_paterno');
+            $table->string('em_apellido_materno')->nullable();
             $table->date('em_fecha_nacimiento');
             $table->string('em_nss');
             $table->string('em_curp');
@@ -31,6 +34,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('em_contrato')->nullable();
 
             $table->boolean('em_eliminado')->default(false);
+
+
             
             $table->timestamps();
         });

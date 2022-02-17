@@ -72,7 +72,7 @@ var oTableProductores = $('#table-productores').DataTable({
             { data: 'pr_cultivo', name: 'pr_cultivo'},
             { data: 'pr_correo', name: 'pr_correo'},
             { data: 'pr_telefono', name: 'pr_telefono'},
-            { data: 'pr_municipio', name: 'pr_municipio'},
+            { data: 'municipio.mu_nombre', name: 'municipio.mu_nombre'},
             { data: 'producto.pr_nombre', name: 'producto.pr_nombre'},
 			{ data: 'opciones', name: 'opciones'},
 		],

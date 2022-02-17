@@ -12,11 +12,17 @@ class Productor extends Model
     protected $table = 'productores';
 
     protected $fillable = [
-        'pr_nombre','pr_cultivo','producto_id','pr_correo','pr_telefono','pr_municipio','pr_eliminado'
+        'pr_nombre','pr_cultivo','producto_id','pr_correo','pr_telefono','municipio_id','pr_eliminado'
     ];
 
     public function producto()
     {
         return $this->belongsTo(Producto::class);
     }
+
+    public function municipio()
+    {
+        return $this->belongsTo(Municipio::class);
+    }
+
 }

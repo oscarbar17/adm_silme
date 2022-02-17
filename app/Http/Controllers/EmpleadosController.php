@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use App\Models\Sucursal;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\DataTables;
@@ -48,7 +49,8 @@ class EmpleadosController extends Controller
     {
         $sucursales = Sucursal::where([
                         'su_eliminado'  => false
-                    ])->get();
+                    ])->orderBy('su_nombre','asc')
+                    ->get();
 
         return view('empleados.empleados_create',[
             'sucursales'    => $sucursales
@@ -57,9 +59,21 @@ class EmpleadosController extends Controller
 
     public function store(Request $request)
     {
+        //--Genera usuario de acceso
+        $user = User::create([
+            'name'      => $request->get('em_nombre'),
+            'email'     => $request->get('em_email'),
+            'rol_id'    => 2,
+            'password'  => bcrypt('12345678'),
+            'estatus'   => 'ACTIVO'
+        ]);
+
         $empleado = Empleado::create([
             'sucursal_id'           => $request->get('sucursal_id'),
+            'user_id'               => $user->id,
             'em_nombre'             => $request->get('em_nombre'),
+            'em_apellido_paterno'   => $request->get('em_apellido_paterno'),
+            'em_apellido_materno'   => $request->get('em_apellido_materno'),
             'em_fecha_nacimiento'   => $request->get('em_fecha_nacimiento'),
             'em_nss'                => $request->get('em_nss'),
             'em_curp'               => $request->get('em_curp'),
@@ -68,6 +82,7 @@ class EmpleadosController extends Controller
             'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
 
         ]);
+
 
         return [
             'returnCode'    => '200',
@@ -81,7 +96,8 @@ class EmpleadosController extends Controller
         
         $sucursales = Sucursal::where([
             'su_eliminado'  => false
-        ])->get();
+        ])->orderBy('su_nombre','asc')
+        ->get();
 
         return view('empleados.empleados_edit',[
                 'empleado'  => $empleado,
@@ -108,4 +124,24 @@ class EmpleadosController extends Controller
         ];
     }
 
+    public function getDatosApi(Request $request)
+    {
+        $empleado_id = $request->get('empleado_id');
+
+        $empleado = Empleado::find($empleado_id);
+
+        if($empleado){
+            
+            return response()->json([
+                'status'    => 'ok',
+                'empleado'  => $empleado
+                ], 200
+            );
+        }
+
+        return response()->json([
+            'status' => 'El empleado no existe'], 400
+        );
+    
+    }
 }

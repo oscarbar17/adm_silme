@@ -34,7 +34,9 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Municipio:</label>
-            <input type="text" name="pr_municipio" class="form-control">
+            <select name="municipio_id" class="form-control">
+                {{\App\Library\Combo::render($municipios,'','id','mu_nombre',false)}}
+            </select>
         </div>
     </div>
     <div class="modal-footer">
@@ -55,7 +57,7 @@
                 required: true,
                 minlength: 10
             },
-            pr_municipio : "required"
+            municipio_id : "required"
         },
         messages: {
             producto_id: "Campo requerido",
@@ -65,7 +67,7 @@
                 required: "Campo requerido",
                 minlength: "Ingresa un número de al menos 10 dígitos"
             },
-            pr_municipio : "Campo requerido",
+            municipio_id : "Campo requerido",
         },
         submitHandler: function (form) {
         

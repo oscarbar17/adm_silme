@@ -34,7 +34,9 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Municipio:</label>
-            <input type="text" name="pr_municipio" class="form-control">
+            <select name="municipio_id" class="form-control">
+                {{\App\Library\Combo::render($municipios,$productor->municipio_id,'id','mu_nombre',false)}}
+            </select>
         </div>
     </div>
     <div class="modal-footer">

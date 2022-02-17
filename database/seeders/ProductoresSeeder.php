@@ -22,7 +22,7 @@ class ProductoresSeeder extends Seeder
                 'pr_cultivo'    => 'RIEGO',
                 'pr_correo'     => 'Correo '. $i,
                 'pr_telefono'   => rand(1111111111,99999999),
-                'pr_municipio'  => 'Municipio '.$i
+                'municipio_id'  => 1
             ]);
         }
     }

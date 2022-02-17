@@ -20,6 +20,14 @@
                 <input type="text" name="em_nombre" value="{{$empleado->em_nombre}}" class="form-control">
             </div>
             <div class="col-md-4">
+                <label class="form-control-label">Apellido Paterno:</label>
+                <input type="text" name="em_nombre" value="{{$empleado->em_apellido_paterno}}" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label class="form-control-label">Apellido Materno:</label>
+                <input type="text" name="em_nombre" value="{{$empleado->em_apellido_materno}}" class="form-control">
+            </div>
+            <div class="col-md-4">
                 <label class="form-control-label">Teléfono:</label>
                 <input type="text" name="em_telefono" value="{{$empleado->em_telefono}}" class="form-control">
             </div>

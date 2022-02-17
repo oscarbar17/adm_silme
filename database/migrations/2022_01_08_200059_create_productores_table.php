@@ -16,11 +16,11 @@ class CreateProductoresTable extends Migration
         Schema::create('productores', function (Blueprint $table) {
             $table->id();
             $table->integer('producto_id');
+            $table->integer('municipio_id');
             $table->string('pr_nombre');
             $table->enum('pr_cultivo',['RIEGO','TEMPORAL']);
             $table->string('pr_correo');
             $table->string('pr_telefono');
-            $table->string('pr_municipio');
             $table->boolean('pr_eliminado')->default(false);
             $table->timestamps();
         });

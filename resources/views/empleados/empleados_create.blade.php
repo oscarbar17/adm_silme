@@ -18,6 +18,19 @@
             <input type="text" name="em_nombre" class="form-control">
         </div>
         <div class="form-group">
+            <label for="message-text" class="form-control-label">Apellido Paterno:</label>
+            <input type="text" name="em_apellido_paterno" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Apellido Materno:</label>
+            <input type="text" name="em_apellido_materno" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Correo electrónico:</label>
+            <input type="text" name="em_email" class="form-control">
+        </div>
+        
+        <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono:</label>
             <input type="text" name="em_telefono" class="form-control">
         </div>
@@ -60,6 +73,11 @@ $("#frmNewEmpleado").validate({
         rules: {
             sucursal_id: "required",
             em_nombre: "required", 
+            em_apellido_paterno: "required", 
+            em_email : {
+                required: true, 
+                email: true
+            },
             em_telefono : {
                 required : true,
                 minlength: 10
@@ -71,6 +89,11 @@ $("#frmNewEmpleado").validate({
         messages: {
             sucursal_id: "Campo requerido",
             em_nombre: "Campo requerido",
+            em_apellido_paterno: "Campo requerido",
+            em_email: {
+                required : "Campo requerido",
+                email: "Ingresa un correo válido"
+            },
             em_telefono: {
                 required: "Campo requerido",
                 minlength: "Ingresa un número de al menos 10 dígitos"
