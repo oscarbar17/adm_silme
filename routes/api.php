@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('login.store', [AuthController::class, 'storeApi'])->name('login.store');
-Route::post('login.store', [EmpleadosController::class, 'getDatosApi'])->name('login.store');
+Route::post('empleados.get.data', [EmpleadosController::class, 'getDatosApi'])->name('empleados.get.data');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
