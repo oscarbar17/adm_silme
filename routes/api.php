@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
@@ -20,6 +21,7 @@ Route::post('login.store', [AuthController::class, 'storeApi'])->name('login.sto
 Route::post('empleados.get.data', [EmpleadosController::class, 'getDatosApi'])->name('empleados.get.data');
 
 Route::post('eventos.store', [EventosController::class, 'storeApi'])->name('eventos.store');
+Route::post('api.data', [APIController::class, 'getAPIData'])->name('api.data');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

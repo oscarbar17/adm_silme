@@ -83,4 +83,5 @@ Route::group( ['middleware' => 'auth'], function (){
     //--Eventos
     Route::get('eventos', [EventosController::class, 'index'])->name('eventos.index');
     Route::any('eventos.index.data', [EventosController::class, 'indexDT'])->name('eventos.index.data');
+    Route::get('eventos.show/{id}', [EventosController::class, 'show'])->name('eventos.show');
 });

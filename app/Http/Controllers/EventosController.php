@@ -40,9 +40,27 @@ class EventosController extends Controller
 
     public function indexDT(Request $request)
     {
-        $eventos = Evento::get();
+        $eventos = Evento::with([
+                        'sucursal','municipio','empleado','productor','producto'
+                    ])->get();
 
         return DataTables::of($eventos)
+                ->addColumn('empleado',function($row){
+                    return $row->empleado->em_nombre . ' ' . $row->empleado->em_apellido_paterno;
+                })
+                ->addColumn('opciones',function($row){
+                    return '<div class="btn-list">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item btn-action-modal" href="'.route('eventos.show',[$row->id]).'"
+                                            data-toggle="modal" data-target="#modal-large">Detalles del Evento</a>
+                                </div>
+                            </div>';
+                })
+                ->rawColumns(['opciones'])
                 ->make(true);
     }
 
@@ -61,5 +79,11 @@ class EventosController extends Controller
             'status'    => 'Evento registrado'
             ], 200
         );
+    }
+
+    public function show($id)
+    {
+        $evento = Evento::find($id);
+        
     }
 }

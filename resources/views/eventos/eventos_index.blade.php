@@ -63,9 +63,11 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p">ID</th>
-                                    <th class="wd-15p">Marca</th>
-                                    <th class="wd-15p">Contacto</th>
-                                    <th class="wd-20p"></th>
+                                    <th class="wd-15p">Sucursal</th>
+                                    <th class="wd-15p">Empleado</th>
+                                    <th class="wd-15p">Cultivo</th>
+                                    <th class="wd-15p">Tipo de Cultivo</th>
+                                    <th class="wd-20p">Municipio</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,10 +99,12 @@ var oTableMarcas = $('#table-marcas').DataTable({
 		},
 		columns: [
             { data: 'id', name: 'id'},
-			{ data: 'id', name: 'id'},
-            { data: 'id', name: 'id'},
-            { data: 'id', name: 'id'},
-			
+            { data: 'sucursal.su_nombre', name: 'sucursal.su_nombre'},
+			{ data: 'empleado', name: 'empleado'},
+            { data: 'producto.pr_nombre', name: 'producto.pr_nombre'},
+            { data: 'productor.pr_cultivo', name: 'productor.pr_cultivo'},
+            { data: 'municipio.mu_nombre', name: 'municipio.mu_nombre'},
+			{ data: 'opciones', name: 'opciones'},
 		],
 		language : dtLang
 	});

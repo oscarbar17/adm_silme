@@ -15,6 +15,7 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
+            $table->integer('sucursal_id');
             $table->integer('empleado_id');
             $table->integer('productor_id');
             $table->integer('municipio_id');
