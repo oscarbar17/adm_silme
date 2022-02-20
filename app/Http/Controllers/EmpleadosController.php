@@ -107,9 +107,140 @@ class EmpleadosController extends Controller
 
     public function update(Request $request)
     {
-        $empleado = Empleado::find()->update([
+        $empleado = Empleado::find($request->get('id'));
 
+        $empleado->update([
+            'sucursal_id'           => $request->get('sucursal_id'),
+            'em_nombre'             => $request->get('em_nombre'),
+            'em_apellido_paterno'   => $request->get('em_apellido_paterno'),
+            'em_apellido_materno'   => $request->get('em_apellido_materno'),
+            'em_fecha_nacimiento'   => $request->get('em_fecha_nacimiento'),
+            'em_nss'                => $request->get('em_nss'),
+            'em_curp'               => $request->get('em_curp'),
+            'em_telefono'           => $request->get('em_telefono'),
+            'em_cargo'              => $request->get('em_cargo'),
+            'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
         ]);
+
+        if( $request->hasFile('acta_nacimiento_file') ){
+    		
+            $file = $request->file('acta_nacimiento_file');
+            
+            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
+    		
+            $fileName = $request->file('acta_nacimiento_file')->getClientOriginalName();
+            $extension = $request->file('acta_nacimiento_file')->extension();
+           
+    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+    		
+            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
+
+    		if($uploadSuccess){
+                $empleado->em_path_acta = $shortPath;
+                $empleado->save();
+    		}
+    	}
+
+        if( $request->hasFile('ine_file') ){
+    		
+            $file = $request->file('ine_file');
+            
+            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
+    		
+            $fileName = $request->file('ine_file')->getClientOriginalName();
+            $extension = $request->file('ine_file')->extension();
+           
+    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+    		
+            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
+
+    		if($uploadSuccess){
+                $empleado->em_path_ine = $shortPath;
+                $empleado->save();
+    		}
+    	}
+
+        if( $request->hasFile('ine_file') ){
+    		
+            $file = $request->file('ine_file');
+            
+            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
+    		
+            $fileName = $request->file('ine_file')->getClientOriginalName();
+            $extension = $request->file('ine_file')->extension();
+           
+    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+    		
+            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
+
+    		if($uploadSuccess){
+                $empleado->em_path_ine = $shortPath;
+                $empleado->save();
+    		}
+    	}
+
+        if( $request->hasFile('curp_file') ){
+    		
+            $file = $request->file('curp_file');
+            
+            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
+    		
+            $fileName = $request->file('curp_file')->getClientOriginalName();
+            $extension = $request->file('curp_file')->extension();
+           
+    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+    		
+            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
+
+    		if($uploadSuccess){
+                $empleado->em_path_curp = $shortPath;
+                $empleado->save();
+    		}
+    	}
+
+        if( $request->hasFile('comprobante_file') ){
+    		
+            $file = $request->file('comprobante_file');
+            
+            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
+    		
+            $fileName = $request->file('comprobante_file')->getClientOriginalName();
+            $extension = $request->file('comprobante_file')->extension();
+           
+    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+    		
+            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
+
+    		if($uploadSuccess){
+                $empleado->em_path_comprobante_dom = $shortPath;
+                $empleado->save();
+    		}
+    	}
+
+        if( $request->hasFile('contrato_file') ){
+    		
+            $file = $request->file('contrato_file');
+            
+            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
+    		
+            $fileName = $request->file('contrato_file')->getClientOriginalName();
+            $extension = $request->file('contrato_file')->extension();
+           
+    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+    		
+            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
+
+    		if($uploadSuccess){
+                $empleado->em_path_contrato = $shortPath;
+                $empleado->save();
+    		}
+    	}
+
+
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Empleado actualizado'
+        ];
     }
 
     public function destroy($id)
@@ -143,5 +274,74 @@ class EmpleadosController extends Controller
             'status' => 'El empleado no existe'], 400
         );
     
+    }
+
+    public function destroyFile($id,$type)
+    {
+        $empleado = Empleado::find($id);
+
+        switch($type)
+        {
+            case 'ACTA':
+                $empleado->em_path_acta = null;
+                break;
+
+            case 'INE':
+                $empleado->em_path_ine = null;
+                break;
+            
+            case 'CURP':
+                $empleado->em_path_curp = null;
+                break;
+
+            case 'COMPROBANTE_DOM':
+                $empleado->em_path_comprobante_dom = null; 
+                break;
+
+            case 'CONTRATO':
+                $empleado->em_path_contrato = null;
+                break;
+        }
+
+        $empleado->save();
+
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Archivo eliminado'
+        ];
+    }
+
+    public function downloadFile($id,$type)
+    {
+        $empleado = Empleado::find($id);
+
+        switch($type)
+        {
+            case 'ACTA':
+                $path = $empleado->em_path_acta;
+                break;
+
+            case 'INE':
+                $path = $empleado->em_path_ine;
+                break;
+            
+            case 'CURP':
+                $path = $empleado->em_path_curp;
+                break;
+
+            case 'COMPROBANTE_DOM':
+                $path = $empleado->em_path_comprobante_dom;
+                break;
+
+            case 'CONTRATO':
+                $path = $empleado->em_path_contrato;
+                break;
+        }
+
+        $url = storage_path($path);
+
+        $filename = pathinfo($url,PATHINFO_FILENAME);
+
+        return response()->download($url);
     }
 }

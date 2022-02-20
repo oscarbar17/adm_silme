@@ -15,10 +15,40 @@ class ProductosSeeder extends Seeder
     public function run()
     {
         //
-        for($i = 1; $i < 20 ; $i++){
-            Producto::create([
-                'pr_nombre' => 'Producto '. $i
-            ]);
-        }
+        Producto::create([
+            'pr_nombre' => 'Maíz'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Sorgo'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Frijol'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Cebolla'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Jitomate'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Caña de azúcar'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Arroz'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Nopal'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Higo'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Ejote'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Aguacate'
+        ]);
+
+    
     }
 }

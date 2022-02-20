@@ -36,7 +36,7 @@
                             <th class="wd-20p">Correo</th>
                             <th class="wd-20p">Teléfono</th>
                             <th class="wd-20p">Municipio</th>
-                            <th class="wd-20p">Producto</th>
+                            <th class="wd-20p">Cultivo</th>
                             <th class="wd-20p"></th>
                         </tr>
                     </thead>

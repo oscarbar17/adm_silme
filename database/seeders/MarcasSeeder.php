@@ -15,14 +15,64 @@ class MarcasSeeder extends Seeder
     public function run()
     {
         //
-        for($i = 1; $i < 20 ; $i++){
-            Marca::create([
-                'ma_nombre'     => 'Marca '.$i ,
-                'ma_producto'   => 'Producto Marca '.$i,
-                'ma_contacto'   => 'Contacto '.$i , 
-                'ma_telefono'   => rand(1111111111,9999999999)
-            ]);
-        }
-        
+        Marca::create([
+            'ma_nombre'     => 'BASF' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Bayer AG (BAYRY)' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Sumitomo Chemicals' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Syngenta' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Corteva' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'UPL' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Adama' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Jiangsu Yangnon' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Nufarm' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
+
+        Marca::create([
+            'ma_nombre'     => 'Nissan Chemicals' ,
+            'ma_contacto'   => null, 
+            'ma_telefono'   => null
+        ]);
     }
 }

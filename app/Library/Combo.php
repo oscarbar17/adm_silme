@@ -10,7 +10,7 @@
 		public static function render(Collection $collection,$selected,$colValue,$colDisplay,$addBlank = false){
 			
 			if($addBlank){
-				echo "<option value=\"\" ></option>";
+				echo "<option value=\"\" >-- Select option --</option>";
 			}
 			
 			foreach ($collection as $record){

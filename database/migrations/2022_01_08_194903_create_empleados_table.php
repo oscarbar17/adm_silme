@@ -30,8 +30,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('em_path_acta')->nullable();
             $table->string('em_path_ine')->nullable();
             $table->string('em_path_curp')->nullable();
-            $table->string('em_comprobante_dom')->nullable();
-            $table->string('em_contrato')->nullable();
+            $table->string('em_path_comprobante_dom')->nullable();
+            $table->string('em_path_contrato')->nullable();
 
             $table->boolean('em_eliminado')->default(false);
 

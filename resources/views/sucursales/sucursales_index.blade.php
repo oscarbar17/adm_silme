@@ -69,7 +69,7 @@ var oTableSucursales = $('#table-sucursales').DataTable({
 		columns: [
             { data: 'id', name: 'id'},						
 			{ data: 'su_nombre', name: 'su_nombre'},
-            { data: 'su_encargado', name: 'su_encargado'},
+            { data: 'encargado', name: 'encargado'},
             { data: 'su_telefono', name: 'su_telefono'},
             { data: 'su_latitud', name: 'su_latitud'},
             { data: 'su_longitud', name: 'su_longitud'},

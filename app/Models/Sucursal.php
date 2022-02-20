@@ -15,4 +15,9 @@ class Sucursal extends Model
             'su_telefono', 'su_latitud', 'su_longitud',
             'su_metros_geocerca','su_eliminado'
     ];
+
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class);
+    }
 }

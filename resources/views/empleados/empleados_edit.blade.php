@@ -1,4 +1,4 @@
-<form action="{{route('empleados.update')}}" method="POST" autocomplete="off">
+<form action="{{route('empleados.update')}}" method="POST" autocomplete="off" id="frmEditEmpleado">
     {{csrf_field()}}
     <input type="hidden" name="id" value="{{$empleado->id}}"/>
     <div class="modal-header">
@@ -21,11 +21,11 @@
             </div>
             <div class="col-md-4">
                 <label class="form-control-label">Apellido Paterno:</label>
-                <input type="text" name="em_nombre" value="{{$empleado->em_apellido_paterno}}" class="form-control">
+                <input type="text" name="em_apellido_paterno" value="{{$empleado->em_apellido_paterno}}" class="form-control">
             </div>
             <div class="col-md-4">
                 <label class="form-control-label">Apellido Materno:</label>
-                <input type="text" name="em_nombre" value="{{$empleado->em_apellido_materno}}" class="form-control">
+                <input type="text" name="em_apellido_materno" value="{{$empleado->em_apellido_materno}}" class="form-control">
             </div>
             <div class="col-md-4">
                 <label class="form-control-label">Teléfono:</label>
@@ -60,50 +60,95 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-label">Acta de Nacimiento</div>
+                    @if($empleado->em_path_acta)
+                        <a href="{{route('empleados.download_file',[$empleado->id,'ACTA'])}}" class="btn btn-primary btn-sm">
+                            Descargar Archivo
+                        </a>
+                        <a href="{{route('empleados.destroy_file',[$empleado->id,'ACTA'])}}" class="btn btn-danger btn-sm btn-destroy-file">
+                            Eliminar Archivo
+                        </a>
+                    @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="example-file-input-custom">
+                        <input type="file" class="custom-file-input" name="acta_nacimiento_file">
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
+                    @endif
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-label">INE</div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="example-file-input-custom">
-                        <label class="custom-file-label">Selecciona Archivo</label>
-                    </div>
+                    @if($empleado->em_path_ine)
+                        <a href="{{route('empleados.download_file',[$empleado->id,'INE'])}}" class="btn btn-primary btn-sm">
+                            Descargar Archivo
+                        </a>
+                        <a href="{{route('empleados.destroy_file',[$empleado->id,'INE'])}}" class="btn btn-danger btn-sm">
+                            Eliminar Archivo
+                        </a>
+                    @else
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="ine_file">
+                            <label class="custom-file-label">Selecciona Archivo</label>
+                        </div>
+                    @endif
                 </div>
             </div> 
 
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-label">CURP</div>
+                    @if($empleado->em_path_curp)
+                        <a href="{{route('empleados.download_file',[$empleado->id,'CURP'])}}" class="btn btn-primary btn-sm">
+                            Descargar Archivo
+                        </a>
+                        <a href="{{route('empleados.destroy_file',[$empleado->id,'CURP'])}}" class="btn btn-danger btn-sm">
+                            Eliminar Archivo
+                        </a>
+                    @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="example-file-input-custom">
+                        <input type="file" class="custom-file-input" name="curp_file">
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
+                    @endif
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-label">Comprobante de Domicilio</div>
+                    @if($empleado->em_path_comprobante_dom)
+                        <a href="{{route('empleados.download_file',[$empleado->id,'COMPROBANTE_DOM'])}}" class="btn btn-primary btn-sm">
+                            Descargar Archivo
+                        </a>
+                        <a href="{{route('empleados.destroy_file',[$empleado->id,'COMPROBANTE_DOM'])}}" class="btn btn-danger btn-sm">
+                            Eliminar Archivo
+                        </a>
+                    @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="example-file-input-custom">
+                        <input type="file" class="custom-file-input" name="comprobante_file">
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
+                    @endif
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-label">Contrato</div>
+                    @if($empleado->em_path_contrato)
+                        <a href="{{route('empleados.download_file',[$empleado->id,'CONTRATO'])}}" class="btn btn-primary btn-sm">
+                            Descargar Archivo
+                        </a>
+                        <a href="{{route('empleados.destroy_file',[$empleado->id,'CONTRATO'])}}" class="btn btn-danger btn-sm">
+                            Eliminar Archivo
+                        </a>
+                    @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="example-file-input-custom">
+                        <input type="file" class="custom-file-input" name="contrato_file">
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -120,4 +165,80 @@ $('.fc-datepicker').datepicker({
     showOtherMonths: true,
     selectOtherMonths: true
 });
+
+$("#frmEditEmpleado").validate({
+        rules: {
+            sucursal_id: "required",
+            em_nombre: "required", 
+            em_apellido_paterno: "required", 
+            em_email : {
+                required: true, 
+                email: true
+            },
+            em_telefono : {
+                required : true,
+                minlength: 10
+            },
+            em_cargo : "required",
+            em_nss : "required",
+            em_curp : "required"
+        },
+        messages: {
+            sucursal_id: "Campo requerido",
+            em_nombre: "Campo requerido",
+            em_apellido_paterno: "Campo requerido",
+            em_email: {
+                required : "Campo requerido",
+                email: "Ingresa un correo válido"
+            },
+            em_telefono: {
+                required: "Campo requerido",
+                minlength: "Ingresa un número de al menos 10 dígitos"
+            },
+            em_cargo : "Campo requerido",
+            em_nss : "Campo requerido",
+            em_curp : "Campo requerido"
+        },
+        submitHandler: function (form) {
+        
+            var form = document.getElementById("frmEditEmpleado"); 
+			var formdata = new FormData(form); // high importance!
+
+            $.ajax({
+                    url: $(form).attr('action'),
+                    type: 'POST',
+                    data: formdata,
+                    async: true,
+					dataType: "JSON", 
+					contentType: false, // high importance!
+					processData: false, // high importance!
+            })
+            .done(function(data) {
+                if (data.returnCode == 200) {
+                    
+                    swal({
+                        title: "Bien",
+                        text: data.msg,
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    oTableEmpleados.draw();
+                    $("#modal-large").modal("hide");
+                }else{
+                    swal("¡Ocurrió un problema!", data.msg , "error");
+                }
+            })
+            .fail(function() {
+                alert("Something was wrong");
+            })
+            .always(function() {
+                
+            });
+
+
+        return false; // required to block normal submit since you used ajax
+        }
+    });
 </script>

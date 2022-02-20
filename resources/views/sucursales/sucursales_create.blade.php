@@ -13,7 +13,9 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Encargado de la sucursal:</label>
-            <input type="text" name="su_encargado" class="form-control">
+            <select name="empleado_id" class="form-control">
+                {{\App\Library\Combo::render($empleados,'','id','nombre',true)}}
+            </select>
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono de la sucursal:</label>
@@ -41,7 +43,6 @@
     $("#frmNewSucursal").validate({
         rules: {
             su_nombre: "required",
-            su_encargado: "required", 
             su_telefono : {
                 required : true,
                 minlength: 10
@@ -52,7 +53,6 @@
         },
         messages: {
             su_nombre: "Campo requerido",
-            su_encargado: "Campo requerido",
             su_telefono: {
                 required: "Campo requerido",
                 minlength: "Ingresa un número de al menos 10 dígitos"
@@ -79,7 +79,7 @@
                         showConfirmButton: false
                     });
 
-                    oTableProductos.draw();
+                    oTableSucursales.draw();
                     $("#modal-medium").modal("hide");
                 }else{
                     swal("¡Ocurrió un problema!", data.msg , "error");

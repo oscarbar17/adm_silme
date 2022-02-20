@@ -60,17 +60,6 @@ class ModulosSeeder extends Seeder
             'mo_publicado'	    => true
         ]);
         ModRolHelper::set($modHijo->id);
-
-        $modHijo = Modulo::create([
-            'parent_id'         => $mod->id,
-            'mo_descripcion'    => 'Productos' ,
-            'mo_orden'			=> 1,
-            'mo_ruta'           => 'productos.index',
-            'mo_atributos'      => ' id="m-productos" ',
-            'mo_icono'	    => 'fa fa-users',
-            'mo_publicado'	    => true
-        ]);
-        ModRolHelper::set($modHijo->id);
         
         $modHijo = Modulo::create([
             'parent_id'         => $mod->id,
@@ -93,5 +82,30 @@ class ModulosSeeder extends Seeder
             'mo_publicado'	    => true
         ]);
         ModRolHelper::set($modHijo->id);
+
+        //Eventos
+         //Catalogos
+         $mod = Modulo::create([
+            'parent_id'         => null,
+            'mo_descripcion'    => 'Eventos' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => '',
+            'mo_atributos'      => 'id="m-eventos"',
+            'mo_icono'			=> 'fa fa-list',
+            'mo_publicado'		=> true
+        ]);
+        ModRolHelper::set($mod->id);
+
+        $modHijo = Modulo::create([
+            'parent_id'         => $mod->id,
+            'mo_descripcion'    => 'Eventos o Ventas' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => 'eventos.index',
+            'mo_atributos'      => ' id="m-eventos-ventas" ',
+            'mo_icono'	    => 'fa fa-users',
+            'mo_publicado'	    => true
+        ]);
+        ModRolHelper::set($modHijo->id);
+        
     }
 }

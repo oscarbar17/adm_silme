@@ -12,10 +12,6 @@
             <input type="text" name="ma_nombre" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="message-text" class="form-control-label">Producto:</label>
-            <input type="text" name="ma_producto" class="form-control">
-        </div>
-        <div class="form-group">
             <label for="message-text" class="form-control-label">Contacto:</label>
             <input type="text" name="ma_contacto" class="form-control">
         </div>
@@ -34,7 +30,6 @@
     $("#frmNewMarca").validate({
         rules: {
             ma_nombre: "required",
-            ma_producto: "required",
             ma_contacto: "required",
             ma_telefono: {
                 required: true,
@@ -43,7 +38,6 @@
         },
         messages: {
             ma_nombre: "Campo requerido",
-            ma_producto: "Campo requerido",
             ma_contacto: "Campo requerido",
             ma_telefono: {
                 required: "Campo requerido",

@@ -8,7 +8,7 @@
     </div>
     <div class="modal-body">
         <div class="form-group">
-            <label for="message-text" class="form-control-label">Producto:</label>
+            <label for="message-text" class="form-control-label">Cultivo:</label>
             <select name="producto_id" class="form-control">
                 {{\App\Library\Combo::render($productos,'','id','pr_nombre',false)}}
             </select>
@@ -18,7 +18,7 @@
             <input type="text" name="pr_nombre" class="form-control">
         </div>
         <div class="form-group">
-            <label for="message-text" class="form-control-label">Cultivo:</label>
+            <label for="message-text" class="form-control-label">Tipo de Cultivo:</label>
             <select name="pr_cultivo" class="form-control">
                 <option value="RIEGO">RIEGO</option>
                 <option value="TEMPORAL">TEMPORAL</option>

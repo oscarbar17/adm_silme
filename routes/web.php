@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\EventosController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\ProductoresController;
@@ -40,6 +41,8 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('empleados.edit/{id}', [EmpleadosController::class, 'edit'])->name('empleados.edit');
     Route::post('empleados.update', [EmpleadosController::class, 'update'])->name('empleados.update');
     Route::get('empleados.destroy/{id}', [EmpleadosController::class, 'destroy'])->name('empleados.destroy');
+    Route::get('empleados.download_file/{id}/{type}', [EmpleadosController::class, 'downloadFile'])->name('empleados.download_file');
+    Route::get('empleados.destroy_file/{id}/{type}', [EmpleadosController::class, 'destroyFile'])->name('empleados.destroy_file');
 
     //--Marcas
     Route::get('marcas', [MarcasController::class, 'index'])->name('marcas.index');
@@ -76,4 +79,8 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('sucursales.edit/{id}', [SucursalesController::class, 'edit'])->name('sucursales.edit');
     Route::post('sucursales.update', [SucursalesController::class, 'update'])->name('sucursales.update');
     Route::get('sucursales.destroy/{id}', [SucursalesController::class, 'destroy'])->name('sucursales.destroy');
+
+    //--Eventos
+    Route::get('eventos', [EventosController::class, 'index'])->name('eventos.index');
+    Route::any('eventos.index.data', [EventosController::class, 'indexDT'])->name('eventos.index.data');
 });

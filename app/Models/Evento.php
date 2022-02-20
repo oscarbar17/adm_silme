@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Marca extends Model
+class Evento extends Model
 {
     use HasFactory;
 
-    protected $table = 'marcas';
+    protected $table = 'eventos';
 
     protected $fillable = [
-        'ma_nombre','ma_contacto','ma_telefono','ma_eliminado'
+        'empleado_id','productor_id','municipio_id','marca_id','producto_id','ev_superficie','ev_estatus'
     ];
 }
