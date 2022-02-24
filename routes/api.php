@@ -24,6 +24,7 @@ Route::post('empleados.get.data', [EmpleadosController::class, 'getDatosApi'])->
 Route::post('empleados.update', [EmpleadosController::class, 'updateAPI'])->name('empleados.update');
 
 //-- EVENTOS
+Route::post('evento.show', [EventosController::class, 'getEventoApi'])->name('evento.show');
 Route::post('eventos.get', [EventosController::class, 'getEventosApi'])->name('eventos.get');
 Route::post('eventos.store', [EventosController::class, 'storeApi'])->name('eventos.store');
 

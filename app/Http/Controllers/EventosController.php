@@ -92,6 +92,17 @@ class EventosController extends Controller
         
     }
 
+    public function getEventoApi(Request $request)
+    {
+        $evento = Evento::with(['sucursal','empleado','productor','municipio','marca','producto'])->findOrFail($request->get('evento_id'));
+
+        return response()->json([
+            'status'    => 'ok',
+            'evento'    => $evento
+            ], 200
+        ); 
+    }
+
     public function getEventosApi(Request $request)
     {
         $eventos = Evento::whereMonth('created_at',$request->get('mes'))
