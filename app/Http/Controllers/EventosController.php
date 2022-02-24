@@ -77,7 +77,8 @@ class EventosController extends Controller
             'ev_latitud'    => $request->get('ev_latitud'),
             'ev_longitud'   => $request->get('ev_longitud'),
             'ev_notas'      => $request->get('ev_notas'),
-            'ev_tipo_evento'=> $request->get('ev_tipo_evento')
+            'ev_tipo_evento'=> $request->get('ev_tipo_evento'),
+            'sucursal_id'   => $request->get('sucursal_id')
         ]);
 
         return response()->json([
