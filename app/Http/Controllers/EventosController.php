@@ -91,4 +91,18 @@ class EventosController extends Controller
         $evento = Evento::find($id);
         
     }
+
+    public function getEventosApi(Request $request)
+    {
+        $eventos = Evento::whereMonth('created_at',$request->get('mes'))
+                            ->whereYear('created_at',$request->get('anio'))
+                            ->where('empleado_id',$request->get('empleado_id'))
+                            ->get();
+
+        return response()->json([
+            'status'    => 'ok',
+            'eventos'   => $eventos
+            ], 200
+        );
+    }
 }

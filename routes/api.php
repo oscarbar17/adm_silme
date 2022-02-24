@@ -18,10 +18,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('login.store', [AuthController::class, 'storeApi'])->name('login.store');
+
+//-- EMPLEADOS
 Route::post('empleados.get.data', [EmpleadosController::class, 'getDatosApi'])->name('empleados.get.data');
 Route::post('empleados.update', [EmpleadosController::class, 'updateAPI'])->name('empleados.update');
 
+//-- EVENTOS
+Route::post('eventos.get', [EventosController::class, 'getEventosApi'])->name('eventos.get');
 Route::post('eventos.store', [EventosController::class, 'storeApi'])->name('eventos.store');
+
+//-- API DATA
 Route::post('api.data', [APIController::class, 'getAPIData'])->name('api.data');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
