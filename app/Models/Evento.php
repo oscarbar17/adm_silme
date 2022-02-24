@@ -12,7 +12,8 @@ class Evento extends Model
     protected $table = 'eventos';
 
     protected $fillable = [
-        'sucursal_id','empleado_id','productor_id','municipio_id','marca_id','producto_id','ev_superficie','ev_estatus'
+        'sucursal_id','empleado_id','productor_id','municipio_id','marca_id','producto_id','ev_superficie','ev_tipo_evento','ev_estatus',
+        'ev_tipo_cultivo','ev_latitud','ev_longitud','ev_notas'
     ];
 
     public function sucursal(){

@@ -46,7 +46,7 @@
 		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
 	</head>
 
-	<body class="app sidebar-mini dark-mode">
+	<body class="app sidebar-mini">
 
 		<!-- GLOBAL-LOADER -->
 		<div id="global-loader">

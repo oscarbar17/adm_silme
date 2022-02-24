@@ -160,25 +160,6 @@ class EmpleadosController extends Controller
     		}
     	}
 
-        if( $request->hasFile('ine_file') ){
-    		
-            $file = $request->file('ine_file');
-            
-            $destinationPath = storage_path()."/app/docs/".$request->get('id')."/"; // upload path
-    		
-            $fileName = $request->file('ine_file')->getClientOriginalName();
-            $extension = $request->file('ine_file')->extension();
-           
-    		$uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
-    		
-            $shortPath = "app/docs/".$request->get('id')."/".$fileName;
-
-    		if($uploadSuccess){
-                $empleado->em_path_ine = $shortPath;
-                $empleado->save();
-    		}
-    	}
-
         if( $request->hasFile('curp_file') ){
     		
             $file = $request->file('curp_file');
@@ -241,6 +222,61 @@ class EmpleadosController extends Controller
             'returnCode'    => '200',
             'msg'           => 'Empleado actualizado'
         ];
+    }
+
+    public function updateAPI(Request $request)
+    {
+        $empleado = Empleado::find($request->get('empleado_id'));   
+
+        $type = $request->get('type');
+
+        //Recibe archivo
+        $file = $request->file('file');
+            
+        $destinationPath = storage_path()."/app/docs/".$request->get('empleado_id')."/"; // upload path
+        
+        $fileName = $request->file('file')->getClientOriginalName();
+        $extension = $request->file('file')->extension();
+       
+        $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+        
+        $shortPath = "app/docs/".$request->get('empleado_id')."/".$fileName;
+
+        if($uploadSuccess){
+            
+            switch($type)
+            {
+                case 'ACTA':
+                    $empleado->em_path_acta = $shortPath;
+                    break;
+                case 'INE':
+                    $empleado->em_path_ine = $shortPath;
+                    break;
+                case 'CURP':
+                    $empleado->em_path_curp = $shortPath;
+                    break;
+                case 'COMPROBANTE_DOM':
+                    $empleado->em_path_comprobante_dom = $shortPath;
+                    break;
+                case 'CONTRATO':
+                    $empleado->em_contrato = $shortPath;
+                    break;
+            }
+            
+            $empleado->save();
+
+            return response()->json([
+                'status'    => 'ok',
+                'empleado'  => $empleado
+                ], 200
+            );
+        }    
+    		
+        return response()->json([
+            'status'    => 'Ocurrió un error',
+            ], 400
+        );
+    	
     }
 
     public function destroy($id)

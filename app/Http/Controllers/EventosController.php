@@ -72,7 +72,12 @@ class EventosController extends Controller
             'municipio_id'  => $request->get('municipio_id'),
             'marca_id'      => $request->get('marca_id'),
             'producto_id'   => $request->get('producto_id'),
-            'ev_superficie' => $request->get('ev_superficie')
+            'ev_superficie' => $request->get('ev_superficie'),
+            'ev_tipo_cultivo'=> $request->get('ev_tipo_cultivo'),
+            'ev_latitud'    => $request->get('ev_latitud'),
+            'ev_longitud'   => $request->get('ev_longitud'),
+            'ev_notas'      => $request->get('ev_notas'),
+            'ev_tipo_evento'=> $request->get('ev_tipo_evento')
         ]);
 
         return response()->json([

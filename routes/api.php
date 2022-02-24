@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('login.store', [AuthController::class, 'storeApi'])->name('login.store');
 Route::post('empleados.get.data', [EmpleadosController::class, 'getDatosApi'])->name('empleados.get.data');
+Route::post('empleados.update', [EmpleadosController::class, 'updateAPI'])->name('empleados.update');
 
 Route::post('eventos.store', [EventosController::class, 'storeApi'])->name('eventos.store');
 Route::post('api.data', [APIController::class, 'getAPIData'])->name('api.data');

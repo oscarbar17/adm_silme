@@ -22,7 +22,12 @@ class CreateEventosTable extends Migration
             $table->integer('marca_id');
             $table->integer('producto_id');
             $table->integer('ev_superficie');
+            $table->enum('ev_tipo_evento',['SALIDA A CAMPO','CAPACITACION','MOSTRADOR']);
             $table->enum('ev_estatus',['ABIERTO','CERRADO']);
+            $table->enum('ev_tipo_cultivo',['RIEGO','TEMPORAL']);
+            $table->integer('ev_latitud');
+            $table->integer('ev_longitud');
+            $table->text('ev_notas');
             $table->timestamps();
         });
     }
