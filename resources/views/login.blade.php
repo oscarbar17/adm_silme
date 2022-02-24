@@ -38,7 +38,7 @@
 
 	</head>
 
-	<body class="app sidebar-mini dark-mode">
+	<body class="app sidebar-mini">
 
 		
 
