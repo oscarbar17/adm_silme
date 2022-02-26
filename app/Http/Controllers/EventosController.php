@@ -93,7 +93,7 @@ class EventosController extends Controller
 
     public function show($id)
     {
-        $evento = Evento::with(['empleado','productor'])->find($id);
+        $evento = Evento::with(['empleado','productor','municipio'])->find($id);
 
         return view('eventos.eventos_show',[
             'evento'    => $evento
