@@ -105,7 +105,7 @@ class EventosController extends Controller
 
     public function getEventoApi(Request $request)
     {
-        $evento = Evento::with(['sucursal','empleado','productor','municipio','marca','producto'])->findOrFail($request->get('evento_id'));
+        $evento = Evento::with(['sucursal','empleado','productor','municipio','marca','producto','imagenes'])->findOrFail($request->get('evento_id'));
 
         return response()->json([
             'status'    => 'ok',
@@ -183,24 +183,5 @@ class EventosController extends Controller
         );
     }
 
-    public function displayImage($filename)
-    {
-
-        $path = storage_path('images/' . $filename);
     
-        if (!File::exists($path)) {
-            abort(404);
-        }
-
-        $file = File::get($path);
-
-        $type = File::mimeType($path);
-
-        $response = Response::make($file, 200);
-
-        $response->header("Content-Type", $type);
-
-        return $response;
-
-    }
 }
