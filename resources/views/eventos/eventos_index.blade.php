@@ -68,6 +68,7 @@
                                     <th class="wd-15p">Cultivo</th>
                                     <th class="wd-15p">Tipo de Cultivo</th>
                                     <th class="wd-20p">Municipio</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
