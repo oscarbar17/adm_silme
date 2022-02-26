@@ -260,7 +260,7 @@ class EmpleadosController extends Controller
                     $empleado->em_path_comprobante_dom = $shortPath;
                     break;
                 case 'CONTRATO':
-                    $empleado->em_contrato = $shortPath;
+                    $empleado->em_path_contrato = $shortPath;
                     break;
             }
             
