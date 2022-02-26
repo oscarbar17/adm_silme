@@ -273,6 +273,9 @@
 <br>
 Latitud
                         {{$evento->ev_latitud}}
+
+                        <iframe src="https://maps.google.com/maps?q={{$evento->ev_latitud}},{{$evento->ev_longitud}}&hl=en&z=14&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+
                     </div>
                 </div>
             </div>
