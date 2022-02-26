@@ -152,8 +152,8 @@ class EventosController extends Controller
                 
                 $destinationPath = storage_path()."/app/eventos/".$request->get('evento_id')."/"; // upload path
                 
-                $fileName = $request->file('file')->getClientOriginalName();
-                $extension = $request->file('file')->extension();
+                $fileName = $file->getClientOriginalName();
+                $extension = $file->extension();
             
                 $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
                 
