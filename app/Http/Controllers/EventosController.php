@@ -144,6 +144,8 @@ class EventosController extends Controller
     		
             foreach ($files as $key => $file) {
 
+                Log::info("In foreach...");
+
                 #$file = $request->file('file');
                 
                 $destinationPath = storage_path()."/app/eventos/".$request->get('evento_id')."/"; // upload path
@@ -155,6 +157,8 @@ class EventosController extends Controller
                 
                 $shortPath = "app/eventos/".$request->get('evento_id')."/".$fileName;
 
+                Log::info("ShortPath");
+                
                 if($uploadSuccess){
                     $eventoImagen = EventoImagen::create([
                         'evento_id'     => $evento->id,
