@@ -144,7 +144,7 @@ class EventosController extends Controller
 
             Log::info($files);
     		
-            foreach ($files as $key => $file) {
+            foreach($request->file('files') as $file)
 
                 Log::info("In foreach...");
 
