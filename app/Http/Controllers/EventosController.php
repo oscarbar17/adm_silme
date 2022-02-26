@@ -109,6 +109,7 @@ class EventosController extends Controller
         $eventos = Evento::whereMonth('created_at',$request->get('mes'))
                             ->whereYear('created_at',$request->get('anio'))
                             ->where('empleado_id',$request->get('empleado_id'))
+                            ->with(['productor','marca'])
                             ->get();
 
         return response()->json([

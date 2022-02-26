@@ -74,6 +74,7 @@ class EmpleadosController extends Controller
             'em_nombre'             => $request->get('em_nombre'),
             'em_apellido_paterno'   => $request->get('em_apellido_paterno'),
             'em_apellido_materno'   => $request->get('em_apellido_materno'),
+            'em_email'              => $request->get('em_email'),
             'em_fecha_nacimiento'   => $request->get('em_fecha_nacimiento'),
             'em_nss'                => $request->get('em_nss'),
             'em_curp'               => $request->get('em_curp'),

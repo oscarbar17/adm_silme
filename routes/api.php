@@ -4,6 +4,7 @@ use App\Http\Controllers\APIController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
+use App\Http\Controllers\ProductoresController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,9 @@ Route::post('empleados.update', [EmpleadosController::class, 'updateAPI'])->name
 Route::post('evento.show', [EventosController::class, 'getEventoApi'])->name('evento.show');
 Route::post('eventos.get', [EventosController::class, 'getEventosApi'])->name('eventos.get');
 Route::post('eventos.store', [EventosController::class, 'storeApi'])->name('eventos.store');
+
+//-- PRODUCTORES
+Route::post('productores.store', [ProductoresController::class, 'storeApi'])->name('productores.store');
 
 //-- API DATA
 Route::post('api.data', [APIController::class, 'getAPIData'])->name('api.data');

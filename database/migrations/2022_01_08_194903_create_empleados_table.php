@@ -20,6 +20,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('em_nombre');
             $table->string('em_apellido_paterno');
             $table->string('em_apellido_materno')->nullable();
+            $table->string('em_email');
             $table->date('em_fecha_nacimiento');
             $table->string('em_nss');
             $table->string('em_curp');

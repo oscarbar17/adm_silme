@@ -72,6 +72,23 @@ class ProductoresController extends Controller
         ];
     }
 
+    public function storeApi(Request $request)
+    {
+        $productor = Productor::create([
+            'producto_id'   => $request->get('producto_id'),
+            'pr_nombre'     => $request->get('pr_nombre'),
+            'pr_cultivo'    => $request->get('pr_cultivo'),
+            'pr_correo'     => $request->get('pr_correo'),
+            'pr_telefono'   => $request->get('pr_telefono'),
+            'pr_municipio'  => $request->get('pr_municipio')
+        ]);
+
+        return response()->json([
+            'status'    => 'Evento registrado'
+            ], 200
+        );
+    }
+
     public function edit($id)
     {
         $productor = Productor::find($id);
