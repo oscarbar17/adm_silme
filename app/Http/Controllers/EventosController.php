@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use App\Models\Evento;
+use App\Models\EventoImagen;
 use App\Models\Municipio;
 use App\Models\Producto;
 use App\Models\Sucursal;
@@ -51,7 +52,7 @@ class EventosController extends Controller
                 ->addColumn('opciones',function($row){
                     return '<div class="btn-list">
                             <div class="dropdown">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
@@ -81,8 +82,10 @@ class EventosController extends Controller
             'sucursal_id'   => $request->get('sucursal_id')
         ]);
 
+        
         return response()->json([
-            'status'    => 'Evento registrado'
+            'status'    => 'Evento registrado',
+            'evento'    => $evento
             ], 200
         );
     }
@@ -117,5 +120,51 @@ class EventosController extends Controller
             'eventos'   => $eventos
             ], 200
         );
+    }
+
+    public function updateApi(Request $request)
+    {
+        $evento = Evento::find($request->get('evento_id'));
+
+        $evento->ev_notas   = $request->get('ev_notas');
+        $evento->ev_estatus = $request->get('ev_estatus');
+        $evento->save();
+
+        //Recibe imagenes
+        if( $request->hasFile('files') ){
+
+            $files = $request->file('files');
+    		
+            foreach ($files as $key => $file) {
+
+                #$file = $request->file('file');
+                
+                $destinationPath = storage_path()."/app/eventos/".$request->get('evento_id')."/"; // upload path
+                
+                $fileName = $request->file('file')->getClientOriginalName();
+                $extension = $request->file('file')->extension();
+            
+                $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+                
+                $shortPath = "app/eventos/".$request->get('evento_id')."/".$fileName;
+
+                if($uploadSuccess){
+                    $eventoImagen = EventoImagen::create([
+                        'evento_id'     => $evento->id,
+                        'ei_path_imagen'=> $shortPath
+                    ]);
+                    
+                }
+            }
+    	}
+
+
+        return response()->json([
+            'status'    => 'ok',
+            'eventos'   => $evento
+            ], 200
+        );
+
+
     }
 }

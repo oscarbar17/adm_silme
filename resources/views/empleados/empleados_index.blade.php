@@ -11,7 +11,7 @@
         </ol>
     </div>
     <div class="ml-auto pageheader-btn">
-        <a href="{{route('empleados.create')}}" class="btn btn-secondary btn-action-modal btn-icon text-white"
+        <a href="{{route('empleados.create')}}" class="btn btn-success btn-action-modal btn-icon text-white"
                 data-toggle="modal" data-target="#modal-medium" >
             <span>
                 <i class="fe fe-plus"></i>

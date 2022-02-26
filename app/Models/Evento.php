@@ -39,4 +39,8 @@ class Evento extends Model
     public function producto(){
         return $this->belongsTo(Producto::class);
     }
+
+    public function imagenes(){
+        return $this->hasMany(EventoImagen::class);
+    }
 }

@@ -12,7 +12,7 @@
     </div>
     <div class="ml-auto pageheader-btn">
         <div class="btn-list">
-            <a href="{{route('marcas.create')}}" class="btn btn-info btn-icon text-white btn-action-modal" 
+            <a href="{{route('marcas.create')}}" class="btn btn-success btn-icon text-white btn-action-modal" 
                     data-toggle="modal" data-target="#modal-medium">
                 <span>
                     <i class="fe fe-plus"></i> Agregar Marca

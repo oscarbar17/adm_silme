@@ -19,14 +19,14 @@ class ProductoresController extends Controller
     public function indexDT(Request $request)
     {
         $productores = Productor::where([
-            //'pr_eliminado'  => false
+            'pr_eliminado'  => false
         ])->with(['producto','municipio'])->get();
 
         return DataTables::of($productores)
                 ->addColumn('opciones',function($row){
                     return '<div class="btn-list">
                             <div class="dropdown">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
@@ -45,7 +45,7 @@ class ProductoresController extends Controller
     {
         $productos = Producto::where([
             'pr_eliminado'  => false
-        ])->get();
+        ])->orderBy('pr_nombre','asc')->get();
 
         $municipios = Municipio::orderBy('mu_nombre','asc')->get();
 
@@ -63,7 +63,7 @@ class ProductoresController extends Controller
             'pr_cultivo'    => $request->get('pr_cultivo'),
             'pr_correo'     => $request->get('pr_correo'),
             'pr_telefono'   => $request->get('pr_telefono'),
-            'pr_municipio'  => $request->get('pr_municipio')
+            'municipio_id'  => $request->get('municipio_id')
         ]);
 
         return [
@@ -80,11 +80,11 @@ class ProductoresController extends Controller
             'pr_cultivo'    => $request->get('pr_cultivo'),
             'pr_correo'     => $request->get('pr_correo'),
             'pr_telefono'   => $request->get('pr_telefono'),
-            'pr_municipio'  => $request->get('pr_municipio')
+            'municipio_id'  => $request->get('municipio_id')
         ]);
 
         return response()->json([
-            'status'    => 'Evento registrado'
+            'status'    => 'Productor registrado'
             ], 200
         );
     }
@@ -95,7 +95,7 @@ class ProductoresController extends Controller
         
         $productos = Producto::where([
             'pr_eliminado'  => false
-        ])->get();
+        ])->orderBy('pr_nombre','asc')->get();
 
         $municipios = Municipio::orderBy('mu_nombre','asc')->get();
 
@@ -106,9 +106,21 @@ class ProductoresController extends Controller
         ]);
     }
 
-    public function update()
+    public function update(Request $request)
     {
+        $productor = Productor::findOrFail($request->get('id'));
+        $productor->producto_id = $request->get('producto_id');
+        $productor->pr_nombre   = $request->get('pr_nombre');
+        $productor->pr_cultivo  = $request->get('pr_cultivo');
+        $productor->pr_correo   = $request->get('pr_correo');
+        $productor->pr_telefono = $request->get('pr_telefono');
+        $productor->municipio_id= $request->get('municipio_id');
+        $productor->save();
 
+        return [
+            'returnCode'    => '200',
+            'msg'           => 'Productor actualizado'
+        ];
     }
 
     public function destroy($id)

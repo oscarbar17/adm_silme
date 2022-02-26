@@ -28,6 +28,7 @@ Route::post('empleados.update', [EmpleadosController::class, 'updateAPI'])->name
 Route::post('evento.show', [EventosController::class, 'getEventoApi'])->name('evento.show');
 Route::post('eventos.get', [EventosController::class, 'getEventosApi'])->name('eventos.get');
 Route::post('eventos.store', [EventosController::class, 'storeApi'])->name('eventos.store');
+Route::post('eventos.update', [EventosController::class, 'updateApi'])->name('eventos.update');
 
 //-- PRODUCTORES
 Route::post('productores.store', [ProductoresController::class, 'storeApi'])->name('productores.store');
