@@ -44,6 +44,9 @@
 		
 		<!-- INTERNAL SWEET ALERT CSS -->
 		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
+
+		<!-- INTERNAL GALLERY CSS -->
+		<link href="{{asset('assets/plugins/gallery/gallery.css')}}" rel="stylesheet">
 	</head>
 
 	<body class="app sidebar-mini">
@@ -630,6 +633,17 @@
 		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
 		
 		<script src="{{asset('assets/plugins/validate/jquery.validate.js')}}"></script>
+
+		<!-- INTERNAL GALLERY JS -->
+		<script src="{{asset('assets/plugins/gallery/picturefill.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lightgallery.js')}}"></script>
+		<script src="{{asset('assets/plugins/gallery/lightgallery-1.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lg-pager.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lg-autoplay.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lg-fullscreen.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lg-zoom.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lg-hash.js')}}"></script>
+        <script src="{{asset('assets/plugins/gallery/lg-share.js')}}"></script>
 
 		<script>
 			

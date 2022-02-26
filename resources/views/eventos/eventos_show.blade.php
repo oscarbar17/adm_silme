@@ -138,128 +138,32 @@
                 </div>
             </div>
             <div class="tab-pane" id="tab-61">
-                <ul class="widget-users row">
-                    <li class="col-lg-4  col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <span class="avatar avatar-xxl brround cover-image" data-image-src="../../assets/images/users/15.jpg"></span>
-                                <h4 class="h4 mb-0 mt-3">James Thomas</h4>
-                                <p class="card-text">Web designer</p>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    <li class="col-lg-4 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <span class="avatar avatar-xxl brround cover-image" data-image-src="../../assets/images/users/9.jpg"></span>
-                                <h4 class="h4 mb-0 mt-3">George Clooney</h4>
-                                <p class="card-text">Web designer</p>
-                            </div>
-                            <div class="card-footer text-center">
-                                <div class="row user-social-detail">
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-facebook text-blue" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-google-plus text-danger" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-twitter text-info" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-lg-4 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <span class="avatar avatar-xxl brround cover-image" data-image-src="../../assets/images/users/20.jpg"></span>
-                                <h4 class="h4 mb-0 mt-3">Robert Downey Jr.</h4>
-                                <p class="card-text">Web designer</p>
-                            </div>
-                            <div class="card-footer text-center">
-                                <div class="row user-social-detail">
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-facebook text-blue" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-google-plus text-danger" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-twitter text-info" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-lg-4 col-md-6 col-sm-12 col-12">
-                        <div class="card mb-lg-0">
-                            <div class="card-body text-center">
-                                <span class="avatar avatar-xxl brround cover-image" data-image-src="../../assets/images/users/12.jpg"></span>
-                                <h4 class="h4 mb-0 mt-3">Emma Watson</h4>
-                                <p class="card-text">Web designer</p>
-                            </div>
-                            <div class="card-footer text-center">
-                                <div class="row user-social-detail">
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-facebook text-blue" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-google-plus text-danger" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-twitter text-info" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-lg-4 col-md-6 col-sm-12 col-12">
-                        <div class="card mb-lg-0">
-                            <div class="card-body text-center">
-                                <span class="avatar avatar-xxl brround cover-image" data-image-src="../../assets/images/users/4.jpg"></span>
-                                <h4 class="h4 mb-0 mt-3">Mila Kunis</h4>
-                                <p class="card-text">Web designer</p>
-                            </div>
-                            <div class="card-footer text-center">
-                                <div class="row user-social-detail">
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-facebook text-blue" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-google-plus text-danger" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-twitter text-info" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-lg-4 col-md-6 col-sm-12 col-12">
-                        <div class="card mb-0">
-                            <div class="card-body text-center">
-                                <span class="avatar avatar-xxl brround cover-image" data-image-src="../../assets/images/users/6.jpg"></span>
-                                <h4 class="h4 mb-0 mt-3">Ryan Gossling</h4>
-                                <p class="card-text">Web designer</p>
-                            </div>
-                            <div class="card-footer text-center">
-                                <div class="row user-social-detail">
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-facebook text-blue" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-google-plus text-danger" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-4">
-                                        <a href="#"><i class="fa fa-twitter text-info" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <div class="card-body">
+                    <ul id="lightgallery" class="list-unstyled row">
+                        <li class="col-xs-6 col-sm-4 col-md-4 col-xl-4 mb-5 border-bottom-0" data-responsive="{{asset('assets/images/media/1.jpg')}}" data-src="{{asset('assets/images/media/1.jpg')}}" data-sub-html="<h4>Gallery Image 1</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+                            <a href="">
+                                <img class="img-responsive" src="{{asset('assets/images/media/1.jpg')}}" alt="Thumb-1">
+                            </a>
+                        </li>
+                        <li class="col-xs-6 col-sm-4 col-md-4 col-xl-4 mb-5 border-bottom-0" data-responsive="{{asset('assets/images/media/2.jpg')}}" data-src="{{asset('assets/images/media/2.jpg')}}" data-sub-html="<h4>Gallery Image 2</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+                            <a href="">
+                                <img class="img-responsive" src="{{asset('assets/images/media/2.jpg')}}" alt="Thumb-2">
+                            </a>
+                        </li>
+                        <li class="col-xs-6 col-sm-4 col-md-4 col-xl-4 mb-5 border-bottom-0" data-responsive="{{asset('assets/images/media/3.jpg')}}" data-src="{{asset('assets/images/media/3.jpg')}}" data-sub-html="<h4>Gallery Image 3</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+                            <a href="">
+                                <img class="img-responsive" src="{{asset('assets/images/media/3.jpg')}}" alt="Thumb-1">
+                            </a>
+                        </li>
+                        @foreach($evento->imagenes as $imagen)
+                            <li class="col-xs-6 col-sm-4 col-md-4 col-xl-4 mb-5 border-bottom-0" data-responsive="{{asset('assets/images/media/3.jpg')}}" data-src="{{asset('assets/images/media/3.jpg')}}" data-sub-html="<h4>Gallery Image 3</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+                                <a href="">
+                                    <img class="img-responsive" src="{{storage_path().$imagen->ei_path_imagen}}" alt="Thumb-1">
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
             <div class="tab-pane" id="tab-71">
                 <div class="card">
@@ -267,15 +171,7 @@
                         
                     </div>
                     <div class="card-body">
-
-                    Longitud: 
-                        {{$evento->ev_longitud}}
-<br>
-Latitud
-                        {{$evento->ev_latitud}}
-
                         <iframe src="https://maps.google.com/maps?q={{$evento->ev_latitud}},{{$evento->ev_longitud}}&hl=en&z=14&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-
                     </div>
                 </div>
             </div>
