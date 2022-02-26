@@ -86,7 +86,7 @@
 @stop 
 @push('scripts')
 <script>
-var oTableMarcas = $('#table-marcas').DataTable({
+var oTableEventos = $('#table-marcas').DataTable({
         "bInfo" : false,
 		processing: true,
 		serverSide: true,
@@ -128,7 +128,7 @@ var oTableMarcas = $('#table-marcas').DataTable({
                 $.get(route, function(response){
 					if (response.returnCode == 200) {
 						swal("¡Hecho!", response.msg , "success");
-                        oTableMarcas.draw();
+                        oTableEventos.draw();
 					}else{
 						swal("¡Error al eliminar!", "¡Por favor intenta nuevamente!", "error");
 					}

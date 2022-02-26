@@ -56,8 +56,8 @@ class EventosController extends Controller
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item btn-action-modal" href="'.route('eventos.show',[$row->id]).'"
-                                            data-toggle="modal" data-target="#modal-large">Detalles del Evento</a>
+                                    <a class="dropdown-item" href="'.route('eventos.show',[$row->id]).'"
+                                            >Detalles del Evento</a>
                                 </div>
                             </div>';
                 })
@@ -92,7 +92,11 @@ class EventosController extends Controller
 
     public function show($id)
     {
-        $evento = Evento::find($id);
+        $evento = Evento::with(['empleado','productor'])->find($id);
+
+        return view('eventos.eventos_show',[
+            'evento'    => $evento
+        ]);
         
     }
 
