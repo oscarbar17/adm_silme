@@ -25,8 +25,8 @@ class CreateEventosTable extends Migration
             $table->enum('ev_tipo_evento',['SALIDA A CAMPO','CAPACITACION','MOSTRADOR']);
             $table->enum('ev_estatus',['ABIERTO','CERRADO']);
             $table->enum('ev_tipo_cultivo',['RIEGO','TEMPORAL']);
-            $table->integer('ev_latitud');
-            $table->integer('ev_longitud');
+            $table->double('ev_latitud');
+            $table->double('ev_longitud');
             $table->text('ev_notas');
             $table->timestamps();
         });
