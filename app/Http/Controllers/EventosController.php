@@ -10,6 +10,7 @@ use App\Models\Producto;
 use App\Models\Sucursal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\Facades\DataTables;
 
 class EventosController extends Controller
@@ -137,6 +138,8 @@ class EventosController extends Controller
         //Recibe imagenes
         if( $request->hasFile('files') ){
 
+            Log::info("trae archivos");
+
             $files = $request->file('files');
     		
             foreach ($files as $key => $file) {
@@ -160,7 +163,9 @@ class EventosController extends Controller
                     
                 }
             }
-    	}
+    	}else{
+            Log::info("No vienen archivos");
+        }
 
 
         return response()->json([
