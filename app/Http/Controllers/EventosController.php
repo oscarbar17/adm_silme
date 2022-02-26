@@ -10,7 +10,9 @@ use App\Models\Producto;
 use App\Models\Sucursal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\Facades\DataTables;
 
 class EventosController extends Controller
@@ -179,7 +181,26 @@ class EventosController extends Controller
             'eventos'   => $evento
             ], 200
         );
+    }
 
+    public function displayImage($filename)
+    {
+
+        $path = storage_path('images/' . $filename);
+    
+        if (!File::exists($path)) {
+            abort(404);
+        }
+
+        $file = File::get($path);
+
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+
+        $response->header("Content-Type", $type);
+
+        return $response;
 
     }
 }

@@ -84,4 +84,8 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('eventos', [EventosController::class, 'index'])->name('eventos.index');
     Route::any('eventos.index.data', [EventosController::class, 'indexDT'])->name('eventos.index.data');
     Route::get('evento/{id}', [EventosController::class, 'show'])->name('eventos.show');
+
+    Route::get('image/{filename}', [EventosController::class, 'displayImage'])->name('image.displayImage');
+
+
 });

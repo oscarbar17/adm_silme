@@ -158,7 +158,7 @@
                         @foreach($evento->imagenes as $imagen)
                             <li class="col-xs-6 col-sm-4 col-md-4 col-xl-4 mb-5 border-bottom-0" data-responsive="{{asset('assets/images/media/3.jpg')}}" data-src="{{asset('assets/images/media/3.jpg')}}" data-sub-html="<h4>Gallery Image 3</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
                                 <a href="">
-                                    <img class="img-responsive" src="{{storage_path($imagen->ei_path_imagen)}}" alt="Thumb-1">
+                                    <img class="img-responsive" src="{{ route('image.displayImage',$imagen->ei_path_imagen) }}" alt="Thumb-1">
                                 </a>
                             </li>
                         @endforeach
