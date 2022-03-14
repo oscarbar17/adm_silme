@@ -17,6 +17,7 @@ class ChecksController extends Controller
             'sucursal_id' => 'required'
         ]);
         
+        
         $check = Check::create([
             'empleado_id'           => $request->get('empleado_id'),
             'sucursal_id'           => $request->get('sucursal_id'),
