@@ -19,12 +19,18 @@ class ChecksController extends Controller
             'sucursal_id' => 'required'
         ]);
         */
+        $file = $request->file('ch_photo_check_in');
+        $destinationPath = public_path()."/storage/checks/".$request->get('empleado_id')."/"; // upload path
         
+        $fileName = $file->getClientOriginalName();
+        $extension = $file->extension();
+        $shortPath = "storage/checks/".$request->get('empleado_id')."/".$fileName;
+
         $check = Check::create([
             'empleado_id'           => $request->get('empleado_id'),
             'sucursal_id'           => $request->get('sucursal_id'),
             'ch_check_in'           => $request->get('ch_check_in'),
-            'ch_photo_check_in'     => $request->get('ch_photo_check_in'),
+            'ch_photo_check_in'     => $shortPath,
             'ch_latitud_check_in'   => $request->get('ch_latitud_check_in'),
             'ch_longitud_check_in'  => $request->get('ch_longitud_check_in')
         ]);
