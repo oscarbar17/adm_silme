@@ -32,6 +32,8 @@
                         <tr>
                             <th class="wd-15p">ID</th>
                             <th class="wd-15p">Marca</th>
+                            <th class="wd-15p">Teléfono</th>
+                            <th class="wd-15p">Correo</th>
                             <th class="wd-15p">Contacto</th>
                             <th class="wd-20p"></th>
                         </tr>
@@ -64,6 +66,8 @@ var oTableMarcas = $('#table-marcas').DataTable({
 		columns: [
             { data: 'id', name: 'id'},
 			{ data: 'ma_nombre', name: 'ma_nombre'},
+            { data: 'ma_telefono', name: 'ma_telefono'},
+            { data: 'ma_correo', name: 'ma_correo'},
             { data: 'ma_contacto', name: 'ma_contacto'},
             { data: 'opciones', name: 'opciones'},
 			

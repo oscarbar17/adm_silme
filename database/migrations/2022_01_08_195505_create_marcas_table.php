@@ -17,6 +17,7 @@ class CreateMarcasTable extends Migration
             $table->id();
             $table->string('ma_nombre');
             $table->string('ma_contacto')->nullable();
+            $table->string('ma_correo')->nullable();
             $table->string('ma_telefono')->nullable();
             $table->boolean('ma_eliminado')->default(false);
             $table->timestamps();

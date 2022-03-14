@@ -48,7 +48,24 @@ class ProductosSeeder extends Seeder
         Producto::create([
             'pr_nombre' => 'Aguacate'
         ]);
-
+        Producto::create([
+            'pr_nombre' => 'Cacahuate'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Jicama'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Papaya'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Tomate'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Pepino'
+        ]);
+        Producto::create([
+            'pr_nombre' => 'Albahaca'
+        ]);
     
     }
 }

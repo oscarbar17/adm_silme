@@ -17,6 +17,10 @@
             <input type="text" name="ma_contacto" value="{{$marca->ma_contacto}}" class="form-control">
         </div>
         <div class="form-group">
+            <label for="message-text" class="form-control-label">Correo:</label>
+            <input type="text" name="ma_correo" value="{{$marca->ma_correo}}" class="form-control">
+        </div>
+        <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono:</label>
             <input type="text" name="ma_telefono" value="{{$marca->ma_telefono}}" class="form-control">
         </div>
@@ -35,6 +39,10 @@
             ma_telefono: {
                 required: true,
                 minlength: 10
+            },
+            ma_correo: {
+                required: true,
+                email: true
             }
         },
         messages: {
@@ -43,6 +51,10 @@
             ma_telefono: {
                 required: "Campo requerido",
                 minlength: "Ingresa un número de al menos 10 dígitos"
+            },
+            ma_correo: {
+                required: "Campo requerido",
+                email: "Ingresa un correo válido"
             }
         },
         submitHandler: function (form) {

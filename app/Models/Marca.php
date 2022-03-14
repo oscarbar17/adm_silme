@@ -12,6 +12,6 @@ class Marca extends Model
     protected $table = 'marcas';
 
     protected $fillable = [
-        'ma_nombre','ma_contacto','ma_telefono','ma_eliminado'
+        'ma_nombre','ma_contacto','ma_correo','ma_telefono','ma_eliminado'
     ];
 }

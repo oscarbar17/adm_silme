@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChecksController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\ProductoresController;
@@ -32,6 +33,10 @@ Route::post('eventos.update', [EventosController::class, 'updateApi'])->name('ev
 
 //-- PRODUCTORES
 Route::post('productores.store', [ProductoresController::class, 'storeApi'])->name('productores.store');
+
+//-- CHECKS
+Route::post('checks.store', [ChecksController::class, 'storeApi'])->name('checks.store');
+Route::post('checks.update', [ChecksController::class, 'updateApi'])->name('checks.update');
 
 //-- API DATA
 Route::post('api.data', [APIController::class, 'getAPIData'])->name('api.data');
