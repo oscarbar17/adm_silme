@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Check;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
 class ChecksController extends Controller
@@ -11,12 +12,13 @@ class ChecksController extends Controller
     //
     public function storeApi(Request $request)
     {
-        
+        Log::info("ChecksController@storeApi");
+        /*
         $validated = $request->validate($request, [
             'empleado_id' => 'required',
             'sucursal_id' => 'required'
         ]);
-        
+        */
         
         $check = Check::create([
             'empleado_id'           => $request->get('empleado_id'),
