@@ -37,6 +37,7 @@ Route::post('productores.store', [ProductoresController::class, 'storeApi'])->na
 //-- CHECKS
 Route::post('checks.store', [ChecksController::class, 'storeApi'])->name('checks.store');
 Route::post('checks.update', [ChecksController::class, 'updateApi'])->name('checks.update');
+Route::post('checks.last', [ChecksController::class, 'getLastActiveCheck'])->name('checks.last');
 
 //-- API DATA
 Route::post('api.data', [APIController::class, 'getAPIData'])->name('api.data');

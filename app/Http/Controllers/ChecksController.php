@@ -63,4 +63,24 @@ class ChecksController extends Controller
         'ch_latitud_check_in','ch_longitud_check_in','ch_latitud_check_out','ch_longitud_check_out'
         */
     }
+
+    public function getLastActiveCheck(Request $request)
+    {
+        $check = Check::where([
+            'empleado_id'   => $request->get('empleado_id')
+        ])->orderBy('id','desc')->first();
+
+        if(is_null($check)){
+            return response()->json([
+                'status'    => 'Sin eventos activos'
+                ], 400
+            );    
+        }
+
+        return response()->json([
+            'status'    => 'Evento activo',
+            'evento'    => $check
+            ], 200
+        );
+    }
 }
