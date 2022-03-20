@@ -296,7 +296,7 @@ class EmpleadosController extends Controller
     {
         $empleado_id = $request->get('empleado_id');
 
-        $empleado = Empleado::find($empleado_id);
+        $empleado = Empleado::with(['sucursal'])->find($empleado_id);
 
         if($empleado){
             

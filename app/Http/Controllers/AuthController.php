@@ -201,7 +201,7 @@ class AuthController extends Controller
 
         $empleado = Empleado::where([
             'user_id'   => $usuario->id
-        ])->first();
+        ])->with(['sucursal'])->first();
 
         return response()->json([
             'status'    => 'ok',
