@@ -48,11 +48,11 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Fecha de Nacimiento:</label>
-            <input type="text" name="em_fecha_nacimiento" class="form-control fc-datepicker">
+            <input type="date" name="em_fecha_nacimiento" class="form-control fc-datepicker">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Fecha de Antigüedad:</label>
-            <input type="text" name="em_fecha_antiguedad" class="form-control fc-datepicker">
+            <input type="date" name="em_fecha_antiguedad" class="form-control fc-datepicker">
         </div>
     
     </div>

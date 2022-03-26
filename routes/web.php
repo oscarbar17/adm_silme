@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChecksController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\HomeController;
@@ -81,9 +82,14 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('sucursales.destroy/{id}', [SucursalesController::class, 'destroy'])->name('sucursales.destroy');
 
     //--Eventos
-    Route::get('eventos', [EventosController::class, 'index'])->name('eventos.index');
-    Route::any('eventos.index.data', [EventosController::class, 'indexDT'])->name('eventos.index.data');
-    Route::get('evento/{id}', [EventosController::class, 'show'])->name('eventos.show');
+    Route::get('events', [EventosController::class, 'index'])->name('events.index');
+    Route::any('events.index.data', [EventosController::class, 'indexDT'])->name('events.index.data');
+    Route::get('event/{id}', [EventosController::class, 'show'])->name('events.show');
+
+    //--Checks
+    Route::get('checks', [ChecksController::class, 'index'])->name('checks.index');
+    Route::any('checks.index.data', [ChecksController::class, 'indexDT'])->name('checks.index.data');
+    Route::get('check/{id}', [ChecksController::class, 'show'])->name('checks.show');
 
 
 });

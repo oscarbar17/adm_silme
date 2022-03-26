@@ -22,7 +22,7 @@ class ModulosSeeder extends Seeder
             'mo_orden'			=> 1,
             'mo_ruta'           => '',
             'mo_atributos'      => 'id="m-empleados"',
-            'mo_icono'			=> 'fa fa-user',
+            'mo_icono'			=> 'fa fa-users',
             'mo_publicado'		=> true
         ]);
         ModRolHelper::set($mod->id);
@@ -45,7 +45,7 @@ class ModulosSeeder extends Seeder
             'mo_orden'			=> 1,
             'mo_ruta'           => '',
             'mo_atributos'      => 'id="m-catalogos"',
-            'mo_icono'			=> 'fa fa-list',
+            'mo_icono'			=> 'fa fa-book',
             'mo_publicado'		=> true
         ]);
         ModRolHelper::set($mod->id);
@@ -84,14 +84,13 @@ class ModulosSeeder extends Seeder
         ModRolHelper::set($modHijo->id);
 
         //Eventos
-         //Catalogos
          $mod = Modulo::create([
             'parent_id'         => null,
             'mo_descripcion'    => 'Eventos' ,
             'mo_orden'			=> 1,
             'mo_ruta'           => '',
             'mo_atributos'      => 'id="m-eventos"',
-            'mo_icono'			=> 'fa fa-list',
+            'mo_icono'			=> 'fa fa-map-marker',
             'mo_publicado'		=> true
         ]);
         ModRolHelper::set($mod->id);
@@ -100,9 +99,32 @@ class ModulosSeeder extends Seeder
             'parent_id'         => $mod->id,
             'mo_descripcion'    => 'Eventos o Ventas' ,
             'mo_orden'			=> 1,
-            'mo_ruta'           => 'eventos.index',
+            'mo_ruta'           => 'events.index',
             'mo_atributos'      => ' id="m-eventos-ventas" ',
             'mo_icono'	    => 'fa fa-users',
+            'mo_publicado'	    => true
+        ]);
+        ModRolHelper::set($modHijo->id);
+
+        //Checks
+        $mod = Modulo::create([
+            'parent_id'         => null,
+            'mo_descripcion'    => 'Checks' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => '',
+            'mo_atributos'      => 'id="m-checks"',
+            'mo_icono'			=> 'fa fa-map-marker',
+            'mo_publicado'		=> true
+        ]);
+        ModRolHelper::set($mod->id);
+
+        $modHijo = Modulo::create([
+            'parent_id'         => $mod->id,
+            'mo_descripcion'    => 'Checks' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => 'checks.index',
+            'mo_atributos'      => ' id="m-checks-hijo" ',
+            'mo_icono'	        => '',
             'mo_publicado'	    => true
         ]);
         ModRolHelper::set($modHijo->id);

@@ -27,6 +27,7 @@ class EventosController extends Controller
         ->select(['id',
                 DB::raw('CONCAT(em_nombre , " " , em_apellido_paterno) as nombre')
                 ])
+        ->orderBy('nombre','asc')
         ->get();
 
         $cultivos = Producto::where(['pr_eliminado' => false])
@@ -46,7 +47,33 @@ class EventosController extends Controller
     {
         $eventos = Evento::with([
                         'sucursal','municipio','empleado','productor','producto'
-                    ])->get();
+                    ]);
+
+        if($request->sucursal_id != ""){
+            $eventos = $eventos->where('sucursal_id',$request->sucursal_id);
+        }
+
+        if($request->empleado_id != ""){
+            $eventos = $eventos->where('empleado_id',$request->empleado_id);
+        }
+
+        if($request->producto_id != ""){
+            $eventos = $eventos->where('producto_id',$request->producto_id);
+        }
+
+        if($request->municipio_id != ""){
+            $eventos = $eventos->where('municipio_id',$request->municipio_id);
+        }
+
+        if($request->fecha_inicio != ""){
+            $eventos = $eventos->where('created_at','>=',$request->fecha_inicio);
+        }
+
+        if($request->fecha_fin != ""){
+            $eventos = $eventos->where('created_at','<=',$request->fecha_fin);
+        }
+
+        $eventos = $eventos->get();
 
         return DataTables::of($eventos)
                 ->addColumn('empleado',function($row){
@@ -59,7 +86,7 @@ class EventosController extends Controller
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="'.route('eventos.show',[$row->id]).'"
+                                    <a class="dropdown-item" href="'.route('events.show',[$row->id]).'"
                                             >Detalles del Evento</a>
                                 </div>
                             </div>';

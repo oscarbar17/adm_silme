@@ -3,13 +3,76 @@
 namespace App\Http\Controllers;
 
 use App\Models\Check;
+use App\Models\Empleado;
+use App\Models\Sucursal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
+use Yajra\DataTables\Facades\DataTables;
 
 class ChecksController extends Controller
 {
     //
+    public function index()
+    {
+        $sucursales = Sucursal::where(['su_eliminado' => false])
+        ->orderBy('su_nombre','asc')->get();
+
+        $empleados = Empleado::where(['em_eliminado' => false])
+        ->select(['id',
+            DB::raw('CONCAT(em_nombre , " " , em_apellido_paterno) as nombre')
+            ])
+        ->get();
+
+        return view('checks.checks_index',[
+            'sucursales'    => $sucursales,
+            'empleados'     => $empleados
+        ]);
+    }
+
+    public function indexDT(Request $request)
+    {
+        $checks = Check::with(['empleado','sucursal'])->get();
+        
+        if($request->sucursal_id != ""){
+            $checks = $checks->where('sucursal_id',$request->sucursal_id);
+        }
+
+        if($request->empleado_id != ""){
+            $checks = $checks->where('empleado_id',$request->empleado_id);
+        }
+
+        return DataTables::of($checks)
+                ->addColumn('empleado',function($row){
+                    return $row->empleado->em_nombre . ' ' . $row->empleado->em_apellido_paterno;
+                })
+                ->addColumn('opciones',function($row){
+                    return '<div class="btn-list">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="'.route('checks.show',[$row->id]).'"
+                                            >Detalles del Check</a>
+                                </div>
+                            </div>';
+                })
+                ->rawColumns(['opciones'])
+                ->make(true);
+    }
+
+    public function show($id)
+    {
+        $evento = Check::with(['empleado','sucursal'])->find($id);
+
+        return view('eventos.eventos_show',[
+            'evento'    => $evento
+        ]);
+        
+    }
+
     public function storeApi(Request $request)
     {
         Log::info("ChecksController@storeApi");
@@ -24,6 +87,7 @@ class ChecksController extends Controller
         
         $fileName = $file->getClientOriginalName();
         $extension = $file->extension();
+        $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
         $shortPath = "storage/checks/".$request->get('empleado_id')."/".$fileName;
 
         $check = Check::create([
@@ -46,9 +110,17 @@ class ChecksController extends Controller
     public function updateApi(Request $request)
     {
         $check = Check::find($request->get('check_id'));
+        $file = $request->file('ch_photo_check_out');
+        $destinationPath = public_path()."/storage/checks/".$request->get('empleado_id')."/"; // upload path
+        
+        $fileName = $file->getClientOriginalName();
+        $extension = $file->extension();
+        $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
+        $shortPath = "storage/checks/".$request->get('empleado_id')."/".$fileName;
+
         $check->update([
             'ch_check_out'      => $request->get('ch_check_out'),
-            'ch_photo_check_out'=> $request->get('ch_photo_check_out'),
+            'ch_photo_check_out'=> $shortPath,
             'ch_latitud_check_out'=> $request->get('ch_latitud_check_out'),
             'ch_longitud_check_out'=> $request->get('ch_longitud_check_out')
         ]);

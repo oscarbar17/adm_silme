@@ -18,7 +18,7 @@ class UsersSeeder extends Seeder
         //
         User::create([
             'name'  => 'Admin',
-            'email' => 'admin@lazafra.com',
+            'email' => 'admin@silme.com',
             'email_verified_at' => Carbon::now(),
             'password'  => bcrypt('admin*123'),
             'rol_id'  => 1,
