@@ -184,6 +184,8 @@ class EventosController extends Controller
                 $fileName = $file->getClientOriginalName();
                 $extension = $file->extension();
             
+                if(!is_dir($destinationPath)) mkdir($destinationPath);
+
                 $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
                 
                 $shortPath = "storage/eventos/".$request->get('evento_id')."/".$fileName;
