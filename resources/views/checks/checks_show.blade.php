@@ -99,8 +99,6 @@
                                         <tr>
                                             <td><strong>Nombre Completo :</strong> {{$check->empleado->em_nombre}} {{$check->empleado->em_apellido_paterno}} {{$check->empleado->em_apellido_materno}}</td>
                                         </tr>
-                                    </tbody>
-                                    <tbody class="col-lg-12 col-xl-6 p-0">
                                         <tr>
                                             <td><strong>Fecha :</strong> {{Carbon\Carbon::parse($check->created_at)->format('d-M-y')}}</td>
                                         </tr>
@@ -140,7 +138,13 @@
                         
                     </div>
                     <div class="card-body">
+                        <h4>Check in</h4>
                         <iframe src="https://maps.google.com/maps?q={{$check->ch_latitud_check_in}},{{$check->ch_longitud_check_in}}&hl=en&z=14&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <br>
+                        @if($check->ch_photo_check_out)
+                        <h4>Check out</h4>
+                        <iframe src="https://maps.google.com/maps?q={{$check->ch_latitud_check_out}},{{$check->ch_longitud_check_out}}&hl=en&z=14&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        @endif
                     </div>
                 </div>
             </div>
