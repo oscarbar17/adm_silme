@@ -7,7 +7,7 @@
         <h1 class="page-title">Bienvenido a {{env('APP_NAME')}}</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Sales Dashboard</li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
         </ol>
     </div>
     <div class="ml-auto pageheader-btn">
@@ -42,41 +42,6 @@
 </div>
 <!-- PAGE-HEADER END -->
 
-<!-- ROW-1 -->
-<div class="row">
-    <div class="col-md-12">
-        <div class="card  banner">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-2 text-center">
-                        <img src="../../assets/images/pngs/profit.png" alt="img" class="w-95">
-                    </div>
-                    <div class="col-xl-9 col-lg-10 pl-lg-0">
-                        <div class="row">
-                            <div class="col-xl-7 col-lg-6">
-                                <div class="text-left text-white mt-xl-4">
-                                    <h3 class="font-weight-semibold">Congratulations Steven</h3>
-                                    <h4 class="font-weight-normal">You are Reached your targeted milestone</h4>
-                                    <p class="mb-lg-0 text-white-50">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-lg-6 text-lg-center mt-xl-4">
-                                <h5 class="font-weight-semibold mb-1 text-white">This Month Sales Profit Today</h5>
-                                <h2 class="display-2 mb-3 number-font text-white">$10M</h2>
-                                <div class="btn-list mb-xl-0">
-                                    <a href="#" class="btn btn-dark mb-xl-0">Check Details</a>
-                                    <a href="#" class="btn btn-white mb-xl-0" id="skip">No, Thanks</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ROW-1 End-->
-
 <!-- Row -->
 <div class="row">
     <div class="col-xl-3 col-sm-6">
@@ -84,16 +49,15 @@
             <div class="card-body">
                 <div class="row mb-1">
                     <div class="col">
-                        <p class="mb-1">Product Sold</p>
-                        <h3 class="mb-0 number-font">57,865</h3>
+                        <p class="mb-1">Empleados Registrados</p>
+                        <h3 class="mb-0 number-font">{{App\Models\Empleado::where('em_eliminado',false)->count()}}</h3>
                     </div>
                     <div class="col-auto mb-0">
                         <div class="dash-icon text-orange">
-                            <i class="bx bxs-shopping-bags"></i>
+                            <i class="bx bxs-user-check"></i>
                         </div>
                     </div>
                 </div>
-                <span class="fs-12 text-muted"> <strong>2.6%</strong><i class="mdi mdi-arrow-up"></i> <span class="text-muted fs-12 ml-0 mt-1">than last week</span></span>
             </div>
         </div>
     </div>
@@ -102,8 +66,8 @@
             <div class="card-body">
                 <div class="row mb-1">
                     <div class="col">
-                        <p class="mb-1">Total Balance</p>
-                        <h3 class="mb-0 number-font">$2,156</h3>
+                        <p class="mb-1">Marcas Registradas</p>
+                        <h3 class="mb-0 number-font">{{App\Models\Marca::where('ma_eliminado',false)->count()}}</h3>
                     </div>
                     <div class="col-auto mb-0">
                         <div class="dash-icon text-secondary1">
@@ -111,7 +75,6 @@
                         </div>
                     </div>
                 </div>
-                <span class="fs-12 text-muted"> <strong>0.06%</strong><i class="mdi mdi-arrow-down"></i> <span class="text-muted fs-12 ml-0 mt-1">than last week</span></span>
             </div>
         </div>
     </div>
@@ -120,8 +83,8 @@
             <div class="card-body">
                 <div class="row mb-1">
                     <div class="col">
-                        <p class="mb-1">Sales Profit</p>
-                        <h3 class="mb-0 number-font">$12,105</h3>
+                        <p class="mb-1">Productores Registrados</p>
+                        <h3 class="mb-0 number-font">{{App\Models\Productor::where('pr_eliminado',false)->count()}}</h3>
                     </div>
                     <div class="col-auto mb-0">
                         <div class="dash-icon text-secondary">
@@ -129,7 +92,6 @@
                         </div>
                     </div>
                 </div>
-                <span class="fs-12 text-muted"> <strong>0.15%</strong><i class="mdi mdi-arrow-down"></i> <span class="text-muted fs-12 ml-0 mt-1">than last week</span></span>
             </div>
         </div>
     </div>
@@ -138,8 +100,8 @@
             <div class="card-body">
                 <div class="row mb-1">
                     <div class="col">
-                        <p class="mb-1">Total Expenses</p>
-                        <h3 class="mb-0 number-font">$4,673</h3>
+                        <p class="mb-1">Sucursales</p>
+                        <h3 class="mb-0 number-font">{{App\Models\Sucursal::where('su_eliminado',false)->count()}}</h3>
                     </div>
                     <div class="col-auto mb-0">
                         <div class="dash-icon text-warning">
@@ -147,231 +109,56 @@
                         </div>
                     </div>
                 </div>
-                <span class="fs-12 text-muted"> <strong>1.05%</strong><i class="mdi mdi-arrow-up"></i> <span class="text-muted fs-12 ml-0 mt-1">than last week</span></span>
             </div>
         </div>
     </div>
 </div>
 <!-- Row-1 End -->
 
-<!-- ROW-2 -->
-<div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12 col-xl-3">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Sales By Category</h3>
-            </div>
-            <div class="card-body">
-                <div class="">
-                    <canvas id="canvasDoughnut" class="chartsh"></canvas>
-                </div>
-                <div class="mt-5 fs-12">
-                    <div class="float-left mr-3"><span class="dot-label bg-primary mr-1"></span><span class="">Mens</span></div>
-                    <div class="float-left mr-3"><span class="dot-label bg-secondary mr-1"></span><span class="">Womens</span></div>
-                    <div class="float-left mr-3"><span class="dot-label bg-secondary1 mr-1"></span><span class="">Kids</span></div>
-                    <div class="float-left mr-3"><span class="dot-label bg-canvas1 mr-1"></span><span class="">Electronics</span></div>
-                    <div class="float-left"><span class="dot-label bg-canvas2 mr-1"></span><span class="">Home & Furniture</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-8 col-md-12 col-sm-12 col-xl-9">
-        <div class="card overflow-hidden">
-            <div class="card-header">
-                <h3 class="card-title">Monthly Sales Statistics</h3>
-            </div>
-            <div class="card-body">
-                <div id="sales" class=""></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ROW-2 END -->
-
-<!-- Row-3 -->
-<div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-        <div class="card overflow-hidden">
-            <div class="card-body pb-0">
-                <div class="">
-                    <div class="d-flex">
-                        <div class="">
-                            <p class="mb-1">Monthly Sales</p>
-                            <h2 class="mb-1  number-font">42,567</h2>
-                            <p class="text-muted  mb-0"><span class="text-muted fs-13 mr-2">(+43%)</span> than Last week</p>
-                        </div>
-                        <div class="ml-auto">
-                            <i class="bx bxs-dollar-circle fs-40 text-secondary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="chart-wrapper">
-                <canvas id="widgetChart1" class=""></canvas>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-        <div class="card overflow-hidden">
-            <div class="card-header">
-                <h3 class="card-title">Sales Overview</h3>
-            </div>
-            <div class="card-body">
-                <div class="mb-5">
-                    <p class="mb-2">Total Profit<span class="float-right"><b>51,234</b><span class="text-muted ml-1">(80%)</span></span></p>
-                    <div class="progress h-2">
-                        <div class="progress-bar bg-primary w-80 " role="progressbar"></div>
-                    </div>
-                </div>
-                <div class="mb-5">
-                    <p class="mb-2">Total Income<span class="float-right"><b>12,786</b><span class="text-muted ml-1">(50%)</span></span></p>
-                    <div class="progress h-2">
-                        <div class="progress-bar bg-secondary w-50 " role="progressbar"></div>
-                    </div>
-                </div>
-                <div class="mb-0">
-                    <p class="mb-2">Total Expenses<span class="float-right"><b>32,167</b><span class="text-muted ml-1">(60%)</span></span></p>
-                    <div class="progress h-2">
-                        <div class="progress-bar bg-secondary1 w-60 " role="progressbar"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-        <div class="card">
-            <div class="card-body">
-                <div class="">
-                    <p class="mb-1">Your Current Balance</p>
-                    <h2 class="mb-1  number-font">$32745.00</h2>
-                </div>
-                <div class="mt-5">
-                    <p class="mb-1 d-flex">
-                        <span class=""><i class="fa fa-money text-muted mr-2 mt-1 fs-16"></i></span>
-                        <span class="fs-13 font-weight-normal text-muted mr-2">Received Amount </span> : <span class="ml-auto fs-14">+ 1,50,500</span>
-                    </p>
-                    <p class="mb-1 d-flex">
-                        <span class=""><i class="fa fa-credit-card mr-2 mt-1 fs-16 text-muted"></i></span>
-                        <span class="fs-13 font-weight-normal text-muted mr-2">Sent Amount </span> : <span class="ml-auto fs-14">- 25,500</span>
-                    </p>
-                    <p class="d-flex">
-                        <span class=""><i class="fa fa-university mr-2 fs-16 text-muted"></i></span>
-                        <span class="fs-13 font-weight-normal text-muted mr-2">Total Amount </span> : <span class="ml-auto font-weight-bold fs-15">$ 1,00,500</span>
-                    </p>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-6">
-                        <a class="btn btn-primary btn-block btn-rounded" href="">Transfer</a>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-secondary btn-rounded btn-block" href="">Receive</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Row-3 End -->
-
 <!-- ROW-4 -->
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Recent Orders</h3>
+                <h3 class="card-title">Eventos Recientes</h3>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover text-nowrap mb-0">
                         <thead>
                             <tr>
-                                <th>Customer</th>
-                                <th>Invoice ID</th>
-                                <th>Category</th>
-                                <th>Date</th>
-                                <th>Price</th>
+                                <th>Empleado</th>
+                                <th>Sucursal</th>
+                                <th>Tipo de Cultivo</th>
+                                <th>Cultivo</th>
+                                <th>Fecha/Hora</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($eventos as $evento)
                             <tr>
                                 <td>
-                                    <img src="../../assets/images/users/3.jpg" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                        Vashti Riccio
+                                    <img src="{{asset('assets/images/users/3.jpg')}}" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
+                                        {{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}}
                                 </td>
-                                <td>#89345</td>
-                                <td>Sport Shooes</td>
-                                <td>07-02-2020</td>
-                                <td class="font-weight-semibold fs-15">$893</td>
                                 <td>
-                                    <a href="#" class="badge badge-danger">Pending</a>
+                                    {{$evento->sucursal->su_nombre}}
+                                </td>
+                                <td>
+                                    {{$evento->ev_tipo_cultivo}}
+                                </td>
+                                <td class="font-weight-semibold fs-15">
+                                    {{$evento->producto->pr_nombre}}
+                                </td>
+                                <td>
+                                    {{$evento->created_at}}
+                                </td>
+                                <td>
+                                    <a href="#" class="badge badge-danger">{{$evento->ev_estatus}}</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/images/users/4.jpg" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                    Harriett Lauver
-                                </td>
-                                <td>#39281</td>
-                                <td>T-Shirt</td>
-                                <td>12-01-2020</td>
-                                <td class="font-weight-semibold fs-15">$254</td>
-                                <td>
-                                    <a href="#" class="badge badge-primary">Delivered</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/images/users/5.jpg" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                    Darci Faw
-                                </td>
-                                <td>#35825</td>
-                                <td>Hand Bag</td>
-                                <td>15-01-2020</td>
-                                <td class="font-weight-semibold fs-15">$352</td>
-                                <td>
-                                    <a href="#" class="badge badge-primary">Delivered</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/images/users/6.jpg" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                    Jamie Norville
-                                </td>
-                                <td>#62391</td>
-                                <td>Lather Watch</td>
-                                <td>10-01-2020</td>
-                                <td class="font-weight-semibold fs-15">$643</td>
-                                <td>
-                                    <a href="#" class="badge badge-danger">Pending</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/images/users/7.jpg" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                    Danae Kaba
-                                </td>
-                                <td>#92481</td>
-                                <td>Laptop</td>
-                                <td>07-01-2020</td>
-                                <td class="font-weight-semibold fs-15">$392</td>
-                                <td>
-                                    <a href="#" class="badge badge-primary">Completed</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/images/users/8.jpg" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                    Jeromy Tricarico
-                                </td>
-                                <td>#29381</td>
-                                <td>Office Chair</td>
-                                <td>31-02-2020</td>
-                                <td class="font-weight-semibold fs-15">$295</td>
-                                <td>
-                                    <a href="#" class="badge badge-danger">Pending</a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -65,7 +65,7 @@
 				<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 				<aside class="app-sidebar">
 					<div class="side-header">
-						<a class="header-brand1" href="index.html">
+						<a class="header-brand1" href="{{route('home_admin.index')}}">
 							<img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
 							<img src="{{asset('assets/images/brand/logo-1.png')}}" class="header-brand-img toggle-logo" alt="logo">
 							<img src="{{asset('assets/images/brand/logo-2.png')}}" class="header-brand-img light-logo" alt="logo">
@@ -83,7 +83,7 @@
 				<div class="app-header header">
 					<div class="container-fluid">
 						<div class="d-flex">
-							<a class="header-brand d-md-none" href="index.html">
+							<a class="header-brand d-md-none" href="{{route('home_admin.index')}}">
 								<img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img mobile-icon" alt="logo">
 								<img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo mobile-logo" alt="logo">
 							</a>
