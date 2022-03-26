@@ -184,7 +184,8 @@ class EventosController extends Controller
                 $fileName = $file->getClientOriginalName();
                 $extension = $file->extension();
             
-                if(!is_dir($destinationPath)) mkdir($destinationPath, 0777);
+                if(!is_dir($destinationPath)) mkdir($destinationPath, 0755, true);
+
 
                 $uploadSuccess = $file->move($destinationPath, $fileName); // uploading file to given path
                 
