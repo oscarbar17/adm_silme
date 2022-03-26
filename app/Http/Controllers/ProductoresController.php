@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProductoresExport;
 use App\Models\Municipio;
 use App\Models\Producto;
 use App\Models\Productor;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Excel;
 
 class ProductoresController extends Controller
 {
@@ -133,5 +135,10 @@ class ProductoresController extends Controller
             'returnCode'    => '200',
             'msg'           => 'Productor Eliminado'
         ];
+    }
+
+    public function export() 
+    {
+        return Excel::download(new ProductoresExport, 'Productores.xlsx');
     }
 }

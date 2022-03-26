@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SucursalesExport;
 use App\Models\Empleado;
 use App\Models\Sucursal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\DataTables;
+use Excel;
 
 class SucursalesController extends Controller
 {
@@ -123,5 +125,10 @@ class SucursalesController extends Controller
             'returnCode'    => '200',
             'msg'           => 'Sucursal Eliminada'
         ];
+    }
+
+    public function export() 
+    {
+        return Excel::download(new SucursalesExport, 'Sucursales.xlsx');
     }
 }

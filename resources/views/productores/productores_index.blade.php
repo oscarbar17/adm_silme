@@ -18,6 +18,14 @@
                     <i class="fe fe-plus"></i> Agregar Productor
                 </span>
             </a>
+            <a href="#" class="btn btn-info btn-icon text-white dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fe fe-external-link"></i>
+                </span> Export <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <a href="{{route('productores.export')}}" class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+            </div>
         </div>
     </div>
 </div>
@@ -32,11 +40,11 @@
                         <tr>
                             <th class="wd-15p">ID</th>
                             <th class="wd-15p">Productor</th>
+                            <th class="wd-20p">Tipo de Cultivo</th>
                             <th class="wd-20p">Cultivo</th>
                             <th class="wd-20p">Correo</th>
                             <th class="wd-20p">Teléfono</th>
                             <th class="wd-20p">Municipio</th>
-                            <th class="wd-20p">Cultivo</th>
                             <th class="wd-20p"></th>
                         </tr>
                     </thead>
@@ -70,10 +78,10 @@ var oTableProductores = $('#table-productores').DataTable({
             { data: 'id', name: 'id'},
 			{ data: 'pr_nombre', name: 'pr_nombre'},
             { data: 'pr_cultivo', name: 'pr_cultivo'},
+            { data: 'producto.pr_nombre', name: 'producto.pr_nombre'},
             { data: 'pr_correo', name: 'pr_correo'},
             { data: 'pr_telefono', name: 'pr_telefono'},
             { data: 'municipio.mu_nombre', name: 'municipio.mu_nombre'},
-            { data: 'producto.pr_nombre', name: 'producto.pr_nombre'},
 			{ data: 'opciones', name: 'opciones'},
 		],
 		language : dtLang

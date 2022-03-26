@@ -12,9 +12,7 @@ class MarcasExport implements FromCollection
     */
     public function collection()
     {
-        #return Marca::all();
-
-        $marcas = Marca::get();
+        $marcas = Marca::where('ma_eliminado',false)->get();
 
         $output = [];
         $output[] = [

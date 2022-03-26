@@ -12,12 +12,20 @@
     </div>
     <div class="ml-auto pageheader-btn">
         <div class="btn-list">
-            <a href="{{route('sucursales.create')}}" class="btn btn-info btn-icon text-white btn-action-modal" 
+            <a href="{{route('sucursales.create')}}" class="btn btn-success btn-icon text-white btn-action-modal" 
                     data-toggle="modal" data-target="#modal-medium">
                 <span>
                     <i class="fe fe-plus"></i> Agregar Sucursal
                 </span>
             </a>
+            <a href="#" class="btn btn-info btn-icon text-white dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fe fe-external-link"></i>
+                </span> Export <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <a href="{{route('sucursales.export')}}" class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+            </div>
         </div>
     </div>
 </div>

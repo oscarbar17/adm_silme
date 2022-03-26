@@ -72,6 +72,7 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('productores.edit/{id}', [ProductoresController::class, 'edit'])->name('productores.edit');
     Route::post('productores.update', [ProductoresController::class, 'update'])->name('productores.update');
     Route::get('productores.destroy/{id}', [ProductoresController::class, 'destroy'])->name('productores.destroy');
+    Route::get('productores.export', [ProductoresController::class, 'export'])->name('productores.export');
 
     //--Sucursales
     Route::get('sucursales', [SucursalesController::class, 'index'])->name('sucursales.index');
@@ -81,6 +82,7 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('sucursales.edit/{id}', [SucursalesController::class, 'edit'])->name('sucursales.edit');
     Route::post('sucursales.update', [SucursalesController::class, 'update'])->name('sucursales.update');
     Route::get('sucursales.destroy/{id}', [SucursalesController::class, 'destroy'])->name('sucursales.destroy');
+    Route::get('sucursales.export', [SucursalesController::class, 'export'])->name('sucursales.export');
 
     //--Eventos
     Route::get('events', [EventosController::class, 'index'])->name('events.index');
