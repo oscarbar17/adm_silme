@@ -31,6 +31,7 @@
                             <th class="wd-15p">ID</th>
                             <th class="wd-15p">Sucursal</th>
                             <th class="wd-15p">Nombre</th>
+                            <th class="wd-15p">Email</th>
                             <th class="wd-15p">Teléfono</th>
                             <th class="wd-20p">Cargo</th>
                             <th class="wd-20p">Fecha Antiguedad</th>
@@ -66,6 +67,7 @@ var oTableEmpleados = $('#table-empleados').DataTable({
             { data: 'id', name: 'id'},
 			{ data: 'sucursal.su_nombre', name: 'sucursal.su_nombre'},
             { data: 'em_nombre', name: 'em_nombre'},
+            { data: 'em_email', name: 'em_email'},
             { data: 'em_telefono', name: 'em_telefono'},
             { data: 'em_cargo', name: 'em_cargo'},
             { data: 'em_fecha_antiguedad', name: 'em_fecha_antiguedad'},
