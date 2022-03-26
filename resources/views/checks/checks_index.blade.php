@@ -44,6 +44,14 @@
                         <input type="date" class="form-control">
                     </div>
                     <div class="col-md-3">
+                        <label for="">Estatus</label>
+                        <select class="form-control">
+                            <option value="ABIERTO">ABIERTO</option>
+                            <option value="CERRADO">CERRADO</option>
+                            <option value="CERRADO_SISTEMA">CERRADO_SISTEMA</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
                         <br>
                         <button type="button" class="btn btn-success" id="btn-filtro">
                             Filtrar
