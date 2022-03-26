@@ -112,8 +112,10 @@ class ChecksController extends Controller
     public function updateApi(Request $request)
     {
         $check = Check::find($request->get('check_id'));
-        
+
         $file = $request->file('ch_photo_check_out');
+        Log::info("file");
+        Log::info($file);
         $destinationPath = public_path()."/storage/checks/".$request->get('empleado_id')."/"; // upload path
         
         $fileName = $file->getClientOriginalName();
