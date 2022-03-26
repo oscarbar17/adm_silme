@@ -61,6 +61,7 @@
                                     <th class="wd-15p">Empleado</th>
                                     <th class="wd-15p">Check In</th>
                                     <th class="wd-15p">Check Out</th>
+                                    <th class="wd-15p">Estatus</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -97,6 +98,7 @@ var oTableChecks = $('#table-checks').DataTable({
 			{ data: 'empleado', name: 'empleado'},
             { data: 'ch_check_in', name: 'ch_check_in'},
             { data: 'ch_check_out', name: 'ch_check_out'},
+            { data: 'ch_estatus', name: 'ch_estatus'},
 			{ data: 'opciones', name: 'opciones'},
 		],
 		language : dtLang

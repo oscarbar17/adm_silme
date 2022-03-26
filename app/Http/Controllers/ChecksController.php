@@ -114,8 +114,7 @@ class ChecksController extends Controller
         $check = Check::find($request->get('check_id'));
 
         $file = $request->file('ch_photo_check_out');
-        Log::info("file");
-        Log::info($file);
+        
         $destinationPath = public_path()."/storage/checks/".$request->get('empleado_id')."/"; // upload path
         
         $fileName = $file->getClientOriginalName();
@@ -127,7 +126,8 @@ class ChecksController extends Controller
             'ch_check_out'      => $request->get('ch_check_out'),
             'ch_photo_check_out'=> $shortPath,
             'ch_latitud_check_out'=> $request->get('ch_latitud_check_out'),
-            'ch_longitud_check_out'=> $request->get('ch_longitud_check_out')
+            'ch_longitud_check_out'=> $request->get('ch_longitud_check_out'),
+            'ch_estatus'        => 'CERRADO'
         ]);
 
         return response()->json([
@@ -144,7 +144,8 @@ class ChecksController extends Controller
     public function getLastActiveCheck(Request $request)
     {
         $check = Check::where([
-            'empleado_id'   => $request->get('empleado_id')
+            'empleado_id'   => $request->get('empleado_id'),
+            'ch_estatus'    => 'ABIERTO'
         ])->orderBy('id','desc')->first();
 
         if(is_null($check)){

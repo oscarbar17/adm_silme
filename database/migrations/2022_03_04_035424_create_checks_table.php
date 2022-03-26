@@ -25,6 +25,7 @@ class CreateChecksTable extends Migration
             $table->string('ch_longitud_check_in');
             $table->string('ch_latitud_check_out')->nullable();
             $table->string('ch_longitud_check_out')->nullable();
+            $table->enum('ch_estatus',['ABIERTO','CERRADO','CERRADO_SISTEMA'])->default('ABIERTO');
             $table->timestamps();
         });
     }
