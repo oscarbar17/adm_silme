@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-md-3">
                         <br>
-                        <button type="button" class="btn btn-primary" id="btn-filtro">
+                        <button type="button" class="btn btn-success" id="btn-filtro">
                             Filtrar
                         </button>
                     </div>
