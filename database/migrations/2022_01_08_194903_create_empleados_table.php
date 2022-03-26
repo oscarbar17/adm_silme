@@ -33,7 +33,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('em_path_curp')->nullable();
             $table->string('em_path_comprobante_dom')->nullable();
             $table->string('em_path_contrato')->nullable();
-
+            $table->string('em_contacto_emergencia')->nullable();
             $table->boolean('em_eliminado')->default(false);
 
 

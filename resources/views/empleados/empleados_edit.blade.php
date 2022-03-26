@@ -56,7 +56,13 @@
                 <label class="form-control-label">Fecha de Antigüedad:</label>
                 <input type="text" name="em_fecha_antiguedad" value="{{$empleado->em_fecha_antiguedad}}" class="form-control fc-datepicker">
             </div>
-            
+            <div class="col-md-4">
+                <br>
+                <div class="form-group">
+                    <label for="message-text" class="form-control-label">Número de Contacto de Emergencia:</label>
+                    <input type="text" name="em_contacto_emergencia" value="{{$empleado->em_contacto_emergencia}}" class="form-control">
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-label">Acta de Nacimiento</div>
@@ -69,7 +75,7 @@
                         </a>
                     @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="acta_nacimiento_file">
+                        <input type="file" class="custom-file-input" name="acta_nacimiento_file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
                     @endif
@@ -88,7 +94,7 @@
                         </a>
                     @else
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="ine_file">
+                            <input type="file" class="custom-file-input" name="ine_file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                             <label class="custom-file-label">Selecciona Archivo</label>
                         </div>
                     @endif
@@ -107,7 +113,7 @@
                         </a>
                     @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="curp_file">
+                        <input type="file" class="custom-file-input" name="curp_file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
                     @endif
@@ -126,7 +132,7 @@
                         </a>
                     @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="comprobante_file">
+                        <input type="file" class="custom-file-input" name="comprobante_file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
                     @endif
@@ -145,7 +151,7 @@
                         </a>
                     @else
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="contrato_file">
+                        <input type="file" class="custom-file-input" name="contrato_file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                         <label class="custom-file-label">Selecciona Archivo</label>
                     </div>
                     @endif

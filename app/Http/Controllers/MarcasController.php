@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MarcasExport;
 use App\Models\Marca;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Excel;
 
 class MarcasController extends Controller
 {
@@ -50,7 +52,8 @@ class MarcasController extends Controller
             'ma_nombre'     => $request->get('ma_nombre'),
             'ma_producto'   => $request->get('ma_producto'),
             'ma_contacto'   => $request->get('ma_contacto'),
-            'ma_telefono'   => $request->get('ma_telefono')
+            'ma_telefono'   => $request->get('ma_telefono'),
+            'ma_correo'   => $request->get('ma_correo')
         ]);
 
         return [
@@ -74,7 +77,8 @@ class MarcasController extends Controller
             'ma_nombre'     => $request->get('ma_nombre'),
             'ma_producto'   => $request->get('ma_producto'),
             'ma_contacto'   => $request->get('ma_contacto'),
-            'ma_telefono'   => $request->get('ma_telefono')
+            'ma_telefono'   => $request->get('ma_telefono'),
+            'ma_correo'   => $request->get('ma_correo')
         ]);
 
         return [
@@ -93,6 +97,11 @@ class MarcasController extends Controller
             'returnCode'    => '200',
             'msg'           => 'Marca Eliminada'
         ];
+    }
+
+    public function export() 
+    {
+        return Excel::download(new MarcasExport, 'Marcas.xlsx');
     }
 
 }

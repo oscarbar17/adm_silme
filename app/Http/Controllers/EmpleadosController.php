@@ -81,6 +81,7 @@ class EmpleadosController extends Controller
             'em_telefono'           => $request->get('em_telefono'),
             'em_cargo'              => $request->get('em_cargo'),
             'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
+            'em_contacto_emergencia'=> $request->get('em_contacto_emergencia')
 
         ]);
 
@@ -121,6 +122,7 @@ class EmpleadosController extends Controller
             'em_telefono'           => $request->get('em_telefono'),
             'em_cargo'              => $request->get('em_cargo'),
             'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
+            'em_contacto_emergencia'=> $request->get('em_contacto_emergencia')
         ]);
 
         if( $request->hasFile('acta_nacimiento_file') ){

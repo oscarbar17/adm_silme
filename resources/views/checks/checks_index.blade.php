@@ -97,7 +97,8 @@ var oTableChecks = $('#table-checks').DataTable({
 		ajax: {
 			url : "{!! route('checks.index.data') !!}",
 			data: function (d) {
-				
+				d.sucursal_id = $("#select-sucursal").val();
+                d.empleado_id = $("#select-empleado").val();
 			}
 		},
 		columns: [

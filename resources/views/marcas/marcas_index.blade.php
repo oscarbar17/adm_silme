@@ -18,6 +18,14 @@
                     <i class="fe fe-plus"></i> Agregar Marca
                 </span>
             </a>
+            <a href="#" class="btn btn-info btn-icon text-white dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fe fe-external-link"></i>
+                </span> Export <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <a href="{{route('marcas.export')}}" class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+            </div>
         </div>
     </div>
 </div>

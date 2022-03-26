@@ -53,6 +53,7 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('marcas.edit/{id}', [MarcasController::class, 'edit'])->name('marcas.edit');
     Route::post('marcas.update', [MarcasController::class, 'update'])->name('marcas.update');
     Route::get('marcas.destroy/{id}', [MarcasController::class, 'destroy'])->name('marcas.destroy');
+    Route::get('marcas.export', [MarcasController::class, 'export'])->name('marcas.export');
 
     //--Productos
     Route::get('productos', [ProductosController::class, 'index'])->name('productos.index');

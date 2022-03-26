@@ -29,6 +29,10 @@
             <label for="message-text" class="form-control-label">Correo electrónico:</label>
             <input type="text" name="em_email" class="form-control">
         </div>
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Número de Contacto de Emergencia:</label>
+            <input type="text" name="em_contacto_emergencia" class="form-control">
+        </div>
         
         <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono:</label>
@@ -84,7 +88,8 @@ $("#frmNewEmpleado").validate({
             },
             em_cargo : "required",
             em_nss : "required",
-            em_curp : "required"
+            em_curp : "required",
+            em_contacto_emergencia: "required"
         },
         messages: {
             sucursal_id: "Campo requerido",
@@ -100,7 +105,8 @@ $("#frmNewEmpleado").validate({
             },
             em_cargo : "Campo requerido",
             em_nss : "Campo requerido",
-            em_curp : "Campo requerido"
+            em_curp : "Campo requerido",
+            em_contacto_emergencia : "Campo requerido"
         },
         submitHandler: function (form) {
         

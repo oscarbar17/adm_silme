@@ -28,7 +28,7 @@ class AuthController extends Controller
         
         $usuario = User::where([
             'email' => $request->get('email')
-        ])->where('estatus','!=','ELIMINADO')->with(['rol'])->first();
+        ])->where('estatus','!=','ELIMINADO')->where('rol_id','1')->with(['rol'])->first();
         
         if(is_null($usuario)){
             return redirect()->route('login.create',$request->get('email'))
