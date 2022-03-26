@@ -105,6 +105,13 @@
                                         <tr>
                                             <td><strong>Estatus :</strong> {{$check->ch_estatus}}</td>
                                         </tr>
+
+                                        <tr>
+                                            <td><strong>Check In :</strong> {{$check->ch_check_in}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Check Out :</strong> {{$check->ch_check_in}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
