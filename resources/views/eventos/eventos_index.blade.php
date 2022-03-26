@@ -200,7 +200,7 @@ var oTableEventos = $('#table-marcas').DataTable({
         
         $("#sucursal_id").val($("#select-sucursal").val());
         $("#empleado_id").val($("#select-empleado").val());
-        $("#cultivo_id").val($("#select-cultivo").val());
+        $("#cultivo_id").val($("#select-producto").val());
         $("#municipio_id").val($("#select-municipio").val());
         $("#tipo_evento").val($("#select-tipo-evento").val());
         $("#estatus").val($("#select-estatus").val());
