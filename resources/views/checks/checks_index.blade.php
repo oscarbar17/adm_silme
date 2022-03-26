@@ -63,6 +63,7 @@
                     <div class="col-md-3">
                         <label for="">Estatus</label>
                         <select id="select-estatus" class="form-control">
+                        <option value="">-- Select option --</option>
                             <option value="ABIERTO">ABIERTO</option>
                             <option value="CERRADO">CERRADO</option>
                             <option value="CERRADO_SISTEMA">CERRADO_SISTEMA</option>
