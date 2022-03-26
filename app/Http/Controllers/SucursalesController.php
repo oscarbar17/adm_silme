@@ -29,7 +29,7 @@ class SucursalesController extends Controller
                 ->addColumn('opciones',function($row){
                     return '<div class="btn-list">
                             <div class="dropdown">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
