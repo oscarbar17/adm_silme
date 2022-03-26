@@ -10,35 +10,6 @@
             <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
         </ol>
     </div>
-    <div class="ml-auto pageheader-btn">
-        <div class="btn-list">
-            <a href="#" class="btn btn-primary btn-icon text-white" data-toggle="tooltip" title="Add order" data-placement="top">
-                <span>
-                    <i class="fe fe-shopping-cart"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-orange btn-icon text-white" data-toggle="tooltip" title="Download" data-placement="top">
-                <span>
-                    <i class="fe fe-download"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-info btn-icon text-white" data-toggle="tooltip" title="Add User" data-placement="top">
-                <span>
-                    <i class="fe fe-plus"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-secondary btn-icon text-white dropdown-toggle" data-toggle="dropdown">
-                <span>
-                    <i class="fe fe-external-link"></i>
-                </span> Export <span class="caret"></span>
-            </a>
-            <div class="dropdown-menu" role="menu">
-                <a href="#" class="dropdown-item"><i class="bx bxs-file-pdf mr-2"></i>Export as Pdf</a>
-                <a href="#" class="dropdown-item"><i class="bx bxs-file-image mr-2"></i>Export as Image</a>
-                <a href="#" class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
-            </div>
-        </div>
-    </div>
 </div>
 <!-- PAGE-HEADER END -->
 
@@ -172,7 +143,7 @@
     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Recent Activity</h3>
+                <h3 class="card-title">Actividad Reciente</h3>
             </div>
             <div class="card-body">
                 <div class="activity-block">

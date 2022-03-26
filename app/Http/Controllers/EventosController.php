@@ -65,6 +65,14 @@ class EventosController extends Controller
             $eventos = $eventos->where('municipio_id',$request->municipio_id);
         }
 
+        if($request->tipo_evento != ""){
+            $eventos = $eventos->where('ev_tipo_evento',$request->tipo_evento);
+        }
+
+        if($request->estatus != ""){
+            $eventos = $eventos->where('ev_estatus',$request->estatus);
+        }
+
         if($request->fecha_inicio != ""){
             $eventos = $eventos->where('created_at','>=',$request->fecha_inicio);
         }
@@ -72,6 +80,9 @@ class EventosController extends Controller
         if($request->fecha_fin != ""){
             $eventos = $eventos->where('created_at','<=',$request->fecha_fin);
         }
+
+        
+        
 
         $eventos = $eventos->get();
 

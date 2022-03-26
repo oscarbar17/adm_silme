@@ -48,6 +48,23 @@
                         </select>
                     </div>
                     <div class="col-md-3">
+                        <label for="">Tipo de Evento</label>
+                        <select id="select-tipo-evento" class="form-control">
+                            <option value="">-- Select option -- </option>
+                            <option value="CAPACITACION">CAPACITACION</option>
+                            <option value="MOSTRADOR">MOSTRADOR</option>
+                            <option value="SALIDA A CAMPO">SALIDA A CAMPO</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Estatus</label>
+                        <select id="select-estatus" class="form-control">
+                            <option value="">-- Select option -- </option>
+                            <option value="ABIERTO">ABIERTO</option>
+                            <option value="CERRADO">CERRADO</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
                         <label for="">Fecha Inicio</label>
                         <input type="date" id="fecha-inicio" class="form-control">
                     </div>
@@ -74,6 +91,8 @@
                                     <th class="wd-15p">Cultivo</th>
                                     <th class="wd-15p">Tipo de Cultivo</th>
                                     <th class="wd-20p">Municipio</th>
+                                    <th class="wd-20p">Tipo de Evento</th>
+                                    <th class="wd-20p">Estatus</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -105,6 +124,8 @@ var oTableEventos = $('#table-marcas').DataTable({
                 d.empleado_id = $("#select-empleado").val();
                 d.producto_id = $("#select-producto").val();
                 d.municipio_id= $("#select-municipio").val();
+                d.tipo_evento = $("#select-tipo-evento").val();
+                d.estatus = $("#select-estatus").val();
                 d.fecha_inicio= $("#fecha-inicio").val();
                 d.fecha_fin = $("#fecha-fin").val();
 			}
@@ -116,6 +137,8 @@ var oTableEventos = $('#table-marcas').DataTable({
             { data: 'producto.pr_nombre', name: 'producto.pr_nombre'},
             { data: 'productor.pr_cultivo', name: 'productor.pr_cultivo'},
             { data: 'municipio.mu_nombre', name: 'municipio.mu_nombre'},
+            { data: 'ev_tipo_evento', name: 'ev_tipo_evento'},
+            { data: 'ev_estatus', name: 'ev_estatus'},
 			{ data: 'opciones', name: 'opciones'},
 		],
 		language : dtLang
