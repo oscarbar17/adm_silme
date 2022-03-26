@@ -132,6 +132,7 @@
                                 <th>Tipo de Cultivo</th>
                                 <th>Cultivo</th>
                                 <th>Fecha/Hora</th>
+                                <th>Tipo</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -153,6 +154,9 @@
                                 </td>
                                 <td>
                                     {{$evento->created_at}}
+                                </td>
+                                <td>
+                                    {{$evento->ev_tipo_evento}}
                                 </td>
                                 <td>
                                     <a href="#" class="badge badge-danger">{{$evento->ev_estatus}}</a>
