@@ -33,7 +33,7 @@ class ChecksController extends Controller
 
     public function indexDT(Request $request)
     {
-        $checks = Check::with(['empleado','sucursal'])->get();
+        $checks = Check::with(['empleado','sucursal']);
         
         if($request->sucursal_id != ""){
             $checks = $checks->where('sucursal_id',$request->sucursal_id);
@@ -42,6 +42,8 @@ class ChecksController extends Controller
         if($request->empleado_id != ""){
             $checks = $checks->where('empleado_id',$request->empleado_id);
         }
+
+        $checks = $checks->get();
 
         return DataTables::of($checks)
                 ->addColumn('empleado',function($row){
