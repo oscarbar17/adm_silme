@@ -12,7 +12,24 @@
     </div>
     <div class="ml-auto pageheader-btn">
         <div class="btn-list">
-            
+        <a href="#" class="btn btn-info btn-icon text-white dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fe fe-external-link"></i>
+                </span> Export <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <a href="javascript:void(0)" onclick="event.preventDefault(); exportXLS(); document.getElementById('export-form').submit();"
+                    class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+            </div>
+
+            <form id="export-form" action="{{ route('checks.export') }}" method="POST" class="d-none">
+                @csrf
+                <input type="hidden" name="sucursal_id" id="sucursal_id"/>
+                <input type="hidden" name="empleado_id" id="empleado_id"/>
+                <input type="hidden" name="estatus" id="estatus"/>
+                <input type="hidden" name="fecha_inicio" id="fecha_inicio"/>
+                <input type="hidden" name="fecha_fin" id="fecha_fin"/>
+            </form>
         </div>
     </div>
 </div>
@@ -37,15 +54,15 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Fecha Inicio</label>
-                        <input type="date" class="form-control">
+                        <input type="date" id="fecha-inicio" class="form-control">
                     </div>
                     <div class="col-md-3">
                         <label for="">Fecha Fin</label>
-                        <input type="date" class="form-control">
+                        <input type="date" id="fecha-fin" class="form-control">
                     </div>
                     <div class="col-md-3">
                         <label for="">Estatus</label>
-                        <select class="form-control">
+                        <select id="select-estatus" class="form-control">
                             <option value="ABIERTO">ABIERTO</option>
                             <option value="CERRADO">CERRADO</option>
                             <option value="CERRADO_SISTEMA">CERRADO_SISTEMA</option>
@@ -99,6 +116,9 @@ var oTableChecks = $('#table-checks').DataTable({
 			data: function (d) {
 				d.sucursal_id = $("#select-sucursal").val();
                 d.empleado_id = $("#select-empleado").val();
+                d.estatus     = $("#select-estatus").val();
+                d.fecha_inicio = $("#fecha-inicio").val();
+                d.fecha_fin = $("#fecha-fin").val();
 			}
 		},
 		columns: [
@@ -144,6 +164,16 @@ var oTableChecks = $('#table-checks').DataTable({
             });
         
 	});
+
+    function exportXLS(){
+        
+        $("#sucursal_id").val($("#select-sucursal").val());
+        $("#empleado_id").val($("#select-empleado").val());
+        $("#estatus").val($("#select-estatus").val());
+        $("#fecha_inicio").val($("#fecha-inicio").val());
+        $("#fecha_fin").val($("#fecha-fin").val());
+    }
+
 
 </script>
 @endpush

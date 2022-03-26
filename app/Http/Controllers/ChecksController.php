@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ChecksExport;
 use App\Models\Check;
 use App\Models\Empleado;
 use App\Models\Sucursal;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 use Yajra\DataTables\Facades\DataTables;
+use Excel;
 
 class ChecksController extends Controller
 {
@@ -41,6 +43,18 @@ class ChecksController extends Controller
 
         if($request->empleado_id != ""){
             $checks = $checks->where('empleado_id',$request->empleado_id);
+        }
+
+        if($request->estatus != ""){
+            $checks = $checks->where('ch_estatus',$request->estatus);
+        }
+
+        if($request->fecha_inicio != ""){
+            $checks = $checks->where('created_at','>=',$request->fecha_inicio);
+        }
+
+        if($request->fecha_fin != ""){
+            $checks = $checks->where('created_at','<=',$request->fecha_fin);
         }
 
         $checks = $checks->get();
@@ -160,5 +174,10 @@ class ChecksController extends Controller
             'evento'    => $check
             ], 200
         );
+    }
+
+    public function export(Request $request) 
+    {
+        return Excel::download(new ChecksExport($request->sucursal_id,$request->empleado_id,$request->estatus,$request->fecha_inicio,$request->fecha_fin), 'Checks.xlsx');
     }
 }

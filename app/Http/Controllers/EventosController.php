@@ -225,16 +225,6 @@ class EventosController extends Controller
 
     public function export(Request $request) 
     {
-        /*
-         $("#sucursal_id").val($("#select-sucursal").val());
-        $("#empleado_id").val($("#select-empleado").val());
-        $("#cultivo_id").val($("#select-cultivo").val());
-        $("#municipio_id").val($("#select-municipio").val());
-        $("#tipo_evento").val($("#select-tipo-evento").val());
-        $("#estatus").val($("#select-estatus").val());
-        $("#fecha_inicio").val($("#fecha-inicio").val());
-        $("#fecha_fin").val($("#fecha-fin").val());
-        */
         return Excel::download(new EventosExport($request->sucursal_id,$request->empleado_id,$request->cultivo_id,$request->municipio_id,$request->tipo_evento,$request->estatus,$request->fecha_inicio,$request->fecha_fin), 'Eventos.xlsx');
     }
     

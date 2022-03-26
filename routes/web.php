@@ -94,6 +94,6 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('checks', [ChecksController::class, 'index'])->name('checks.index');
     Route::any('checks.index.data', [ChecksController::class, 'indexDT'])->name('checks.index.data');
     Route::get('check/{id}', [ChecksController::class, 'show'])->name('checks.show');
-
+    Route::post('checks.export', [ChecksController::class, 'export'])->name('checks.export');
 
 });
