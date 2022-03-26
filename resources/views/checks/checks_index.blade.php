@@ -60,7 +60,7 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 table-responsive">
                         <table id="table-checks" class="table table-striped table-bordered text-nowrap w-100">
                             <thead>
                                 <tr>

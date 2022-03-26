@@ -12,7 +12,27 @@
     </div>
     <div class="ml-auto pageheader-btn">
         <div class="btn-list">
-            
+            <a href="#" class="btn btn-info btn-icon text-white dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fe fe-external-link"></i>
+                </span> Export <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <a href="javascript:void(0)" onclick="event.preventDefault(); exportXLS(); document.getElementById('export-form').submit();"
+                    class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+            </div>
+
+            <form id="export-form" action="{{ route('events.export') }}" method="POST" class="d-none">
+                @csrf
+                <input type="hidden" name="sucursal_id" id="sucursal_id"/>
+                <input type="hidden" name="empleado_id" id="empleado_id"/>
+                <input type="hidden" name="cultivo_id" id="cultivo_id"/>
+                <input type="hidden" name="municipio_id" id="municipio_id"/>
+                <input type="hidden" name="tipo_evento" id="tipo_evento"/>
+                <input type="hidden" name="estatus" id="estatus"/>
+                <input type="hidden" name="fecha_inicio" id="fecha_inicio"/>
+                <input type="hidden" name="fecha_fin" id="fecha_fin"/>
+            </form>
         </div>
     </div>
 </div>
@@ -81,7 +101,7 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 table-responsive">
                         <table id="table-marcas" class="table table-striped table-bordered text-nowrap w-100">
                             <thead>
                                 <tr>
@@ -175,6 +195,18 @@ var oTableEventos = $('#table-marcas').DataTable({
             });
         
 	});
+
+    function exportXLS(){
+        
+        $("#sucursal_id").val($("#select-sucursal").val());
+        $("#empleado_id").val($("#select-empleado").val());
+        $("#cultivo_id").val($("#select-cultivo").val());
+        $("#municipio_id").val($("#select-municipio").val());
+        $("#tipo_evento").val($("#select-tipo-evento").val());
+        $("#estatus").val($("#select-estatus").val());
+        $("#fecha_inicio").val($("#fecha-inicio").val());
+        $("#fecha_fin").val($("#fecha-fin").val());
+    }
 
 </script>
 @endpush

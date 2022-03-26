@@ -88,6 +88,7 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('events', [EventosController::class, 'index'])->name('events.index');
     Route::any('events.index.data', [EventosController::class, 'indexDT'])->name('events.index.data');
     Route::get('event/{id}', [EventosController::class, 'show'])->name('events.show');
+    Route::post('events.export', [EventosController::class, 'export'])->name('events.export');
 
     //--Checks
     Route::get('checks', [ChecksController::class, 'index'])->name('checks.index');
