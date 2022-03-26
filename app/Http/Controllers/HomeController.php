@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -14,8 +15,15 @@ class HomeController extends Controller
             'empleado', 'sucursal','producto'
         ])->get();
 
+        $topMarcas = Evento::select(['marca_id',DB::raw('count(*) as total')])
+                        ->groupBy('marca_id')
+                        ->orderBy('total','desc')
+                        ->take(5)
+                        ->get();
+
         return view('home.home_admin',[
-            'eventos'   => $eventos
+            'eventos'   => $eventos,
+            'topMarcas' => $topMarcas
         ]);
     }
 }

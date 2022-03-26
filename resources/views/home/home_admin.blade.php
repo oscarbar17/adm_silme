@@ -216,86 +216,24 @@
     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">New Customers</h3>
+                <h3 class="card-title">Top Marcas</h3>
             </div>
             <div class="customer-scroll">
+                @foreach($topMarcas as $marca)
                 <div class="list-group-item d-flex  align-items-center border-top-0 border-left-0 border-right-0">
                     <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="../../assets/images/users/1.jpg"></span>
+                        <span class="avatar avatar-md brround cover-image" data-image-src="{{asset('assets/images/users/1.jpg')}}"></span>
                     </div>
                     <div class="">
-                        <div class="font-weight-semibold">Mozelle Belt</div>
-                        <small class="text-muted">Web Designer
+                        <div class="font-weight-semibold">{{App\Models\Marca::find($marca->marca_id)->ma_nombre}}</div>
+                        <small class="text-muted">{{App\Models\Marca::find($marca->marca_id)->ma_contacto}}
                         </small>
                     </div>
                     <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">View</a>
+                        <a href="#" class="btn btn-sm btn-default">{{$marca->total}}</a>
                     </div>
                 </div>
-                <div class="list-group-item d-flex  align-items-center border-left-0 border-right-0">
-                    <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="../../assets/images/users/13.jpg"></span>
-                    </div>
-                    <div class="">
-                        <div class="font-weight-semibold">Thomos</div>
-                        <small class="text-muted">Web Designer
-                        </small>
-                    </div>
-                    <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">View</a>
-                    </div>
-                </div>
-                <div class="list-group-item d-flex  align-items-center border-left-0 border-right-0">
-                    <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="../../assets/images/users/14.jpg"></span>
-                    </div>
-                    <div class="">
-                        <div class="font-weight-semibold">Harry	Dyer</div>
-                        <small class="text-muted">Administrator</small>
-                    </div>
-                    <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">View</a>
-                    </div>
-                </div>
-                <div class="list-group-item d-flex  align-items-center border-left-0 border-right-0">
-                    <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="../../assets/images/users/6.jpg"></span>
-                    </div>
-                    <div class="">
-                        <div class="font-weight-semibold">Steven Fraser</div>
-                        <small class="text-muted">Manager
-                        </small>
-                    </div>
-                    <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">View</a>
-                    </div>
-                </div>
-                <div class="list-group-item d-flex  align-items-center border-left-0 border-right-0">
-                    <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="../../assets/images/users/3.jpg"></span>
-                    </div>
-                    <div class="">
-                        <div class="font-weight-semibold">Jane Clark</div>
-                        <small class="text-muted">App Designer
-                        </small>
-                    </div>
-                    <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">View</a>
-                    </div>
-                </div>
-                <div class="list-group-item d-flex  align-items-center border-left-0 border-right-0">
-                    <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="../../assets/images/users/7.jpg"></span>
-                    </div>
-                    <div class="">
-                        <div class="font-weight-semibold">Nicola Parsons</div>
-                        <small class="text-muted">Web Developer
-                        </small>
-                    </div>
-                    <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">View</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div><!-- COL END -->
