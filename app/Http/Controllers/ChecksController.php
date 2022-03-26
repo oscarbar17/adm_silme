@@ -67,10 +67,10 @@ class ChecksController extends Controller
 
     public function show($id)
     {
-        $evento = Check::with(['empleado','sucursal'])->find($id);
+        $check = Check::with(['empleado','sucursal'])->find($id);
 
-        return view('eventos.eventos_show',[
-            'evento'    => $evento
+        return view('checks.checks_show',[
+            'check'    => $check
         ]);
         
     }
