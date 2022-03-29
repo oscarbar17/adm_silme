@@ -19,7 +19,7 @@ class CreateIncidenciasEmpleadosTable extends Migration
             $table->integer('tipo_incidencia_id');
             $table->date('ie_fecha');
             $table->text('ie_comentarios');
-            $table->boolean('ie_eliminado');
+            $table->boolean('ie_eliminado')->default(false);
             $table->timestamps();
         });
     }
