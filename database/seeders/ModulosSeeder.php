@@ -38,6 +38,17 @@ class ModulosSeeder extends Seeder
         ]);
         ModRolHelper::set($modHijo->id);
 
+        $modHijo = Modulo::create([
+            'parent_id'         => $mod->id,
+            'mo_descripcion'    => 'Incidencias Empleados' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => 'incidencias_empleados.index',
+            'mo_atributos'      => ' id="m-incidencias-empleados" ',
+            'mo_icono'	    => 'fa fa-users',
+            'mo_publicado'	    => true
+        ]);
+        ModRolHelper::set($modHijo->id);
+
         //Catalogos
         $mod = Modulo::create([
             'parent_id'         => null,

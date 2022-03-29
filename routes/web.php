@@ -5,6 +5,7 @@ use App\Http\Controllers\ChecksController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IncidenciasEmpleadosController;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\ProductoresController;
 use App\Http\Controllers\ProductosController;
@@ -44,6 +45,14 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::get('empleados.destroy/{id}', [EmpleadosController::class, 'destroy'])->name('empleados.destroy');
     Route::get('empleados.download_file/{id}/{type}', [EmpleadosController::class, 'downloadFile'])->name('empleados.download_file');
     Route::get('empleados.destroy_file/{id}/{type}', [EmpleadosController::class, 'destroyFile'])->name('empleados.destroy_file');
+    
+    //--Incidencias Empleados
+    Route::get('incidencias_empleados', [IncidenciasEmpleadosController::class, 'index'])->name('incidencias_empleados.index');
+    Route::any('incidencias_empleados_index.data', [IncidenciasEmpleadosController::class, 'indexDT'])->name('incidencias_empleados_index.data');
+    Route::get('incidencias_empleados.create', [IncidenciasEmpleadosController::class, 'create'])->name('incidencias_empleados.create');
+    Route::post('incidencias_empleados.store', [IncidenciasEmpleadosController::class, 'store'])->name('incidencias_empleados.store');
+    Route::get('incidencias_empleados.destroy/{id}', [IncidenciasEmpleadosController::class, 'destroy'])->name('incidencias_empleados.destroy');
+    Route::post('incidencias_empleados.export', [IncidenciasEmpleadosController::class, 'export'])->name('incidencias_empleados.export');
 
     //--Marcas
     Route::get('marcas', [MarcasController::class, 'index'])->name('marcas.index');
