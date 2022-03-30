@@ -51,12 +51,12 @@
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">Fecha de Nacimiento:</label>
-                <input type="text" name="em_fecha_nacimiento" value="{{$empleado->em_fecha_nacimiento}}" class="form-control fc-datepicker">
+                <input type="date" name="em_fecha_nacimiento" value="{{$empleado->em_fecha_nacimiento}}" class="form-control fc-datepicker">
             </div>
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">Fecha de Antigüedad:</label>
-                <input type="text" name="em_fecha_antiguedad" value="{{$empleado->em_fecha_antiguedad}}" class="form-control fc-datepicker">
+                <input type="date" name="em_fecha_antiguedad" value="{{$empleado->em_fecha_antiguedad}}" class="form-control fc-datepicker">
             </div>
             <div class="col-md-4">
                 <br>
