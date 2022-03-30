@@ -24,10 +24,12 @@
                 <input type="text" name="em_apellido_paterno" value="{{$empleado->em_apellido_paterno}}" class="form-control">
             </div>
             <div class="col-md-4">
+                <br>
                 <label class="form-control-label">Apellido Materno:</label>
                 <input type="text" name="em_apellido_materno" value="{{$empleado->em_apellido_materno}}" class="form-control">
             </div>
             <div class="col-md-4">
+                <br>
                 <label class="form-control-label">Teléfono:</label>
                 <input type="text" name="em_telefono" value="{{$empleado->em_telefono}}" class="form-control">
             </div>
@@ -99,7 +101,7 @@
                         </div>
                     @endif
                 </div>
-            </div> 
+            </div>
 
             <div class="col-md-12">
                 <div class="form-group">
@@ -175,10 +177,10 @@ $('.fc-datepicker').datepicker({
 $("#frmEditEmpleado").validate({
         rules: {
             sucursal_id: "required",
-            em_nombre: "required", 
-            em_apellido_paterno: "required", 
+            em_nombre: "required",
+            em_apellido_paterno: "required",
             em_email : {
-                required: true, 
+                required: true,
                 email: true
             },
             em_telefono : {
@@ -206,8 +208,8 @@ $("#frmEditEmpleado").validate({
             em_curp : "Campo requerido"
         },
         submitHandler: function (form) {
-        
-            var form = document.getElementById("frmEditEmpleado"); 
+
+            var form = document.getElementById("frmEditEmpleado");
 			var formdata = new FormData(form); // high importance!
 
             $.ajax({
@@ -215,13 +217,13 @@ $("#frmEditEmpleado").validate({
                     type: 'POST',
                     data: formdata,
                     async: true,
-					dataType: "JSON", 
+					dataType: "JSON",
 					contentType: false, // high importance!
 					processData: false, // high importance!
             })
             .done(function(data) {
                 if (data.returnCode == 200) {
-                    
+
                     swal({
                         title: "Bien",
                         text: data.msg,
@@ -240,7 +242,7 @@ $("#frmEditEmpleado").validate({
                 alert("Something was wrong");
             })
             .always(function() {
-                
+
             });
 
 
