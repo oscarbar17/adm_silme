@@ -55,6 +55,7 @@
                         </button>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-12">
                         <table id="table-incidencias" class="table table-responsive table-striped table-bordered text-nowrap w-100">

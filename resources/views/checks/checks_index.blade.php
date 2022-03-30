@@ -1,4 +1,4 @@
-@extends('layouts.default') 
+@extends('layouts.default')
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -60,6 +60,7 @@
                         <label for="">Fecha Fin</label>
                         <input type="date" id="fecha-fin" class="form-control">
                     </div>
+                    <br>
                     <div class="col-md-3">
                         <label for="">Estatus</label>
                         <select id="select-estatus" class="form-control">
@@ -92,7 +93,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -104,14 +105,14 @@
     </div>
 </div>
 <!-- ROW-1 CLOSED -->
-@stop 
+@stop
 @push('scripts')
 <script>
 var oTableChecks = $('#table-checks').DataTable({
         "bInfo" : false,
 		processing: true,
 		serverSide: true,
-		bFilter : true,    
+		bFilter : true,
 		ajax: {
 			url : "{!! route('checks.index.data') !!}",
 			data: function (d) {
@@ -153,7 +154,7 @@ var oTableChecks = $('#table-checks').DataTable({
 		}, function (isConfirm) {
 
             if (!isConfirm) return;
-                
+
                 $.get(route, function(response){
 					if (response.returnCode == 200) {
 						swal("¡Hecho!", response.msg , "success");
@@ -163,11 +164,11 @@ var oTableChecks = $('#table-checks').DataTable({
 					}
 				});
             });
-        
+
 	});
 
     function exportXLS(){
-        
+
         $("#sucursal_id").val($("#select-sucursal").val());
         $("#empleado_id").val($("#select-empleado").val());
         $("#estatus").val($("#select-estatus").val());
