@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class UsersController extends Controller
@@ -48,8 +49,24 @@ class UsersController extends Controller
     public function updatePassword(Request $request)
     {
         $user = User::find($request->id);
-        $user->password = bcrypt('new_password');
+        $user->password = bcrypt($request->new_password);
         $user->save();
+
+        
+        $emailData = [
+            'email'        => $user->email,
+            'password'     => $request->new_password,
+            'login'        => route('login.create')
+        ];
+
+        Mail::send ( 'emails.email_cambio_contrasena', $emailData, function ($message) use ($emailData) {
+            $message->to ( $emailData['email'] );
+                
+            $message->from ( env('MAIL_FROM_ADDRESS') , env('MAIL_FROM_NAME') );
+            $message->subject ( __('Nueva contraseña de acceso') );
+            
+        } );
+
 
         return [
             'returnCode'    => '200',
