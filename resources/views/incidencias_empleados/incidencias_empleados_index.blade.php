@@ -1,4 +1,4 @@
-@extends('layouts.default') 
+@extends('layouts.default')
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -55,9 +55,10 @@
                         </button>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="table-incidencias" class="table table-striped table-bordered text-nowrap w-100">
+                        <table id="table-incidencias" class="table table-responsive table-striped table-bordered text-nowrap w-100">
                             <thead>
                                 <tr>
                                     <th class="wd-15p">ID</th>
@@ -69,7 +70,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -81,7 +82,7 @@
     </div>
 </div>
 <!-- ROW-1 CLOSED -->
-@stop 
+@stop
 @push('scripts')
 <script>
 var oTableIncidencias = $('#table-incidencias').DataTable({
@@ -103,7 +104,7 @@ var oTableIncidencias = $('#table-incidencias').DataTable({
             { data: 'ie_fecha', name: 'ie_fecha'},
             { data: 'ie_comentarios', name: 'ie_comentarios'},
             { data: 'opciones', name: 'opciones', searchable: false, orderable: false},
-            
+
 		],
 		language : dtLang
 	});
@@ -123,7 +124,7 @@ var oTableIncidencias = $('#table-incidencias').DataTable({
 		}, function (isConfirm) {
 
             if (!isConfirm) return;
-                
+
                 $.get(route, function(response){
 					if (response.returnCode == 200) {
 						swal("¡Hecho!", response.msg , "success");
@@ -133,10 +134,10 @@ var oTableIncidencias = $('#table-incidencias').DataTable({
 					}
 				});
             });
-        
+
 	});
     function exportXLS(){
-        
+
         $("#fecha_inicio").val($("#fecha-inicio").val());
         $("#fecha_fin").val($("#fecha-fin").val());
     }

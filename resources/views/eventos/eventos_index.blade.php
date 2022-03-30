@@ -1,4 +1,4 @@
-@extends('layouts.default') 
+@extends('layouts.default')
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -67,6 +67,7 @@
                         {{\App\Library\Combo::render($municipios,'','id','mu_nombre',true)}}
                         </select>
                     </div>
+                    <br>
                     <div class="col-md-3">
                         <label for="">Tipo de Evento</label>
                         <select id="select-tipo-evento" class="form-control">
@@ -117,7 +118,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -129,14 +130,14 @@
     </div>
 </div>
 <!-- ROW-1 CLOSED -->
-@stop 
+@stop
 @push('scripts')
 <script>
 var oTableEventos = $('#table-marcas').DataTable({
         "bInfo" : false,
 		processing: true,
 		serverSide: true,
-		bFilter : true,    
+		bFilter : true,
 		ajax: {
 			url : "{!! route('events.index.data') !!}",
 			data: function (d) {
@@ -183,7 +184,7 @@ var oTableEventos = $('#table-marcas').DataTable({
 		}, function (isConfirm) {
 
             if (!isConfirm) return;
-                
+
                 $.get(route, function(response){
 					if (response.returnCode == 200) {
 						swal("¡Hecho!", response.msg , "success");
@@ -193,11 +194,11 @@ var oTableEventos = $('#table-marcas').DataTable({
 					}
 				});
             });
-        
+
 	});
 
     function exportXLS(){
-        
+
         $("#sucursal_id").val($("#select-sucursal").val());
         $("#empleado_id").val($("#select-empleado").val());
         $("#cultivo_id").val($("#select-producto").val());

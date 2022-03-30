@@ -1,4 +1,4 @@
-@extends('layouts.default') 
+@extends('layouts.default')
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-auto mb-0">
                         <div class="dash-icon text-secondary">
-                            <i class="bx bxs-badge-dollar"></i>
+                            <i class="bx bx-group"></i>
                         </div>
                     </div>
                 </div>
@@ -71,12 +71,12 @@
             <div class="card-body">
                 <div class="row mb-1">
                     <div class="col">
-                        <p class="mb-1">Sucursales</p>
+                        <p class="mb-1">Sucursales Registrados</p>
                         <h3 class="mb-0 number-font">{{App\Models\Sucursal::where('su_eliminado',false)->count()}}</h3>
                     </div>
                     <div class="col-auto mb-0">
                         <div class="dash-icon text-warning">
-                            <i class="bx bxs-credit-card-front"></i>
+                            <i class="bx bxs-business"></i>
                         </div>
                     </div>
                 </div>
@@ -111,8 +111,8 @@
                             @foreach($eventos as $evento)
                             <tr>
                                 <td>
-                                    <img src="{{asset('assets/images/users/3.jpg')}}" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                        {{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}}
+                                    <img src="{{asset('assets/images/users/admin.png')}}" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
+                                        {{$evento->empleado->em_nombre}}
                                 </td>
                                 <td>
                                     {{$evento->sucursal->su_nombre}}
@@ -140,7 +140,125 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <!-- <div class="row"> -->
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Top Marcas</h3>
+                </div>
+                <div class="customer-scroll">
+                    @foreach($topMarcas as $marca)
+                        <div class="list-group-item d-flex  align-items-center border-top-0 border-left-0 border-right-0">
+                            <div class="mr-2">
+                                <span class="avatar avatar-md brround cover-image" data-image-src="{{asset('assets/images/users/admin.png')}}"></span>
+                            </div>
+                            <div class="">
+                                <div class="font-weight-semibold">{{App\Models\Marca::find($marca->marca_id)->ma_nombre}}</div>
+                                <small class="text-muted">{{App\Models\Marca::find($marca->marca_id)->ma_contacto}}
+                                </small>
+                            </div>
+                            <div class="ml-auto">
+                                <a href="#" class="btn btn-sm btn-default">{{$marca->total}}</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div><!-- COL END -->
+        <!-- <div class="col-lg-8 col-md-12 col-sm-12 col-xl-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Top Selling Products</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table card-table border table-vcenter text-nowrap align-items-center">
+                            <thead class="">
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                    <img src="../../assets/images/pngs/1.png" alt="img" class="h-7 w-7">
+                                    <p class="d-inline-block align-middle mb-0 ml-1">
+                                        <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
+                                        <br>
+                                        <span class="text-muted fs-13">Office Chair</span>
+                                    </p>
+                                    </td>
+                                    <td>Home Accessories</td>
+                                    <td class="font-weight-semibold fs-15">$59.00</td>
+                                    <td><span class="badge badge-danger-light badge-md">Sold</span></td>
+                                    <td>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <img src="../../assets/images/pngs/2.png" alt="img" class="h-7 w-7">
+                                    <p class="d-inline-block align-middle mb-0 ml-1">
+                                        <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
+                                        <br>
+                                        <span class="text-muted fs-13">T-Shirt</span>
+                                    </p>
+                                    </td>
+                                    <td>Mens Wear</td>
+                                    <td class="font-weight-semibold fs-15">$45.00</td>
+                                    <td><span class="badge badge-danger-light badge-md">Sold</span></td>
+                                    <td>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <img src="../../assets/images/pngs/3.png" alt="img" class="h-7 w-7">
+                                    <p class="d-inline-block align-middle mb-0 ml-1">
+                                        <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
+                                        <br>
+                                        <span class="text-muted fs-13">Watch</span>
+                                    </p>
+                                    </td>
+                                    <td>Men Accessories</td>
+                                    <td class="font-weight-semibold fs-15">$123.00</td>
+                                    <td><span class="badge badge-danger-light badge-md">Sold</span></td>
+                                    <td>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <img src="../../assets/images/pngs/4.png" alt="img" class="h-7 w-7">
+                                    <p class="d-inline-block align-middle mb-0 ml-1">
+                                        <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
+                                        <br>
+                                        <span class="text-muted fs-13">Hand Bag</span>
+                                    </p>
+                                    </td>
+                                    <td>Women Accessories</td>
+                                    <td class="font-weight-semibold fs-15">$98.00</td>
+                                    <td><span class="badge badge-danger-light badge-md">Sold</span></td>
+                                    <td>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+                                        <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    <!-- </div> -->
+    <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Actividad Reciente</h3>
@@ -182,128 +300,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <!-- ROW-4 END -->
 
 <!-- ROW-5 -->
-<div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Top Marcas</h3>
-            </div>
-            <div class="customer-scroll">
-                @foreach($topMarcas as $marca)
-                <div class="list-group-item d-flex  align-items-center border-top-0 border-left-0 border-right-0">
-                    <div class="mr-2">
-                        <span class="avatar avatar-md brround cover-image" data-image-src="{{asset('assets/images/users/1.jpg')}}"></span>
-                    </div>
-                    <div class="">
-                        <div class="font-weight-semibold">{{App\Models\Marca::find($marca->marca_id)->ma_nombre}}</div>
-                        <small class="text-muted">{{App\Models\Marca::find($marca->marca_id)->ma_contacto}}
-                        </small>
-                    </div>
-                    <div class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-default">{{$marca->total}}</a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div><!-- COL END -->
-    <div class="col-lg-8 col-md-12 col-sm-12 col-xl-8">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Top Selling Products</h3>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table card-table border table-vcenter text-nowrap align-items-center">
-                        <thead class="">
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                <img src="../../assets/images/pngs/1.png" alt="img" class="h-7 w-7">
-                                <p class="d-inline-block align-middle mb-0 ml-1">
-                                    <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
-                                    <br>
-                                    <span class="text-muted fs-13">Office Chair</span>
-                                </p>
-                                </td>
-                                <td>Home Accessories</td>
-                                <td class="font-weight-semibold fs-15">$59.00</td>
-                                <td><span class="badge badge-danger-light badge-md">Sold</span></td>
-                                <td>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                <img src="../../assets/images/pngs/2.png" alt="img" class="h-7 w-7">
-                                <p class="d-inline-block align-middle mb-0 ml-1">
-                                    <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
-                                    <br>
-                                    <span class="text-muted fs-13">T-Shirt</span>
-                                </p>
-                                </td>
-                                <td>Mens Wear</td>
-                                <td class="font-weight-semibold fs-15">$45.00</td>
-                                <td><span class="badge badge-danger-light badge-md">Sold</span></td>
-                                <td>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                <img src="../../assets/images/pngs/3.png" alt="img" class="h-7 w-7">
-                                <p class="d-inline-block align-middle mb-0 ml-1">
-                                    <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
-                                    <br>
-                                    <span class="text-muted fs-13">Watch</span>
-                                </p>
-                                </td>
-                                <td>Men Accessories</td>
-                                <td class="font-weight-semibold fs-15">$123.00</td>
-                                <td><span class="badge badge-danger-light badge-md">Sold</span></td>
-                                <td>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                <img src="../../assets/images/pngs/4.png" alt="img" class="h-7 w-7">
-                                <p class="d-inline-block align-middle mb-0 ml-1">
-                                    <a href="" class="d-inline-block align-middle mb-0 product-name text-dark font-weight-semibold">Arm Chair</a>
-                                    <br>
-                                    <span class="text-muted fs-13">Hand Bag</span>
-                                </p>
-                                </td>
-                                <td>Women Accessories</td>
-                                <td class="font-weight-semibold fs-15">$98.00</td>
-                                <td><span class="badge badge-danger-light badge-md">Sold</span></td>
-                                <td>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-                                    <a class="btn btn-default btn-sm mb-2 mb-xl-0" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- ROW-5 END -->
 @endsection
