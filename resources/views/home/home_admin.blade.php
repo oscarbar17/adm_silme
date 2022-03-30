@@ -111,7 +111,7 @@
                             @foreach($eventos as $evento)
                             <tr>
                                 <td>
-                                    <img src="{{asset('assets/images/users/3.jpg')}}" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
+                                    <img src="{{asset('assets/images/users/admin.png')}}" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
                                         {{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}}
                                 </td>
                                 <td>
@@ -141,7 +141,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xl-8">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Top Marcas</h3>
@@ -150,7 +150,7 @@
                     @foreach($topMarcas as $marca)
                         <div class="list-group-item d-flex  align-items-center border-top-0 border-left-0 border-right-0">
                             <div class="mr-2">
-                                <span class="avatar avatar-md brround cover-image" data-image-src="{{asset('assets/images/users/1.jpg')}}"></span>
+                                <span class="avatar avatar-md brround cover-image" data-image-src="{{asset('assets/images/users/admin.png')}}"></span>
                             </div>
                             <div class="">
                                 <div class="font-weight-semibold">{{App\Models\Marca::find($marca->marca_id)->ma_nombre}}</div>
