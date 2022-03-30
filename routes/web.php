@@ -36,6 +36,10 @@ Route::get('login', [AuthController::class, 'create'])->name('login.create');
 Route::post('login.store', [AuthController::class, 'store'])->name('login.store');
 Route::get('login.destroy', [AuthController::class, 'destroy'])->name('login.destroy');
 
+Route::get('terminos_y_condiciones', function () {
+    return view('website.terminos_condiciones');
+});
+
 Route::group( ['middleware' => 'auth'], function (){
     Route::get('home_admin', [HomeController::class, 'indexAdmin'])->name('home_admin.index');
 
