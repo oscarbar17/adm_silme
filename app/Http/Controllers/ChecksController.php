@@ -114,6 +114,7 @@ class ChecksController extends Controller
             'ch_latitud_check_in'   => $request->get('ch_latitud_check_in'),
             'ch_longitud_check_in'  => $request->get('ch_longitud_check_in')
         ]);
+
         
         return response()->json([
             'status'    => 'Evento registrado',

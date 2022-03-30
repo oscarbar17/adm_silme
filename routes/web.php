@@ -10,6 +10,7 @@ use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\ProductoresController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\SucursalesController;
+use App\Http\Controllers\TelegramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +27,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect(route('login.create'));
 });
-
-
+/*
+Route::get('activity', [TelegramController::class, 'updatedActivity'])->name('activity');
+Route::get('send', [TelegramController::class, 'sendMessage'])->name('send');
+*/
 Route::get('login', [AuthController::class, 'create'])->name('login.create');
 Route::post('login.store', [AuthController::class, 'store'])->name('login.store');
 Route::get('login.destroy', [AuthController::class, 'destroy'])->name('login.destroy');
