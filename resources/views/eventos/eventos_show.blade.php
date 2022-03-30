@@ -1,4 +1,4 @@
-@extends('layouts.default') 
+@extends('layouts.default')
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -13,7 +13,7 @@
     </div>
     <div class="ml-auto pageheader-btn">
         <div class="btn-list">
-            
+
         </div>
     </div>
 </div>
@@ -26,12 +26,12 @@
                 <div class="wideget-user text-center">
                     <div class="wideget-user-desc">
                         <div class="wideget-user-img">
-                            <img class="" src="{{asset('assets/images/users/10.jpg')}}" alt="img">
+                            <img class="" src="{{asset('assets/images/users/admin.png')}}" alt="img">
                         </div>
                         <div class="user-wrap">
                             <h4 class="mb-1">{{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}}</h4>
                             <h6 class="text-muted mb-4">Empleado desde: {{Carbon\Carbon::parse($evento->empleado->em_fecha_antiguedad)->format('M-y')}}</h6>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
             <div class="tab-pane" id="tab-71">
                 <div class="card">
                     <div class="card-header">
-                        
+
                     </div>
                     <div class="card-body">
                         <iframe src="https://maps.google.com/maps?q={{$evento->ev_latitud}},{{$evento->ev_longitud}}&hl=en&z=14&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -164,7 +164,7 @@
     </div><!-- COL-END -->
 </div>
 <!-- ROW-1 CLOSED -->
-@stop 
+@stop
 @push('scripts')
 <script>
 

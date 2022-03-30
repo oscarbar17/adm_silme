@@ -112,7 +112,7 @@
                             <tr>
                                 <td>
                                     <img src="{{asset('assets/images/users/admin.png')}}" alt="profile-user" class="brround  avatar-sm w-32 mr-2">
-                                        {{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}}
+                                        {{$evento->empleado->em_nombre}}
                                 </td>
                                 <td>
                                     {{$evento->sucursal->su_nombre}}
