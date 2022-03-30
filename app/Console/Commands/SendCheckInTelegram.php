@@ -46,12 +46,9 @@ class SendCheckInTelegram extends Command
                 ->get();
 
         $content = "<b>-- NOTIFICACION DE CHECKINS --</b>\n";
-        $continue = false;
         
         foreach($checks as $check){
-            $continue = true;
             // -- Notifica por Telegram
-            $empleado = Empleado::find($check->empleado_id);
             $content .= 'Empleado: '. $check->empleado->em_nombre. " ". $check->empleado->em_apellido_paterno. " ". $check->empleado->em_apellido_materno . "\n";
             $content .= 'Sucursal: '. $check->sucursal->su_nombre. "\n";
             $content .= "CheckIn: ". $check->ch_check_in;
