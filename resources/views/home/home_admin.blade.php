@@ -88,7 +88,7 @@
 
 <!-- ROW-4 -->
 <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Eventos Recientes</h3>
@@ -140,8 +140,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+    <!-- <div class="row"> -->
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Top Marcas</h3>
@@ -257,7 +257,7 @@
                 </div>
             </div>
         </div> -->
-    </div>
+    <!-- </div> -->
     <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
         <div class="card">
             <div class="card-header">
