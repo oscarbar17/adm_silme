@@ -110,7 +110,7 @@
                                             <td><strong>Check In :</strong> {{$check->ch_check_in}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Check Out :</strong> {{$check->ch_check_in}}</td>
+                                            <td><strong>Check Out :</strong> {{$check->ch_check_out}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
