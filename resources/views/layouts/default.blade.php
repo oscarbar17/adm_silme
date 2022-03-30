@@ -41,7 +41,7 @@
 
 		<!-- COLOR SKIN CSS -->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('assets/colors/color1.css')}}" />
-		
+
 		<!-- INTERNAL SWEET ALERT CSS -->
 		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
 
@@ -78,7 +78,7 @@
 							<img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1" alt="logo">
 						</a><!-- LOGO -->
 					</div>
-					<ul class="side-menu">  
+					<ul class="side-menu">
                         <li><h3>{{env('APP_NAME')}}</h3></li>
                         {!! \App\Library\MenuGuiHelper::render(Session::get('modulos')) !!}
 					</ul>
@@ -109,7 +109,7 @@
 								<div class="dropdown profile-1">
 									<a href="#" data-toggle="dropdown" class="nav-link pl-2 pr-2  leading-none d-flex">
 										<span>
-											<img src="{{asset('assets/images/users/10.jpg')}}" alt="profile-user" class="avatar  mr-xl-3 profile-user brround cover-image">
+											<img src="{{asset('assets/images/users/admin.png')}}" alt="profile-user" class="avatar  mr-xl-3 profile-user brround cover-image">
 										</span>
 										<div class="text-center mt-1 d-none d-xl-block">
 											<h6 class="text-dark mb-0 fs-13 font-weight-semibold">{{Session::get('user')->name}}</h6>
@@ -326,9 +326,9 @@
                 <!--app-content open-->
 				<div class="app-content">
 					<div class="side-app">
-                        
+
                     @yield('content')
-						
+
 					</div>
 				</div>
 				<!-- CONTAINER END -->
@@ -340,7 +340,7 @@
 				<div class="modal" id="modal-medium" tabindex="-1" role="dialog"  aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content" id="modal-medium-content">
-							
+
 						</div>
 					</div>
 				</div>
@@ -349,7 +349,7 @@
 				<div class="modal" id="modal-large" tabindex="-1" role="dialog"  aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content" id="modal-large-content">
-							
+
 						</div>
 					</div>
 				</div>
@@ -422,14 +422,14 @@
 		-->
 		<!-- CUSTOM JS -->
 		<script src="{{asset('assets/js/custom.js')}}"></script>
-		
+
         <!-- INTERNAL  DATA TABLE JS-->
         <script src="{{asset('js/datatable-lang.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-		
+
 		<script src="{{asset('assets/plugins/datatable/fileexport/dataTables.buttons.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/fileexport/buttons.bootstrap4.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/fileexport/jszip.min.js')}}"></script>
@@ -438,15 +438,15 @@
 		<script src="{{asset('assets/plugins/datatable/fileexport/buttons.html5.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/fileexport/buttons.print.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/datatable/fileexport/buttons.colVis.min.js')}}"></script>
-		
+
 		<!-- INTERNAL DATEPICKER JS-->
 		<script src="{{asset('assets/plugins/date-picker/spectrum.js')}}"></script>
 		<script src="{{asset('assets/plugins/date-picker/jquery-ui.js')}}"></script>
 		<script src="{{asset('assets/plugins/input-mask/jquery.maskedinput.js')}}"></script>
-		
+
 		<!-- INTERNAL SWEET-ALERT JS -->
 		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
-		
+
 		<script src="{{asset('assets/plugins/validate/jquery.validate.js')}}"></script>
 
 		<!-- INTERNAL GALLERY JS -->
@@ -461,12 +461,12 @@
         <script src="{{asset('assets/plugins/gallery/lg-share.js')}}"></script>
 
 		<script>
-			
+
 			$(document).on("click", ".btn-action-modal", function(e){
 				//e.preventDefault();
 				var route = $(this).attr('href');
 				var target = $(this).data('target');
-				
+
 				$(target + "-content").load(route);
 			});
 		</script>
