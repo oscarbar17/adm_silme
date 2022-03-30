@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductoresController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\SucursalesController;
 use App\Http\Controllers\TelegramController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -107,5 +108,11 @@ Route::group( ['middleware' => 'auth'], function (){
     Route::any('checks.index.data', [ChecksController::class, 'indexDT'])->name('checks.index.data');
     Route::get('check/{id}', [ChecksController::class, 'show'])->name('checks.show');
     Route::post('checks.export', [ChecksController::class, 'export'])->name('checks.export');
+
+    //--Usuarios
+    Route::get('usuarios', [UsersController::class, 'index'])->name('usuarios.index');
+    Route::any('usuarios_index.data', [UsersController::class, 'indexDT'])->name('usuarios_index.data');
+    Route::get('usuarios.edit_password/{id}', [UsersController::class, 'editPassword'])->name('usuarios.edit_password');
+    Route::post('usuarios.update_password', [UsersController::class, 'updatePassword'])->name('usuarios.update_password');
 
 });

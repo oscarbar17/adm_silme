@@ -47,6 +47,12 @@
 
 		<!-- INTERNAL GALLERY CSS -->
 		<link href="{{asset('assets/plugins/gallery/gallery.css')}}" rel="stylesheet">
+
+		<style>
+			.error{
+				color:red
+			}
+		</style>
 	</head>
 
 	<body class="app sidebar-mini">

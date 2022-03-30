@@ -139,6 +139,28 @@ class ModulosSeeder extends Seeder
             'mo_publicado'	    => true
         ]);
         ModRolHelper::set($modHijo->id);
-        
+
+        //Empleados
+        $mod = Modulo::create([
+            'parent_id'         => null,
+            'mo_descripcion'    => 'Usuarios' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => '',
+            'mo_atributos'      => 'id="m-usuarios"',
+            'mo_icono'			=> 'fa fa-users',
+            'mo_publicado'		=> true
+        ]);
+        ModRolHelper::set($mod->id);
+
+        $modHijo = Modulo::create([
+            'parent_id'         => $mod->id,
+            'mo_descripcion'    => 'Gestión de Usuarios' ,
+            'mo_orden'			=> 1,
+            'mo_ruta'           => 'usuarios.index',
+            'mo_atributos'      => ' id="m-gestion-empleados" ',
+            'mo_icono'	    => 'fa fa-users',
+            'mo_publicado'	    => true
+        ]);
+        ModRolHelper::set($modHijo->id);
     }
 }

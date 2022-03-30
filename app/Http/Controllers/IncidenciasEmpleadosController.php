@@ -87,7 +87,7 @@ class IncidenciasEmpleadosController extends Controller
 
         return [
             'returnCode'    => '200',
-            'msg'           => 'Empleado eliminado'
+            'msg'           => 'Incidencia guardada'
         ];
     }
 

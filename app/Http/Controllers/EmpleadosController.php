@@ -7,6 +7,7 @@ use App\Models\Sucursal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\DataTables;
 
 class EmpleadosController extends Controller
@@ -59,12 +60,13 @@ class EmpleadosController extends Controller
 
     public function store(Request $request)
     {
+        $password = uniqid();
         //--Genera usuario de acceso
         $user = User::create([
             'name'      => $request->get('em_nombre'),
             'email'     => $request->get('em_email'),
             'rol_id'    => 2,
-            'password'  => bcrypt('12345678'),
+            'password'  => bcrypt($password),
             'estatus'   => 'ACTIVO'
         ]);
 
@@ -84,6 +86,21 @@ class EmpleadosController extends Controller
             'em_contacto_emergencia'=> $request->get('em_contacto_emergencia')
 
         ]);
+
+
+        $emailData = [
+            'email'        => $request->get('em_email'),
+            'password'     => $password,
+            'login'        => route('login.create')
+        ];
+
+        Mail::send ( 'emails.email_nuevo_usuario', $emailData, function ($message) use ($emailData) {
+            $message->to ( $emailData['email'] );
+                
+            $message->from ( env('MAIL_FROM_ADDRESS') , env('MAIL_FROM_NAME') );
+            $message->subject ( __('Credenciales de acceso') );
+            
+        } );
 
 
         return [

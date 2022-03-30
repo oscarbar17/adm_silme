@@ -82,7 +82,9 @@
 									</span>
 								</div>
 								<div class="text-right pt-1">
+									{{--
 									<p class="mb-0"><a href="forgot-password.html" class="text-primary ml-1">¿Olvidaste tu contraseña?</a></p>
+									--}}
 								</div>
 								@if($errors)
 									@foreach($errors->all() as $error)
