@@ -37,9 +37,52 @@ class RolesSeeder extends Seeder
 
         //--Rol de empleado
         $ra = Rol::create([
-            'ro_descripcion'	=> 'Empleado',
+            'ro_descripcion'	=> 'Recolector',
             'ro_ruta_home'		=> 'home_admin.index',
             'ro_admin'          => true
         ]);
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Distribuidor',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Encargado de Sucursal',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Supervisor',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Ventas',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Bodega',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
+
+        //--Rol de empleado
+        $ra = Rol::create([
+            'ro_descripcion'	=> 'Jardinería',
+            'ro_ruta_home'		=> 'home_admin.index',
+            'ro_admin'          => true
+        ]);
+        
     }
 }

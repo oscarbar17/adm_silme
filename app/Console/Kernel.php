@@ -22,6 +22,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('command:update_history_global')
                     ->dailyAt('18:00');
+
+        $schedule->command('command:close_checks')
+                    ->dailyAt('18:00');
     }
 
     /**

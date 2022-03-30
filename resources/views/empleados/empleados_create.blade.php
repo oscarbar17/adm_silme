@@ -8,6 +8,12 @@
     </div>
     <div class="modal-body">
         <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Rol:</label>
+            <select name="rol_id" class="form-control">
+                {{\App\Library\Combo::render($roles,'','id','ro_descripcion',false)}}
+            </select>
+        </div>
+        <div class="form-group">
             <label for="recipient-name" class="form-control-label">Sucursal:</label>
             <select name="sucursal_id" class="form-control">
                 {{\App\Library\Combo::render($sucursales,'','id','su_nombre',false)}}

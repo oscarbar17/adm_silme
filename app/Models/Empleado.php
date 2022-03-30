@@ -22,4 +22,7 @@ class Empleado extends Model
         return $this->belongsTo(Sucursal::class);
     }
 
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
 }

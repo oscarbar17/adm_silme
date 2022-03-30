@@ -10,6 +10,12 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-md-4">
+                <label class="form-control-label">Rol:</label>
+                <select name="rol_id" class="form-control">
+                    {{\App\Library\Combo::render($roles,$usuario->rol_id,'id','ro_descripcion',false)}}
+                </select>
+            </div>
+            <div class="col-md-4">
                 <label class="form-control-label">Sucursal:</label>
                 <select name="sucursal_id" class="form-control">
                     {{\App\Library\Combo::render($sucursales,$empleado->sucursal_id,'id','su_nombre',false)}}

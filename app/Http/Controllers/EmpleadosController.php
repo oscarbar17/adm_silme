@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Rol;
 use App\Models\Sucursal;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -48,12 +49,15 @@ class EmpleadosController extends Controller
 
     public function create()
     {
+        $roles = Rol::get();
+
         $sucursales = Sucursal::where([
                         'su_eliminado'  => false
                     ])->orderBy('su_nombre','asc')
                     ->get();
 
         return view('empleados.empleados_create',[
+            'roles'         => $roles,
             'sucursales'    => $sucursales
         ]);
     }
@@ -65,7 +69,7 @@ class EmpleadosController extends Controller
         $user = User::create([
             'name'      => $request->get('em_nombre'),
             'email'     => $request->get('em_email'),
-            'rol_id'    => 2,
+            'rol_id'    => $request->rol_id,
             'password'  => bcrypt($password),
             'estatus'   => 'ACTIVO'
         ]);
@@ -118,9 +122,15 @@ class EmpleadosController extends Controller
         ])->orderBy('su_nombre','asc')
         ->get();
 
+        $usuario = User::find($empleado->user_id);
+
+        $roles = Rol::get();
+
         return view('empleados.empleados_edit',[
                 'empleado'  => $empleado,
-                'sucursales'=> $sucursales
+                'sucursales'=> $sucursales,
+                'roles'     => $roles,
+                'usuario'   => $usuario
         ]);
     }
 
@@ -141,6 +151,12 @@ class EmpleadosController extends Controller
             'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
             'em_contacto_emergencia'=> $request->get('em_contacto_emergencia')
         ]);
+
+        //---
+        $usuario = User::find($empleado->user_id);
+        $usuario->rol_id   = $request->rol_id;
+        $usuario->save();
+        //---
 
         if( $request->hasFile('acta_nacimiento_file') ){
     		
