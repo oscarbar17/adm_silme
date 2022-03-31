@@ -41,6 +41,7 @@ class SendCheckOutTelegram extends Command
      */
     public function handle()
     {
+        $this->info("Starting...". Carbon::now());
         $checks = Check::where('created_at','>=',Carbon::now()->format('Y-m-d'))
                 ->whereNotNull('ch_check_out')
                 ->with(['empleado','sucursal'])
@@ -60,11 +61,14 @@ class SendCheckOutTelegram extends Command
 
         if($checks->count() > 0){
             
+            $this->info("Enviando..." . $checks->count());
             Telegram::sendMessage([
                 'chat_id' => env("TELEGRAM_CHANNEL_ID"),
                 'parse_mode' => 'HTML',
                 'text' => $content
             ]);
         }
+
+        $this->info("Ending...". Carbon::now());
     }
 }
