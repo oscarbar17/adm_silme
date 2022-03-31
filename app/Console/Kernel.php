@@ -17,10 +17,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->command('command:update_history_global')
+        $schedule->command('command:send_check_in')
                     ->dailyAt('08:00');
 
-        $schedule->command('command:update_history_global')
+        $schedule->command('command:send_check_out')
                     ->dailyAt('18:00');
 
         $schedule->command('command:close_checks')
