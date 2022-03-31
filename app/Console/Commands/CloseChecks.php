@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Check;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class CloseChecks extends Command
@@ -37,6 +39,13 @@ class CloseChecks extends Command
      */
     public function handle()
     {
+        Check::where('created_at','>=',Carbon::now()->format('Y-m-d'))
+                ->where('ch_estatus','ABIERTO')
+                ->update([
+                    'ch_estatus'    => 'CERRADO_SISTEMA'
+                ]);
+
+        
         return 0;
     }
 }
