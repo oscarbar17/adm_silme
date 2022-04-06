@@ -41,9 +41,13 @@ class CloseChecks extends Command
      */
     public function handle()
     {
+
+        $this->info("Start. " . Carbon::now());
         $users_exception = User::whereIn('rol_id',[5,6])->pluck('id');
 
-        $empleados_exception = Empleado::whereIn('user_id',$users_exception)->pluck('empleado_id');
+        $empleados_exception = Empleado::whereIn('user_id',$users_exception)->pluck('id');
+
+        #$this->info("Users Exception");
 
         Check::where('created_at','>=',Carbon::now()->format('Y-m-d'))
                 ->where('ch_estatus','ABIERTO')
@@ -52,7 +56,8 @@ class CloseChecks extends Command
                     'ch_estatus'    => 'CERRADO_SISTEMA'
                 ]);
 
-        
+        $this->info("End. " . Carbon::now());
+
         return 0;
     }
 }
