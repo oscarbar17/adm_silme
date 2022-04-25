@@ -22,7 +22,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('command:send_check_out')
                     ->dailyAt('18:00')
-                    //->everyMinute()
+                    ->everyMinute()
                     ->appendOutputTo(storage_path()."/logs/check_outs.log");
 
         $schedule->command('command:close_checks')
