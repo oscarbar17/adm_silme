@@ -41,6 +41,7 @@ class SendCheckInTelegram extends Command
      */
     public function handle()
     {
+        $this->info(" - STARTING - " . Carbon::now());
         $checks = Check::where('created_at','>=',Carbon::now()->format('Y-m-d'))
                 ->with(['empleado','sucursal'])
                 ->get();
@@ -64,7 +65,7 @@ class SendCheckInTelegram extends Command
                 'text' => $content
             ]);
         }
-        
+        $this->info(" - ENDING - " . Carbon::now());
         
     }
 }
