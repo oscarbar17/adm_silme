@@ -18,13 +18,13 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         $schedule->command('command:send_check_in')
-                    #->dailyAt('08:00')
-                    ->everyMinute()
+                    ->dailyAt('08:00')
+                    #->everyMinute()
                     ->appendOutputTo(storage_path()."/logs/check_ins.log");
 
         $schedule->command('command:send_check_out')
-                    #->dailyAt('18:00')
-                    ->everyMinute()
+                    ->dailyAt('18:00')
+                    #->everyMinute()
                     ->appendOutputTo(storage_path()."/logs/check_outs.log");
 
         $schedule->command('command:close_checks')
