@@ -129,7 +129,7 @@
                                         <h5><strong>Notas</strong></h5>
                                     </div>
                                     <p>
-                                        {{$evento->ev_notas}}
+                                        {{ Str::upper($evento->ev_notas) }}
                                     </p>
                                 </div>
                             </div>

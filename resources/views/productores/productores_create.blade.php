@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Nombre de Productor:</label>
-            <input type="text" name="pr_nombre" class="form-control">
+            <input type="text" name="pr_nombre" class="form-control" style="text-transform:uppercase;">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Tipo de Cultivo:</label>
@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Correo:</label>
-            <input type="text" name="pr_correo" class="form-control">
+            <input type="text" name="pr_correo" class="form-control" style="text-transform:uppercase;">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono:</label>
-            <input type="text" name="pr_telefono" class="form-control">
+            <input type="text" name="pr_telefono" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Municipio:</label>

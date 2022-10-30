@@ -10,7 +10,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="message-text" class="form-control-label">Nombre de la sucursal:</label>
-            <input type="text" name="su_nombre" value="{{$sucursal->su_nombre}}" class="form-control">
+            <input type="text" name="su_nombre" value="{{$sucursal->su_nombre}}" class="form-control" style="text-transform:uppercase;">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Encargado de la sucursal:</label>
@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono de la sucursal:</label>
-            <input type="text" name="su_telefono" value="{{$sucursal->su_telefono}}" class="form-control">
+            <input type="text" name="su_telefono" value="{{$sucursal->su_telefono}}" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Latitud:</label>
@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Metros Geocerca:</label>
-            <input type="text" name="su_metros_geocerca" value="{{$sucursal->su_metros_geocerca}}" class="form-control">
+            <input type="text" name="su_metros_geocerca" value="{{$sucursal->su_metros_geocerca}}" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
         </div>
     </div>
     <div class="modal-footer">

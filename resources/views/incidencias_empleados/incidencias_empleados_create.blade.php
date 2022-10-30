@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Comentarios:</label>
-            <input name="ie_comentarios" class="form-control"/>
+            <input name="ie_comentarios" class="form-control" style="text-transform:uppercase;"/>
                 
         </div>
     </div>
