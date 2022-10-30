@@ -77,7 +77,9 @@ var oTableEmpleados = $('#table-empleados').DataTable({
             columns: [1, 2, 3, 5],
             format: {
                  body: function ( data, row, column, node ) {
-                  return column === 0 ? data.toUpperCase() : data;
+                  return column === 0 ?
+                data.charAt(0).toUpperCase() + data.slice(1) :
+                data;
              }
             }
          },
