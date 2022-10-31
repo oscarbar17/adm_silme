@@ -68,7 +68,7 @@ class SucursalesController extends Controller
     public function store(Request $request)
     {
         $sucursal = Sucursal::create([
-            'su_nombre'         => $request->get('su_nombre'), 
+            'su_nombre'         => strtoupper($request->get('su_nombre')), 
             'empleado_id'       => $request->get('empleado_id'),
             'su_telefono'       => $request->get('su_telefono'), 
             'su_latitud'        => $request->get('su_latitud'), 
@@ -101,7 +101,7 @@ class SucursalesController extends Controller
     public function update(Request $request)
     {
         $sucursal = Sucursal::find($request->get('id'));
-        $sucursal->su_nombre          = $request->get('su_nombre'); 
+        $sucursal->su_nombre          = strtoupper($request->get('su_nombre')); 
         $sucursal->empleado_id        = $request->get('empleado_id');
         $sucursal->su_telefono        = $request->get('su_telefono'); 
         $sucursal->su_latitud         = $request->get('su_latitud'); 

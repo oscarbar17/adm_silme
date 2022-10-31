@@ -61,9 +61,9 @@ class ProductoresController extends Controller
     {
         $productor = Productor::create([
             'producto_id'   => $request->get('producto_id'),
-            'pr_nombre'     => $request->get('pr_nombre'),
-            'pr_cultivo'    => $request->get('pr_cultivo'),
-            'pr_correo'     => $request->get('pr_correo'),
+            'pr_nombre'     => strtoupper($request->get('pr_nombre')),
+            'pr_cultivo'    => strtoupper($request->get('pr_cultivo')),
+            'pr_correo'     => strtoupper($request->get('pr_correo')),
             'pr_telefono'   => $request->get('pr_telefono'),
             'municipio_id'  => $request->get('municipio_id')
         ]);
@@ -78,9 +78,9 @@ class ProductoresController extends Controller
     {
         $productor = Productor::create([
             'producto_id'   => $request->get('producto_id'),
-            'pr_nombre'     => $request->get('pr_nombre'),
-            'pr_cultivo'    => $request->get('pr_cultivo'),
-            'pr_correo'     => $request->get('pr_correo'),
+            'pr_nombre'     => strtoupper($request->get('pr_nombre')),
+            'pr_cultivo'    => strtoupper($request->get('pr_cultivo')),
+            'pr_correo'     => strtoupper($request->get('pr_correo')),
             'pr_telefono'   => $request->get('pr_telefono'),
             'municipio_id'  => $request->get('municipio_id')
         ]);
@@ -112,9 +112,9 @@ class ProductoresController extends Controller
     {
         $productor = Productor::findOrFail($request->get('id'));
         $productor->producto_id = $request->get('producto_id');
-        $productor->pr_nombre   = $request->get('pr_nombre');
-        $productor->pr_cultivo  = $request->get('pr_cultivo');
-        $productor->pr_correo   = $request->get('pr_correo');
+        $productor->pr_nombre   = strtoupper($request->get('pr_nombre'));
+        $productor->pr_cultivo  = strtoupper($request->get('pr_cultivo'));
+        $productor->pr_correo   = strtoupper($request->get('pr_correo'));
         $productor->pr_telefono = $request->get('pr_telefono');
         $productor->municipio_id= $request->get('municipio_id');
         $productor->save();

@@ -82,7 +82,7 @@ class IncidenciasEmpleadosController extends Controller
             'empleado_id'           => $request->get('empleado_id'),
             'tipo_incidencia_id'    => $request->get('tipo_incidencia_id'),
             'ie_fecha'              => Carbon::now()->format('Y-m-d'),
-            'ie_comentarios'        => $request->get('ie_comentarios')
+            'ie_comentarios'        => strtoupper($request->get('ie_comentarios'))
         ]);
 
         return [

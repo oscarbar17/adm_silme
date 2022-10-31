@@ -49,11 +49,11 @@ class MarcasController extends Controller
     public function store(Request $request)
     {
         $marca = Marca::create([
-            'ma_nombre'     => $request->get('ma_nombre'),
-            'ma_producto'   => $request->get('ma_producto'),
-            'ma_contacto'   => $request->get('ma_contacto'),
+            'ma_nombre'     => strtoupper($request->get('ma_nombre')),
+            'ma_producto'   => strtoupper($request->get('ma_producto')),
+            'ma_contacto'   => strtoupper($request->get('ma_contacto')),
             'ma_telefono'   => $request->get('ma_telefono'),
-            'ma_correo'   => $request->get('ma_correo')
+            'ma_correo'   => strtoupper($request->get('ma_correo'))
         ]);
 
         return [
@@ -74,11 +74,11 @@ class MarcasController extends Controller
     public function update(Request $request)
     {
         $marca = Marca::findOrFail($request->get('id'))->update([
-            'ma_nombre'     => $request->get('ma_nombre'),
-            'ma_producto'   => $request->get('ma_producto'),
-            'ma_contacto'   => $request->get('ma_contacto'),
+            'ma_nombre'     => strtoupper($request->get('ma_nombre')),
+            'ma_producto'   => strtoupper($request->get('ma_producto')),
+            'ma_contacto'   => strtoupper($request->get('ma_contacto')),
             'ma_telefono'   => $request->get('ma_telefono'),
-            'ma_correo'   => $request->get('ma_correo')
+            'ma_correo'   => strtoupper($request->get('ma_correo'))
         ]);
 
         return [

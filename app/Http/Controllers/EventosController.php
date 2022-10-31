@@ -114,11 +114,11 @@ class EventosController extends Controller
             'marca_id'      => $request->get('marca_id'),
             'producto_id'   => $request->get('producto_id'),
             'ev_superficie' => $request->get('ev_superficie'),
-            'ev_tipo_cultivo'=> $request->get('ev_tipo_cultivo'),
+            'ev_tipo_cultivo'=> strtoupper($request->get('ev_tipo_cultivo')),
             'ev_latitud'    => $request->get('ev_latitud'),
             'ev_longitud'   => $request->get('ev_longitud'),
-            'ev_notas'      => $request->get('ev_notas'),
-            'ev_tipo_evento'=> $request->get('ev_tipo_evento'),
+            'ev_notas'      => strtoupper($request->get('ev_notas')),
+            'ev_tipo_evento'=> strtoupper($request->get('ev_tipo_evento')),
             'sucursal_id'   => $request->get('sucursal_id')
         ]);
 
@@ -170,8 +170,8 @@ class EventosController extends Controller
     {
         $evento = Evento::find($request->get('evento_id'));
 
-        $evento->ev_notas   = $request->get('ev_notas');
-        $evento->ev_estatus = $request->get('ev_estatus');
+        $evento->ev_notas   = strtoupper($request->get('ev_notas'));
+        $evento->ev_estatus = strtoupper($request->get('ev_estatus'));
         $evento->save();
 
         //Recibe imagenes

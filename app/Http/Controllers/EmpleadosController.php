@@ -67,8 +67,8 @@ class EmpleadosController extends Controller
         $password = uniqid();
         //--Genera usuario de acceso
         $user = User::create([
-            'name'      => $request->get('em_nombre'),
-            'email'     => $request->get('em_email'),
+            'name'      => strtoupper($request->get('em_nombre')),
+            'email'     => strtoupper($request->get('em_email')),
             'rol_id'    => $request->rol_id,
             'password'  => bcrypt($password),
             'estatus'   => 'ACTIVO'
@@ -77,15 +77,15 @@ class EmpleadosController extends Controller
         $empleado = Empleado::create([
             'sucursal_id'           => $request->get('sucursal_id'),
             'user_id'               => $user->id,
-            'em_nombre'             => $request->get('em_nombre'),
-            'em_apellido_paterno'   => $request->get('em_apellido_paterno'),
-            'em_apellido_materno'   => $request->get('em_apellido_materno'),
-            'em_email'              => $request->get('em_email'),
+            'em_nombre'             => strtoupper($request->get('em_nombre')),
+            'em_apellido_paterno'   => strtoupper($request->get('em_apellido_paterno')),
+            'em_apellido_materno'   => strtoupper($request->get('em_apellido_materno')),
+            'em_email'              => strtoupper($request->get('em_email')),
             'em_fecha_nacimiento'   => $request->get('em_fecha_nacimiento'),
-            'em_nss'                => $request->get('em_nss'),
-            'em_curp'               => $request->get('em_curp'),
+            'em_nss'                => strtoupper($request->get('em_nss')),
+            'em_curp'               => strtoupper($request->get('em_curp')),
             'em_telefono'           => $request->get('em_telefono'),
-            'em_cargo'              => $request->get('em_cargo'),
+            'em_cargo'              => strtoupper($request->get('em_cargo')),
             'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
             'em_contacto_emergencia'=> $request->get('em_contacto_emergencia')
 
@@ -140,14 +140,14 @@ class EmpleadosController extends Controller
 
         $empleado->update([
             'sucursal_id'           => $request->get('sucursal_id'),
-            'em_nombre'             => $request->get('em_nombre'),
-            'em_apellido_paterno'   => $request->get('em_apellido_paterno'),
-            'em_apellido_materno'   => $request->get('em_apellido_materno'),
+            'em_nombre'             => strtoupper($request->get('em_nombre')),
+            'em_apellido_paterno'   => strtoupper($request->get('em_apellido_paterno')),
+            'em_apellido_materno'   => strtoupper($request->get('em_apellido_materno')),
             'em_fecha_nacimiento'   => $request->get('em_fecha_nacimiento'),
-            'em_nss'                => $request->get('em_nss'),
-            'em_curp'               => $request->get('em_curp'),
+            'em_nss'                => strtoupper($request->get('em_nss')),
+            'em_curp'               => strtoupper($request->get('em_curp')),
             'em_telefono'           => $request->get('em_telefono'),
-            'em_cargo'              => $request->get('em_cargo'),
+            'em_cargo'              => strtoupper($request->get('em_cargo')),
             'em_fecha_antiguedad'   => $request->get('em_fecha_antiguedad'),
             'em_contacto_emergencia'=> $request->get('em_contacto_emergencia')
         ]);
