@@ -48,7 +48,7 @@
                             <th class="wd-20p"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="text-transform: uppercase;">
                         
                     </tbody>
                 </table>

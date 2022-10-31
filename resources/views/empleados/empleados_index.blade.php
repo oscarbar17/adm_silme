@@ -38,7 +38,7 @@
                             <th class="wd-20p"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="text-transform: uppercase;">
                         
                     </tbody>
                 </table>
@@ -73,16 +73,7 @@ var oTableEmpleados = $('#table-empleados').DataTable({
             { data: 'em_fecha_antiguedad', name: 'em_fecha_antiguedad'},
 			{ data: 'opciones', name: 'opciones'},
 		],
-        exportOptions: {
-            columns: [1, 2, 3, 5],
-            format: {
-                 body: function ( data, row, column, node ) {
-                  return column === 0 ?
-                data.charAt(0).toUpperCase() + data.slice(1) :
-                data;
-             }
-            }
-         },
+        
 	    language : dtLang
 	});
 
