@@ -25,10 +25,10 @@
                 <div class="wideget-user text-center">
                     <div class="wideget-user-desc">
                         <div class="wideget-user-img">
-                            <img class="" src="{{asset('assets/images/users/10.jpg')}}" alt="img">
+                            <img class="" src="{{asset('assets/images/users/admin.png')}}" alt="img">
                         </div>
                         <div class="user-wrap">
-                            <h4 class="mb-1">{{$check->empleado->em_nombre}} {{$check->empleado->em_apellido_paterno}}</h4>
+                            <h4 class="mb-1">{{ Str::upper($check->empleado->em_nombre) }} {{ Str::upper($check->empleado->em_apellido_paterno) }}</h4>
                             <h6 class="text-muted mb-4">Empleado desde: {{Carbon\Carbon::parse($check->empleado->em_fecha_antiguedad)->format('M-y')}}</h6>
                             
                         </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="media-body">
                         <a href="#" class="text-dark">Correo</a>
-                        <div class="text-muted fs-14">{{$check->empleado->em_email}}</div>
+                        <div class="text-muted fs-14">{{ Str::upper($check->empleado->em_email) }}</div>
                     </div>
                 </div>
                 <div class="media mb-5 mt-0">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="media-body">
                         <a href="#" class="text-dark">Cargo</a>
-                        <div class="text-muted fs-14">{{$check->empleado->em_cargo}}</div>
+                        <div class="text-muted fs-14">{{ Str::upper($check->empleado->em_cargo) }}</div>
                     </div>
                 </div>
                 <div class="media mb-0 mt-0">
@@ -97,20 +97,20 @@
                                 <table class="table row table-borderless">
                                     <tbody class="col-lg-12 col-xl-6 p-0">
                                         <tr>
-                                            <td><strong>Nombre Completo :</strong> {{$check->empleado->em_nombre}} {{$check->empleado->em_apellido_paterno}} {{$check->empleado->em_apellido_materno}}</td>
+                                            <td><strong>Nombre Completo :</strong> {{ Str::upper($check->empleado->em_nombre) }} {{ Str::upper($check->empleado->em_apellido_paterno) }} {{ Str::upper($check->empleado->em_apellido_materno) }}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Fecha :</strong> {{Carbon\Carbon::parse($check->created_at)->format('d-M-y')}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Estatus :</strong> {{$check->ch_estatus}}</td>
+                                            <td><strong>Estatus :</strong> {{ Str::upper($check->ch_estatus) }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td><strong>Check In :</strong> {{$check->ch_check_in}}</td>
+                                            <td><strong>Check In :</strong> {{ Str::upper($check->ch_check_in) }}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Check Out :</strong> {{$check->ch_check_out}}</td>
+                                            <td><strong>Check Out :</strong> {{ Str::upper($check->ch_check_out) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

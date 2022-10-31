@@ -107,7 +107,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="text-transform: uppercase;">
                             @foreach($eventos as $evento)
                             <tr>
                                 <td>

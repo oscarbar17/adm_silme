@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-4">
                 <label class="form-control-label">Rol:</label>
-                <select name="rol_id" class="form-control">
+                <select name="rol_id" class="form-control" style="text-transform:uppercase;">
                     {{\App\Library\Combo::render($roles,$usuario->rol_id,'id','ro_descripcion',false)}}
                 </select>
             </div>
@@ -23,36 +23,36 @@
             </div>
             <div class="col-md-4">
                 <label class="form-control-label">Nombre:</label>
-                <input type="text" name="em_nombre" value="{{$empleado->em_nombre}}" class="form-control">
+                <input type="text" name="em_nombre" value="{{$empleado->em_nombre}}" class="form-control" style="text-transform:uppercase;">
             </div>
             <div class="col-md-4">
                 <label class="form-control-label">Apellido Paterno:</label>
-                <input type="text" name="em_apellido_paterno" value="{{$empleado->em_apellido_paterno}}" class="form-control">
+                <input type="text" name="em_apellido_paterno" value="{{$empleado->em_apellido_paterno}}" class="form-control" style="text-transform:uppercase;">
             </div>
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">Apellido Materno:</label>
-                <input type="text" name="em_apellido_materno" value="{{$empleado->em_apellido_materno}}" class="form-control">
+                <input type="text" name="em_apellido_materno" value="{{$empleado->em_apellido_materno}}" class="form-control" style="text-transform:uppercase;">
             </div>
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">Teléfono:</label>
-                <input type="text" name="em_telefono" value="{{$empleado->em_telefono}}" class="form-control">
+                <input type="text" name="em_telefono" value="{{$empleado->em_telefono}}" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
             </div>
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">Cargo:</label>
-                <input type="text" name="em_cargo" value="{{$empleado->em_cargo}}" class="form-control">
+                <input type="text" name="em_cargo" value="{{$empleado->em_cargo}}" class="form-control" style="text-transform:uppercase;">
             </div>
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">NSS:</label>
-                <input type="text" name="em_nss" value="{{$empleado->em_nss}}" class="form-control">
+                <input type="text" name="em_nss" value="{{$empleado->em_nss}}" class="form-control" style="text-transform:uppercase;">
             </div>
             <div class="col-md-4">
                 <br>
                 <label class="form-control-label">CURP:</label>
-                <input type="text" name="em_curp" value="{{$empleado->em_curp}}" class="form-control">
+                <input type="text" name="em_curp" value="{{$empleado->em_curp}}" class="form-control" style="text-transform:uppercase;">
             </div>
             <div class="col-md-4">
                 <br>
@@ -68,7 +68,7 @@
                 <br>
                 <div class="form-group">
                     <label for="message-text" class="form-control-label">Número de Contacto de Emergencia:</label>
-                    <input type="text" name="em_contacto_emergencia" value="{{$empleado->em_contacto_emergencia}}" class="form-control">
+                    <input type="text" name="em_contacto_emergencia" value="{{$empleado->em_contacto_emergencia}}" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                 </div>
             </div>
             <div class="col-md-12">

@@ -9,19 +9,19 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="message-text" class="form-control-label">Nombre de la Marca:</label>
-            <input type="text" name="ma_nombre" class="form-control" required>
+            <input type="text" name="ma_nombre" class="form-control" required style="text-transform:uppercase;">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Contacto:</label>
-            <input type="text" name="ma_contacto" class="form-control">
+            <input type="text" name="ma_contacto" class="form-control" style="text-transform:uppercase;">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Correo:</label>
-            <input type="text" name="ma_correo" class="form-control">
+            <input type="text" name="ma_correo" class="form-control" style="text-transform:uppercase;">
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Teléfono:</label>
-            <input type="text" name="ma_telefono" class="form-control">
+            <input type="text" name="ma_telefono" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
         </div>
     </div>
     <div class="modal-footer">

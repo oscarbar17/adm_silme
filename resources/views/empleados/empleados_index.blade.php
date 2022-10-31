@@ -38,7 +38,7 @@
                             <th class="wd-20p"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="text-transform: uppercase;">
                         
                     </tbody>
                 </table>
@@ -73,7 +73,8 @@ var oTableEmpleados = $('#table-empleados').DataTable({
             { data: 'em_fecha_antiguedad', name: 'em_fecha_antiguedad'},
 			{ data: 'opciones', name: 'opciones'},
 		],
-		language : dtLang
+        
+	    language : dtLang
 	});
 
     // Confirm

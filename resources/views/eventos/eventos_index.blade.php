@@ -45,32 +45,32 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label for="">Sucursal</label>
-                        <select id="select-sucursal" class="form-control">
+                        <select id="select-sucursal" class="form-control" style="text-transform:uppercase;">
                         {{\App\Library\Combo::render($sucursales,'','id','su_nombre',true)}}
                         </select>
                     </div>
                     <div class="col-md-3">
                         <label for="">Empleado</label>
-                        <select id="select-empleado" class="form-control">
+                        <select id="select-empleado" class="form-control" style="text-transform:uppercase;">
                         {{\App\Library\Combo::render($empleados,'','id','nombre',true)}}
                         </select>
                     </div>
                     <div class="col-md-3">
                         <label for="">Cultivo</label>
-                        <select id="select-producto" class="form-control">
+                        <select id="select-producto" class="form-control" style="text-transform:uppercase;">
                         {{\App\Library\Combo::render($cultivos,'','id','pr_nombre',true)}}
                         </select>
                     </div>
                     <div class="col-md-3">
                         <label for="">Municipio</label>
-                        <select id="select-municipio" class="form-control">
+                        <select id="select-municipio" class="form-control" style="text-transform:uppercase;">
                         {{\App\Library\Combo::render($municipios,'','id','mu_nombre',true)}}
                         </select>
                     </div>
                     <br>
                     <div class="col-md-3">
                         <label for="">Tipo de Evento</label>
-                        <select id="select-tipo-evento" class="form-control">
+                        <select id="select-tipo-evento" class="form-control" style="text-transform:uppercase;">
                             <option value="">-- Select option -- </option>
                             <option value="CAPACITACION">CAPACITACION</option>
                             <option value="MOSTRADOR">MOSTRADOR</option>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Estatus</label>
-                        <select id="select-estatus" class="form-control">
+                        <select id="select-estatus" class="form-control" style="text-transform:uppercase;">
                             <option value="">-- Select option -- </option>
                             <option value="ABIERTO">ABIERTO</option>
                             <option value="CERRADO">CERRADO</option>
@@ -117,7 +117,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="text-transform: uppercase;">
 
                             </tbody>
                         </table>

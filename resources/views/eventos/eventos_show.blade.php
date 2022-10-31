@@ -29,7 +29,7 @@
                             <img class="" src="{{asset('assets/images/users/admin.png')}}" alt="img">
                         </div>
                         <div class="user-wrap">
-                            <h4 class="mb-1">{{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}}</h4>
+                            <h4 class="mb-1">{{ Str::upper($evento->empleado->em_nombre) }} {{ Str::upper($evento->empleado->em_apellido_paterno) }}</h4>
                             <h6 class="text-muted mb-4">Empleado desde: {{Carbon\Carbon::parse($evento->empleado->em_fecha_antiguedad)->format('M-y')}}</h6>
 
                         </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="media-body">
                         <a href="#" class="text-dark">Correo</a>
-                        <div class="text-muted fs-14">{{$evento->empleado->em_email}}</div>
+                        <div class="text-muted fs-14">{{ Str::upper($evento->empleado->em_email) }}</div>
                     </div>
                 </div>
                 <div class="media mb-5 mt-0">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="media-body">
                         <a href="#" class="text-dark">Cargo</a>
-                        <div class="text-muted fs-14">{{$evento->empleado->em_cargo}}</div>
+                        <div class="text-muted fs-14">{{ Str::upper($evento->empleado->em_cargo) }}</div>
                     </div>
                 </div>
                 <div class="media mb-0 mt-0">
@@ -98,19 +98,19 @@
                                 <table class="table row table-borderless">
                                     <tbody class="col-lg-12 col-xl-6 p-0">
                                         <tr>
-                                            <td><strong>Nombre Completo :</strong> {{$evento->empleado->em_nombre}} {{$evento->empleado->em_apellido_paterno}} {{$evento->empleado->em_apellido_materno}}</td>
+                                            <td><strong>Nombre Completo :</strong> {{ Str::upper($evento->empleado->em_nombre) }} {{ Str::upper($evento->empleado->em_apellido_paterno) }} {{ Str::upper($evento->empleado->em_apellido_materno) }}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Productor :</strong> {{$evento->productor->pr_nombre}}</td>
+                                            <td><strong>Productor :</strong> {{ Str::upper($evento->productor->pr_nombre) }}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Teléfono :</strong> {{$evento->productor->pr_telefono}}</td>
+                                            <td><strong>Teléfono :</strong> {{ Str::upper($evento->productor->pr_telefono) }}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Tipo de Cultivo :</strong> {{$evento->ev_tipo_cultivo}}</td>
+                                            <td><strong>Tipo de Cultivo :</strong> {{ Str::upper($evento->ev_tipo_cultivo) }}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Municipio :</strong> {{$evento->municipio->mu_nombre}}</td>
+                                            <td><strong>Municipio :</strong> {{ Str::upper($evento->municipio->mu_nombre) }}</td>
                                         </tr>
                                     </tbody>
                                     <tbody class="col-lg-12 col-xl-6 p-0">
@@ -118,7 +118,7 @@
                                             <td><strong>Fecha :</strong> {{Carbon\Carbon::parse($evento->created_at)->format('d-M-y')}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Estatus :</strong> {{$evento->ev_estatus}}</td>
+                                            <td><strong>Estatus :</strong> {{ Str::upper($evento->ev_estatus) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -129,7 +129,7 @@
                                         <h5><strong>Notas</strong></h5>
                                     </div>
                                     <p>
-                                        {{$evento->ev_notas}}
+                                        {{ Str::upper($evento->ev_notas) }}
                                     </p>
                                 </div>
                             </div>
