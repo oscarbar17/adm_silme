@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-4">
                 <label class="form-control-label">Rol:</label>
-                <select name="rol_id" class="form-control">
+                <select name="rol_id" class="form-control" style="text-transform:uppercase;">
                     {{\App\Library\Combo::render($roles,$usuario->rol_id,'id','ro_descripcion',false)}}
                 </select>
             </div>

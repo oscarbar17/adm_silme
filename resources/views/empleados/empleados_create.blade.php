@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="recipient-name" class="form-control-label">Sucursal:</label>
-            <select name="sucursal_id" class="form-control">
+            <select name="sucursal_id" class="form-control" style="text-transform:uppercase;">
                 {{\App\Library\Combo::render($sucursales,'','id','su_nombre',false)}}
             </select>
         </div>

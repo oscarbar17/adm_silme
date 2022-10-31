@@ -42,13 +42,13 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label for="">Sucursal</label>
-                        <select id="select-sucursal" class="form-control">
+                        <select id="select-sucursal" class="form-control" style="text-transform:uppercase;">
                             {{\App\Library\Combo::render($sucursales,'','id','su_nombre',true)}}
                         </select>
                     </div>
                     <div class="col-md-3">
                         <label for="">Empleado</label>
-                        <select id="select-empleado" class="form-control">
+                        <select id="select-empleado" class="form-control" style="text-transform:uppercase;">
                         {{\App\Library\Combo::render($empleados,'','id','nombre',true)}}
                         </select>
                     </div>
@@ -63,7 +63,7 @@
                     <br>
                     <div class="col-md-3">
                         <label for="">Estatus</label>
-                        <select id="select-estatus" class="form-control">
+                        <select id="select-estatus" class="form-control" style="text-transform:uppercase;">
                         <option value="">-- Select option --</option>
                             <option value="ABIERTO">ABIERTO</option>
                             <option value="CERRADO">CERRADO</option>

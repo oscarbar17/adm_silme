@@ -9,7 +9,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="message-text" class="form-control-label">Cultivo:</label>
-            <select name="producto_id" class="form-control">
+            <select name="producto_id" class="form-control" style="text-transform:uppercase;">
                 {{\App\Library\Combo::render($productos,'','id','pr_nombre',false)}}
             </select>
         </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Tipo de Cultivo:</label>
-            <select name="pr_cultivo" class="form-control">
+            <select name="pr_cultivo" class="form-control" style="text-transform:uppercase;">
                 <option value="RIEGO">RIEGO</option>
                 <option value="TEMPORAL">TEMPORAL</option>
             </select>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Municipio:</label>
-            <select name="municipio_id" class="form-control">
+            <select name="municipio_id" class="form-control" style="text-transform:uppercase;">
                 {{\App\Library\Combo::render($municipios,'','id','mu_nombre',false)}}
             </select>
         </div>

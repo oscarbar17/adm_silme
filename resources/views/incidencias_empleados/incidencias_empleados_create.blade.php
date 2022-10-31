@@ -9,13 +9,13 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="message-text" class="form-control-label">Empleado:</label>
-            <select name="empleado_id" class="form-control">
+            <select name="empleado_id" class="form-control" style="text-transform:uppercase;">
             {{\App\Library\Combo::render($empleados,'','id','nombre',true)}}
             </select>
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Incidencia:</label>
-            <select name="tipo_incidencia_id" class="form-control">
+            <select name="tipo_incidencia_id" class="form-control" style="text-transform:uppercase;">
             {{\App\Library\Combo::render($tiposIncidencia,'','id','ti_nombre',true)}}
             </select>
         </div>
