@@ -25,7 +25,7 @@
                 <div class="wideget-user text-center">
                     <div class="wideget-user-desc">
                         <div class="wideget-user-img">
-                            <img class="" src="{{asset('assets/images/users/10.jpg')}}" alt="img">
+                            <img class="" src="{{asset('assets/images/users/admin.png')}}" alt="img">
                         </div>
                         <div class="user-wrap">
                             <h4 class="mb-1">{{ Str::upper($check->empleado->em_nombre) }} {{ Str::upper($check->empleado->em_apellido_paterno) }}</h4>
