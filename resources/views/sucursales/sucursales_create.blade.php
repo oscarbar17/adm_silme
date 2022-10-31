@@ -13,8 +13,8 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="form-control-label">Encargado de la sucursal:</label>
-            <select name="empleado_id" class="form-control">
-                {{ Str::upper( \App\Library\Combo::render($empleados,'','id','nombre',true) ) }}
+            <select name="empleado_id" class="form-control" style="text-transform: uppercase;">
+                {{\App\Library\Combo::render($empleados,'','id','nombre',true)}}
             </select>
         </div>
         <div class="form-group">
