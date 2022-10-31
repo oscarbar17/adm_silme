@@ -77,7 +77,7 @@ class EmpleadosController extends Controller
         $empleado = Empleado::create([
             'sucursal_id'           => $request->get('sucursal_id'),
             'user_id'               => $user->id,
-            'em_nombre'             => $request->get('em_nombre'),
+            'em_nombre'             => strtoupper($request->get('em_nombre')),
             'em_apellido_paterno'   => $request->get('em_apellido_paterno'),
             'em_apellido_materno'   => $request->get('em_apellido_materno'),
             'em_email'              => $request->get('em_email'),
