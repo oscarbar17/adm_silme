@@ -92,7 +92,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="text-transform: uppercase;">
 
                             </tbody>
                         </table>
