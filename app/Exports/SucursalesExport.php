@@ -19,7 +19,10 @@ class SucursalesExport implements FromCollection
             "ID",
             "Nombre de la Sucursal",
             "Encargado",
-            "Teléfono"
+            "Teléfono",
+            "Latitud",
+            "Longitud",
+            "Metros Geocerca"
         ];
 
         foreach($sucursales as $sucursal){
@@ -33,7 +36,10 @@ class SucursalesExport implements FromCollection
                 $sucursal->id,
                 $sucursal->su_nombre,
                 $encargado,
-                $sucursal->su_telefono
+                $sucursal->su_telefono,
+                $sucursal->su_latitud,
+                $sucursal->su_longitud,
+                $sucursal->su_metros_geocerca
             ];
         }
 
