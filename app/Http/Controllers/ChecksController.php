@@ -127,7 +127,7 @@ class ChecksController extends Controller
     public function updateApi(Request $request)
     {
         $check = Check::find($request->get('check_id'));
-        $empleado_id = $check->empleado_id
+        $empleado_id = $check->empleado_id;
 
         $file = $request->file('ch_photo_check_out');
         
