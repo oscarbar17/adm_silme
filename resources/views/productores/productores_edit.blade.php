@@ -51,10 +51,10 @@
         rules: {
             producto_id: "required",
             pr_nombre : "required",         
-            pr_correo: {
+            /*pr_correo: {
                 required: true,
                 email: true
-            },
+            },*/
             pr_telefono: {
                 required: true,
                 minlength: 10

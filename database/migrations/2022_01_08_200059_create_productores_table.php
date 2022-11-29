@@ -19,7 +19,7 @@ class CreateProductoresTable extends Migration
             $table->integer('municipio_id');
             $table->string('pr_nombre');
             $table->enum('pr_cultivo',['RIEGO','TEMPORAL']);
-            $table->string('pr_correo');
+            $table->string('pr_correo')->nullable();
             $table->string('pr_telefono');
             $table->boolean('pr_eliminado')->default(false);
             $table->timestamps();
