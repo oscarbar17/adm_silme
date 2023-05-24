@@ -76,11 +76,13 @@ class EventosController extends Controller
         }
 
         if($request->fecha_inicio != ""){
-            $eventos = $eventos->where('created_at','>=',$request->fecha_inicio);
+            //$eventos = $eventos->where('created_at','>=',$request->fecha_inicio);
+            $eventos = $eventos->where('created_at','>=',$request->fecha_inicio . "00:00" );
         }
 
         if($request->fecha_fin != ""){
-            $eventos = $eventos->where('created_at','<=',$request->fecha_fin);
+            //$eventos = $eventos->where('created_at','<=',$request->fecha_fin);
+            $eventos = $eventos->where('created_at','<=',$request->fecha_fin . "23:59" );
         }
 
         $eventos = $eventos->get();

@@ -50,11 +50,13 @@ class ChecksController extends Controller
         }
 
         if($request->fecha_inicio != ""){
-            $checks = $checks->where('created_at','>=',$request->fecha_inicio);
+            //$checks = $checks->where('created_at','>=',$request->fecha_inicio);
+            $checks = $checks->where('created_at','>=',$request->fecha_inicio . "00:00" );
         }
 
         if($request->fecha_fin != ""){
-            $checks = $checks->where('created_at','<=',$request->fecha_fin);
+            //$checks = $checks->where('created_at','<=',$request->fecha_fin);
+            $checks = $checks->where('created_at','<=',$request->fecha_fin . "23:59" );
         }
 
         $checks = $checks->get();

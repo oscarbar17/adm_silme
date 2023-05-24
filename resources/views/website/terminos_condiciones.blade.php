@@ -382,7 +382,7 @@
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">
-							<a href="https://lazafra.com.mx/" target="__blank">{{env('APP_NAME')}}</a>
+							<a href="" target="__blank">{{env('APP_NAME')}}</a>
 						</div>
 					</div>
 				</div>

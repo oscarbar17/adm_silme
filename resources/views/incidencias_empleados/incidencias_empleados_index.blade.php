@@ -142,6 +142,9 @@ var oTableIncidencias = $('#table-incidencias').DataTable({
         $("#fecha_fin").val($("#fecha-fin").val());
     }
 
+    $("#btn-filtro").click(function(e){
+        oTableEventos.draw();
+    });
 
 </script>
 @endpush

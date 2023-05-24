@@ -15,11 +15,11 @@
         <a href="#" class="btn btn-info btn-icon text-white dropdown-toggle" data-toggle="dropdown">
                 <span>
                     <i class="fe fe-external-link"></i>
-                </span> Export <span class="caret"></span>
+                </span> Exportar <span class="caret"></span>
             </a>
             <div class="dropdown-menu" role="menu">
                 <a href="javascript:void(0)" onclick="event.preventDefault(); exportXLS(); document.getElementById('export-form').submit();"
-                    class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+                    class="dropdown-item"><i class="bx bxs-file mr-2"></i>Exportar a Excel</a>
             </div>
 
             <form id="export-form" action="{{ route('checks.export') }}" method="POST" class="d-none">
@@ -64,7 +64,7 @@
                     <div class="col-md-3">
                         <label for="">Estatus</label>
                         <select id="select-estatus" class="form-control" style="text-transform:uppercase;">
-                        <option value="">-- Select option --</option>
+                        <option value="">-- Todas las opciones --</option>
                             <option value="ABIERTO">ABIERTO</option>
                             <option value="CERRADO">CERRADO</option>
                             <option value="CERRADO_SISTEMA">CERRADO_SISTEMA</option>

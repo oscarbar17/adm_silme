@@ -71,7 +71,7 @@
                     <div class="col-md-3">
                         <label for="">Tipo de Evento</label>
                         <select id="select-tipo-evento" class="form-control" style="text-transform:uppercase;">
-                            <option value="">-- Select option -- </option>
+                            <option value="">-- Todas las opciones -- </option>
                             <option value="CAPACITACION">CAPACITACION</option>
                             <option value="MOSTRADOR">MOSTRADOR</option>
                             <option value="SALIDA A CAMPO">SALIDA A CAMPO</option>
@@ -80,7 +80,7 @@
                     <div class="col-md-3">
                         <label for="">Estatus</label>
                         <select id="select-estatus" class="form-control" style="text-transform:uppercase;">
-                            <option value="">-- Select option -- </option>
+                            <option value="">-- Todas las opciones -- </option>
                             <option value="ABIERTO">ABIERTO</option>
                             <option value="CERRADO">CERRADO</option>
                         </select>
