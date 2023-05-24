@@ -143,7 +143,7 @@ var oTableIncidencias = $('#table-incidencias').DataTable({
     }
 
     $("#btn-filtro").click(function(e){
-        oTableEventos.draw();
+        oTableIncidencias.draw();
     });
 
 </script>
