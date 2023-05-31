@@ -21,12 +21,12 @@ class CreateEmpleadosTable extends Migration
             $table->string('em_apellido_paterno');
             $table->string('em_apellido_materno')->nullable();
             $table->string('em_email');
-            $table->date('em_fecha_nacimiento');
+            $table->date('em_fecha_nacimiento')->nullable();
             $table->string('em_nss');
             $table->string('em_curp');
             $table->string('em_telefono');
             $table->string('em_cargo');
-            $table->date('em_fecha_antiguedad');
+            $table->date('em_fecha_antiguedad')->nullable();
 
             $table->string('em_path_acta')->nullable();
             $table->string('em_path_ine')->nullable();

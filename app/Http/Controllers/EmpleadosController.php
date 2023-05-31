@@ -65,6 +65,16 @@ class EmpleadosController extends Controller
     public function store(Request $request)
     {
         $password = uniqid();
+
+        $userExist = User::where('email',$request->em_email)->first();
+
+        if($userExist){
+            return [
+                'returnCode'    => '500',
+                'msg'           => 'El correo ya existe, no se ha registrado el empleado'
+            ];
+        }
+
         //--Genera usuario de acceso
         $user = User::create([
             'name'      => strtoupper($request->get('em_nombre')),

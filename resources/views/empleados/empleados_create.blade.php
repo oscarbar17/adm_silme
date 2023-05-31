@@ -95,7 +95,8 @@ $("#frmNewEmpleado").validate({
             em_cargo : "required",
             em_nss : "required",
             em_curp : "required",
-            em_contacto_emergencia: "required"
+            em_contacto_emergencia: "required",
+            em_fecha_antiguedad: "required"
         },
         messages: {
             sucursal_id: "Campo requerido",
@@ -112,7 +113,8 @@ $("#frmNewEmpleado").validate({
             em_cargo : "Campo requerido",
             em_nss : "Campo requerido",
             em_curp : "Campo requerido",
-            em_contacto_emergencia : "Campo requerido"
+            em_contacto_emergencia : "Campo requerido",
+            em_fecha_antiguedad: "Campo requerido"
         },
         submitHandler: function (form) {
         
