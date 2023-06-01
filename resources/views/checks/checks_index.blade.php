@@ -54,11 +54,11 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Fecha Inicio</label>
-                        <input type="date" id="fecha-inicio" class="form-control">
+                        <input type="date" id="fecha-inicio" class="form-control" value="{{Carbon\Carbon::now()->subDays(7)->format('Y-m-d')}}">
                     </div>
                     <div class="col-md-3">
                         <label for="">Fecha Fin</label>
-                        <input type="date" id="fecha-fin" class="form-control">
+                        <input type="date" id="fecha-fin" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d')}}">
                     </div>
                     <br>
                     <div class="col-md-3">
@@ -110,6 +110,7 @@
 <script>
 var oTableChecks = $('#table-checks').DataTable({
         "bInfo" : false,
+        order: [ [0, 'desc'] ],
 		processing: true,
 		serverSide: true,
 		bFilter : true,
