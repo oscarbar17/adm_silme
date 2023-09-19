@@ -173,9 +173,14 @@ class ChecksController extends Controller
             );    
         }
 
+        $sucursales = Sucursal::where([
+            'su_eliminado'  => false
+        ])->get();
+
         return response()->json([
             'status'    => 'Evento activo',
-            'evento'    => $check
+            'evento'    => $check,
+            'sucursales'=> $sucursales
             ], 200
         );
     }
