@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Sucursal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -203,9 +204,14 @@ class AuthController extends Controller
             'user_id'   => $usuario->id
         ])->with(['sucursal','user'])->first();
 
+        $sucursales = Sucursal::where([
+            'su_eliminado'  => false
+        ])->get();
+
         return response()->json([
             'status'    => 'ok',
-            'empleado'  => $empleado
+            'empleado'  => $empleado,
+            'sucursales'=> $sucursales
             ], 200
         );
     }
